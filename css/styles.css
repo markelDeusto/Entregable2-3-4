@@ -1,0 +1,86 @@
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+  }
+  
+  *,
+  *:before,
+  *after {
+    box-sizing: inherit;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+
+/*HEADER*/
+  .nav-principal {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #2e2c2c83;
+    margin: 0 5rem 0 5rem;
+  }
+
+  .nav-principal img {
+    height: 10rem;
+  }
+  .nav-principal a {
+    color: rgb(0, 0, 0);
+    margin-left: 3rem;
+    margin-right: 3rem;
+    text-align: center;
+  }
+  .nav-principal li {
+    text-align: center;
+  }
+  
+  .elementos-navegacion {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 2rem;
+    padding: 0rem;
+    margin-left: 7rem;
+  }
+
+  /*MAIN-LANDING*/
+  .contenedor-principal{
+    display: grid;
+    grid-template-columns: 60% 40%;
+    margin: 2rem 5rem 2rem 5rem;
+  }
+  .parte-izquierda{
+    margin-left: 2rem;
+  }
+  .parte-izquierda img{
+    border-radius: 2rem;
+    width: 60rem;
+    height: 37em;
+  }
+  .parte-derecha{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .boton-gestion-productos{
+    width: 20rem;
+    height: 15rem;
+    border-radius: 2rem;
+    font-size: 2rem;
+    margin-right: 10rem;
+  }
+
+  /*FOOTER*/
+  .contenido-footer{
+    margin: 5rem 5rem 0 5rem;
+    text-align: center;
+    align-items: center;
+    border-top: 1px solid #000000;
+  }
+  .contenido-footer img{
+    height: 3rem;
+  }
