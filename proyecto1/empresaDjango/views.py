@@ -3,7 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 from django.http import HttpResponse
 
-from empresaDjango.models import Pedido, Cliente, Categoria, Producto
+from empresaDjango.models import Pedido, Cliente, Categoria, Producto, Componente
 
 
 def index_pedido(request):
@@ -46,3 +46,12 @@ def index_producto(request):
 def detail_producto(request, cod_producto):
     producto = Producto.objects.get(pk=cod_producto)
     return HttpResponse(producto)
+
+def index_componente(request):
+    componentes = Componente.objects.all()
+    output = ', '.join([co.nombre_componente for co in componentes])
+    return HttpResponse(output)
+
+def detail_componente(request, cod_componente):
+    componente = Componente.objects.get(pk=cod_componente)
+    return HttpResponse(componente)
