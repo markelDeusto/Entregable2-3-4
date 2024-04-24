@@ -9,5 +9,6 @@ urlpatterns = [
     path('cliente/<int:cif>', views.detail_cliente, name='detail_cli'),
     path('categoria/', views.index_categoria, name='index_cat'),
     path('categoria/<int:id_categoria>', views.detail_categoria, name='detail_cat'),
-
+    path('producto/', views.index_producto, name='index_pro'),
+    path('producto/<int:cod_producto>', views.detail_producto, name='detail_pro'),
 ]

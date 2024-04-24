@@ -9,7 +9,7 @@ class Cliente(models.Model):
     contacto = models.CharField(max_length=10)
 
     def __str__(self):
-        return f"cif={self.cif}, noombre={self.nombre_empresa}, dirección={self.direccion}, contacto={self.contacto}"
+        return f"cif={self.cif}, nombre={self.nombre_empresa}, dirección={self.direccion}, contacto={self.contacto}"
 
 
 class Pedido(models.Model):
