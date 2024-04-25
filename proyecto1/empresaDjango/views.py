@@ -1,8 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # Create your views here.
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpRequest
+from django.views import View
 
+from empresaDjango.forms import PedidoForm, ProductoForm
 from empresaDjango.models import Pedido, Cliente, Categoria, Producto, Componente
 
 
@@ -55,3 +57,34 @@ def index_componente(request):
 def detail_componente(request, cod_componente):
     componente = Componente.objects.get(pk=cod_componente)
     return HttpResponse(componente)
+
+
+class PedidoCreateView(View):
+        def get(self, request):
+            formulario =PedidoForm()
+            context = {'formulario': formulario}
+            return render(request, 'empresaDjango/pedido_create.html', context )
+        def post(self, request):
+            formulario = PedidoForm(data=request.POST)
+            if formulario.is_valid():
+                formulario.save()
+                return redirect('index')#CAMBIAR
+            return render(request, 'empresaDjango/pedido_create.html', {'formulario': formulario})
+
+
+
+#class PedidoProductoCreateView(View):
+ #   def get(self)
+
+class ProductoCreateView(View):
+    def get(self, request):
+        formulario =ProductoForm()
+        context = {'formulario': formulario}
+        return render(request, 'empresaDjango/producto_create.html', {'formulario': formulario})
+
+    def post(self, request):
+        formulario = PedidoForm(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            return redirect('index_pro')
+        return render(request, 'empresaDjango/pedido_create.html', {'formulario': formulario})
