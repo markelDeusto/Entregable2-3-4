@@ -14,9 +14,6 @@ urlpatterns = [
     path('producto/<int:cod_producto>', views.detail_producto, name='detail_pro'),
     path('componente/', views.index_componente, name='index_com'),
     path('componente/<int:cod_componente>', views.detail_componente, name='detail_pro'),
-    #path('productopedido/', views.index_productopedido, name='index_proped'),
-    #path('productopedido/<int:>', views.detail_productopedido, name='detail_proped'),
-
     path('/pedido/create', PedidoCreateView.as_view(), name='pedido_create'),
     path('/producto/create', ProductoCreateView.as_view(), name='producto_create')
 ]

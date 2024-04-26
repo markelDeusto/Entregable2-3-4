@@ -4,19 +4,20 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpRequest
 from django.views import View
 
+import empresaDjango
 from empresaDjango.forms import PedidoForm, ProductoForm
 from empresaDjango.models import Pedido, Cliente, Categoria, Producto, Componente
 
 
 def index_pedido(request):
     pedidos = Pedido.objects.all()
-    output = ', '.join([p.cod_pedido for p in pedidos])
-    return HttpResponse(output)
+    context = {'listado_pedidos' : pedidos}
+    return render(request, 'index_pedido.html', context)
 
 
 def detail_pedido(request, cod_pedido):
-    pedido = Pedido.objects.get(pk=cod_pedido)
-    return HttpResponse(pedido)
+    pedido = Pedido.objects.select_related('cliente').get(pk=cod_pedido)
+    return render(request, 'detail_pedido.html', {'pedido': pedido})
 
 def index_cliente(request):
     clientes = Cliente.objects.all()

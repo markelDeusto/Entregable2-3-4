@@ -47,11 +47,11 @@ html {
     margin-left: 7rem;
   }
 
-  /*MAIN-LANDING*/
-  .contenedor-principal{
+  /*INDEX_PEDIDOS*/
+  .contenedor-principal-index-pedidos{
+    margin: 2rem 5rem 2rem 5rem;
     display: grid;
     grid-template-columns: 60% 40%;
-    margin: 2rem 5rem 2rem 5rem;
   }
   .parte-izquierda{
     margin-left: 2rem;
@@ -66,13 +66,33 @@ html {
     align-items: center;
     justify-content: center;
   }
-  .boton-gestion-productos{
-    width: 20rem;
-    height: 15rem;
-    border-radius: 2rem;
+  .listado_pedidos{
     font-size: 2rem;
-    margin-right: 10rem;
   }
+
+  /*DETAIL_PEDIDOS*/
+  .contenedor-principal-detail-pedidos{
+    margin: 2rem 5rem 2rem 5rem;
+    display: flex;
+    justify-content: center;  
+    align-items: center;
+  }
+  .contenedor-central{
+    display: flex;
+    align-items: center;
+    width: 35rem;
+    height: 20rem;
+    border: 1px solid grey;
+  }
+  .detalle-pedidos{
+    margin: 1rem;
+    margin-left: 3rem;
+    font-size: 2rem;
+  }
+
+
+  
+  
 
   /*FOOTER*/
   .contenido-footer{
