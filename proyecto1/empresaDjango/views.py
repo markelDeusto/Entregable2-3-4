@@ -51,8 +51,12 @@ def index_producto(request):
 
 
 def detail_producto(request, cod_producto):
-    producto = Producto.objects.get(pk=cod_producto)
-    return HttpResponse(producto)
+    producto = Producto.objects.get(cod_producto=cod_producto)
+    context = {
+        'producto': producto
+    }
+    return render(request, 'detail_producto.html', context)
+
 
 def index_componente(request):
     componentes = Componente.objects.all()

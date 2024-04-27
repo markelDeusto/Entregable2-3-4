@@ -101,6 +101,23 @@ html {
   }
 
 
+/*DETAIL_PRODUCTOS*/
+  .contenedor-principal-detail-productos{
+    margin: 2rem 5rem 2rem 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .detalle-productos{
+    margin: 1rem;
+    margin-left: 3rem;
+    font-size: 2rem;
+    text-align: center;
+  }
+  .detalle-productos td{
+    width: 15rem;
+    padding-bottom: 2rem;
+  }
   
   
 
