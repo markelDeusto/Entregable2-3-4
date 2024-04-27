@@ -34,9 +34,10 @@
 
         <div class="contenedor-principal-detail-pedidos">
             <div class="contenedor-central">
+            <h1>Detalle del pedido:</h1>
                 <table class="detalle-pedidos">
                     <tr>
-                        <td>Código de Pedido</td>
+                        <td>Código de pedido</td>
                         <td>:</td>
                         <td>{{ pedido.cod_pedido }}</td>
                     </tr>
@@ -50,6 +51,16 @@
                         <td>:</td>
                         <td>{{ pedido.fecha|date:"d/m/Y" }}</td>
                     </tr>
+
+                    {% for detalle in detalles_pedido %}
+                    <tr>
+                        <td>Producto {{ forloop.counter }}</td>
+                        <td>:</td>
+                        <td>{{ detalle.producto.nombre_producto }}</td>
+                        <td>:</td>
+                        <td>{{ detalle.cantidad }} unidades</td>
+                    </tr>
+                    {% endfor %}
                     <tr>
                         <td>Precio total</td>
                         <td>:</td>

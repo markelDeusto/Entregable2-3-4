@@ -47,6 +47,8 @@ html {
     margin-left: 7rem;
   }
 
+
+
   /*INDEX_PEDIDOS*/
   .contenedor-principal-index-pedidos{
     margin: 2rem 5rem 2rem 5rem;
@@ -63,6 +65,7 @@ html {
   }
   .parte-derecha{
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
   }
@@ -79,15 +82,22 @@ html {
   }
   .contenedor-central{
     display: flex;
+    flex-direction: column;
     align-items: center;
-    width: 35rem;
-    height: 20rem;
-    border: 1px solid grey;
+    justify-content: center;
+    width: 50rem;
+    height: 40rem;
+    border: 1px solid grey; /*QUITAR CUANDO SE ACABE DE EDITAR*/
   }
   .detalle-pedidos{
     margin: 1rem;
     margin-left: 3rem;
     font-size: 2rem;
+    text-align: center;
+  }
+  .detalle-pedidos td{
+    width: 15rem;
+    padding-bottom: 2rem;
   }
 
 
@@ -96,7 +106,7 @@ html {
 
   /*FOOTER*/
   .contenido-footer{
-    margin: 5rem 5rem 0 5rem;
+    margin: 0 5rem 0 5rem;
     text-align: center;
     align-items: center;
     border-top: 1px solid #000000;

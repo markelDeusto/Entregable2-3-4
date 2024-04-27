@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 
 # Create your views here.
 from django.http import HttpResponse, HttpRequest
@@ -6,18 +6,22 @@ from django.views import View
 
 import empresaDjango
 from empresaDjango.forms import PedidoForm, ProductoForm
-from empresaDjango.models import Pedido, Cliente, Categoria, Producto, Componente
+from empresaDjango.models import Pedido, Cliente, Categoria, Producto, Componente, ProductoPedido
 
 
 def index_pedido(request):
     pedidos = Pedido.objects.all()
-    context = {'listado_pedidos' : pedidos}
-    return render(request, 'index_pedido.html', context)
+    return render(request, 'index_pedido.html', {'listado_pedidos' : pedidos})
 
 
 def detail_pedido(request, cod_pedido):
-    pedido = Pedido.objects.select_related('cliente').get(pk=cod_pedido)
-    return render(request, 'detail_pedido.html', {'pedido': pedido})
+    pedido = get_object_or_404(Pedido, id=cod_pedido)
+    detalles_pedido = ProductoPedido.objects.filter(pedido=pedido)
+    context = {
+        'pedido' : pedido,
+        'detalles_pedido' : detalles_pedido,
+    }
+    return render(request, 'detail_pedido.html', context)
 
 def index_cliente(request):
     clientes = Cliente.objects.all()
