@@ -5,7 +5,7 @@ from django.http import HttpResponse, HttpRequest
 from django.views import View
 
 import empresaDjango
-from empresaDjango.forms import PedidoForm, ProductoForm
+from empresaDjango.forms import PedidoForm, ProductoForm, ProductoPedidoForm
 from empresaDjango.models import Pedido, Cliente, Categoria, Producto, Componente, ProductoPedido
 
 
@@ -89,6 +89,7 @@ class ProductoCreateView(View):
     def get(self, request):
         formulario =ProductoForm()
         context = {'formulario': formulario}
+        redirect('index_pro')
         return render(request, 'empresaDjango/producto_create.html', {'formulario': formulario})
 
     def post(self, request):
@@ -96,4 +97,16 @@ class ProductoCreateView(View):
         if formulario.is_valid():
             formulario.save()
             return redirect('index_pro')
-        return render(request, 'empresaDjango/pedido_create.html', {'formulario': formulario})
+        return render(request, 'empresaDjango/producto_create.html', {'formulario': formulario})
+
+class PedidoProductoCreateView(View):
+    def get(self,request):
+        formulario = ProductoPedidoForm()
+        context = {'formulario': formulario}
+        return render(request, 'empresaDjango/productopedido.html', {'formulario': formulario})
+
+    def post(self,request):
+        formulario = ProductoPedidoForm(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+        return render(request, 'empresaDjango/productopedido.html', {'formulario':  formulario})

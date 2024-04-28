@@ -100,6 +100,21 @@ html {
     padding-bottom: 2rem;
   }
 
+  .boton_crear{
+    font-size: 4rem;
+    font-weight: bolder;
+    background-color: #1DA5FE;
+    border-radius: 1rem;
+    margin-left: 3rem;
+    margin-right: 10rem;
+    margin-top: 1rem;
+
+  }
+  .boton_crear a{
+    color: white;
+    margin-left: 1rem;
+  }
+
 
 /*DETAIL_PRODUCTOS*/
   .contenedor-principal-detail-productos{
