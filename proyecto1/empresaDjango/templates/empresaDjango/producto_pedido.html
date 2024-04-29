@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css'%}" />
+    <link rel="stylesheet" href="{% static 'css/normalize.css'%}" />
+    <title>Pagina añadir productos pedidos</title>
+</head>
+<body>
+    <header>
+        <div class="navegacion">
+            <nav class="nav-principal">
+                <a href="{% static '../empresaDjango/pedido' %}">
+                  <img src="{% static 'images/DEUSTRONIC.png' %}" alt="Logo Tienda" />
+                </a>
+                <ul class="elementos-navegacion">
+                  <li>
+                    <a href="/empresaDjango/pedido">Gestión de pedidos</a>
+                  </li>
+                  <li>
+                    <a href="empresaDjango/index_producto.html">Gestión de productos</a>
+                  </li>
+                  <li>
+                    <a href="empresaDjango/index_cliente.html">Gestión de clientes</a>
+                  </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+     <main>
+        <form action = "{% url 'pedidoproducto_create'  cod_pedido=cod_pedido %}" method = "post">
+            {% csrf_token %}
+            {{ formulario.errors }}
+            {{ formulario.as_ul }}
+            <input type="submit" value="Productos pedido">
+
+        </form>
+
+
+    </main>
+
+ <footer>
+        <div class="contenido-footer">
+            <p class="copyright">Todos los derechos reservados</p>
+            <img src="{% static 'images/DEUSTRONIC.png'%}" alt="Logo Tienda" />
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -6,7 +6,7 @@ from empresaDjango.models import Pedido, Producto, ProductoPedido
 class PedidoForm(forms.ModelForm):
         class Meta:
             model = Pedido
-            fields = ['cliente', 'cod_pedido', 'fecha' ]
+            fields = ['cliente', 'cod_pedido', 'fecha']
 
 
 

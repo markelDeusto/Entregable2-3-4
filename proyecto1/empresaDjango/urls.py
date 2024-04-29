@@ -16,6 +16,6 @@ urlpatterns = [
     path('componente/<int:cod_componente>', views.detail_componente, name='detail_com'),
     path('/pedido/create', PedidoCreateView.as_view(), name='pedido_create'),
     path('/producto/create', ProductoCreateView.as_view(), name='producto_create'),
-    path('/pedidoproducto/create', PedidoProductoCreateView.as_view(), name='producto_create')
+    path('pedidoproducto/create/<int:cod_pedido>/', PedidoProductoCreateView.as_view(), name='pedidoproducto_create')
 
 ]

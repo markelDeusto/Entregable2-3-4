@@ -12,11 +12,12 @@ class Cliente(models.Model):
         return f"cif={self.cif}, nombre={self.nombre_empresa}, dirección={self.direccion}, contacto={self.contacto}"
 
 
+
 class Pedido(models.Model):
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
     cod_pedido = models.CharField(max_length=10)
     fecha = models.DateField()
-    precio_total = models.IntegerField()
+    precio_total = models.IntegerField(default=0)
 
     def __str__(self):
         return f"código={self.cod_pedido}, cliente={self.cliente.nombre_empresa}, fecha={self.fecha}, precio={self.precio_total}€"
