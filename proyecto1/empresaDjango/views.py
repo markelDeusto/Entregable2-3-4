@@ -76,8 +76,8 @@ class PedidoCreateView(View):
         def post(self, request):
             formulario = PedidoForm(data=request.POST)
             if formulario.is_valid():
-                pedido = formulario.save()
-                return redirect('pedidoproducto_create', cod_pedido=pedido.cod_pedido)
+                formulario.save()
+                return redirect('pedidoproducto_create', cod_pedido=formulario.cod_pedido)
             return render(request, 'empresaDjango/pedido_create.html', {'formulario': formulario})
 
 
@@ -106,13 +106,13 @@ class PedidoProductoCreateView(View):
         formulario = ProductoPedidoForm(data=request.POST)
         formulario.cod_pedido = cod_pedido
         if formulario.is_valid():
-            pedido = Pedido.objects.get(cod_pedido=cod_pedido)
-            productos_pedido = ProductoPedido.objects.filter(pedido=pedido)
-            precio_total_pedido = sum(
-                producto_pedido.producto.precio * producto_pedido.cantidad for producto_pedido in productos_pedido)
-
+       #     pedido = Pedido.objects.get(cod_pedido=cod_pedido)
+       #     productos_pedido = ProductoPedido.objects.filter(pedido=pedido)
+       #     precio_total_pedido = sum(
+        #        producto_pedido.producto.precio * producto_pedido.cantidad for producto_pedido in productos_pedido)
+#
             # Guardar el precio total en el pedido
-            pedido.precio_total = precio_total_pedido
-            pedido.save()
+ #           pedido.precio_total = precio_total_pedido
+  #          pedido.save()
             formulario.save()
-        return render(request, 'empresaDjango/productopedido.html', {'formulario':  formulario})
+        return render(request, 'empresaDjango/producto_pedido.html', {'formulario':  formulario})
