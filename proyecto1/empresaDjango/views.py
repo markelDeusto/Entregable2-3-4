@@ -16,7 +16,7 @@ def index_pedido(request):
 
 def detail_pedido(request, cod_pedido):
     pedido = get_object_or_404(Pedido, cod_pedido=cod_pedido)
-    detalles_pedido = ProductoPedido.objects.filter(pedido=pedido)
+    detalles_pedido = ProductoPedido.objects.filter(pedido= cod_pedido)
     context = {
         'pedido' : pedido,
         'detalles_pedido' : detalles_pedido,
@@ -25,7 +25,7 @@ def detail_pedido(request, cod_pedido):
 
 def index_cliente(request):
     clientes = Cliente.objects.all()
-    return render(request, 'index_cliente.html', {'index_clientes' : clientes})
+    return render(request, 'index_cliente.html', {'listado_clientes' : clientes})
 
 
 def detail_cliente(request, cif):
@@ -86,7 +86,6 @@ class ProductoCreateView(View):
     def get(self, request):
         formulario =ProductoForm()
         context = {'formulario': formulario}
-        redirect('index_pro')
         return render(request, 'empresaDjango/producto_create.html', {'formulario': formulario})
 
     def post(self, request):
