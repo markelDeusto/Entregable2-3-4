@@ -30,7 +30,7 @@
         </div>
     </header>
      <main>
-        <form action = "{% url 'pedidoproducto_create'  cod_pedido=cod_pedido %}" method = "post">
+        <form action = "{% url 'pedidoproducto_create' cod_pedido=cod_pedido %}" method = "post">
             {% csrf_token %}
             {{ formulario.errors }}
             {{ formulario.as_ul }}
