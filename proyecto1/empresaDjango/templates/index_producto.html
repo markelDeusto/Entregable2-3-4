@@ -12,18 +12,18 @@
     <header>
         <div class="navegacion">
             <nav class="nav-principal">
-                <a href="{% static '../empresaDjango/pedido' %}">
+                <a href="{% url 'index_ped' %}">
                   <img src="{% static 'images/DEUSTRONIC.png' %}" alt="Logo Tienda" />
                 </a>
                 <ul class="elementos-navegacion">
                   <li>
-                    <a href="/empresaDjango/pedido">Gestión de pedidos</a>
+                    <a href="{% url 'index_ped' %}">Gestión de pedidos</a>
                   </li>
                   <li>
-                    <a href="empresaDjango/index_producto.html">Gestión de productos</a>
+                    <a href="{% url 'index_pro' %}">Gestión de productos</a>
                   </li>
                   <li>
-                    <a href="empresaDjango/index_cliente.html">Gestión de clientes</a>
+                    <a href="{% url 'index_cli' %}">Gestión de clientes</a>
                   </li>
                 </ul>
             </nav>
@@ -33,7 +33,7 @@
 
      <main>
 
-        <div class="contenedor-principal-index-pproductos">
+        <div class="contenedor-principal-index">
             <div class="parte-izquierda">
                 <img src="{% static 'images/Escritorio.jpeg'%}" alt="Foto con artículos tecnológicos en un escritorio" />
             </div>
@@ -41,7 +41,7 @@
             <h1>Listado de productos:</h1>
                 <ul>
                     {% for pr in listado_productos %}
-                    <li class="listado_producto">
+                    <li class="listados">
                         <a href="{% url 'detail_pro' pr.cod_producto %}">
                         {{ pr.cod_producto }}: {{ pr.nombre_producto }} {{ pr.modelo }}
                         </a>

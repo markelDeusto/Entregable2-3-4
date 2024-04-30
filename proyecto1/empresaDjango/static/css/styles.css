@@ -49,10 +49,11 @@ html {
 
 
 
-  /*INDEX_PEDIDOS*/
-  .contenedor-principal-index-pedidos{
+  /*INDEX*/
+  .contenedor-principal-index{
     margin: 2rem 5rem 2rem 5rem;
     display: grid;
+      height: 40rem;
     grid-template-columns: 60% 40%;
   }
   .parte-izquierda{
@@ -69,7 +70,7 @@ html {
     align-items: center;
     justify-content: center;
   }
-  .listado_pedidos{
+  .listados{
     font-size: 2rem;
   }
 
@@ -77,6 +78,7 @@ html {
   .contenedor-principal-detail-pedidos{
     margin: 2rem 5rem 2rem 5rem;
     display: flex;
+    height: 40rem;
     justify-content: center;  
     align-items: center;
   }
@@ -87,6 +89,7 @@ html {
     justify-content: center;
     width: 50rem;
     height: 40rem;
+
     border: 1px solid grey; /*QUITAR CUANDO SE ACABE DE EDITAR*/
   }
   .detalle-pedidos{
@@ -116,7 +119,7 @@ html {
   }
 
 
-/*DETAIL_PRODUCTOS*/
+  /*DETAIL_PRODUCTOS*/
   .contenedor-principal-detail-productos{
     margin: 2rem 5rem 2rem 5rem;
     display: flex;

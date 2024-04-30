@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/styles.css'%}" />
     <link rel="stylesheet" href="{% static 'css/normalize.css'%}" />
-    <title>Gestión de pedidos E2</title>
+    <title>Gestion de clientes e2</title>
 </head>
 <body>
     <header>
@@ -23,33 +23,29 @@
                     <a href="{% url 'index_pro' %}">Gestión de productos</a>
                   </li>
                   <li>
-                    <a href="{% url 'index_cli' %}">Gestión de clientes</a>
+                    <a href="{% url 'index_cli' %}"> Gestión de clientes</a>
                   </li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    
-     <main>
+    <main>
 
         <div class="contenedor-principal-index">
             <div class="parte-izquierda">
                 <img src="{% static 'images/Escritorio.jpeg'%}" alt="Foto con artículos tecnológicos en un escritorio" />
             </div>
             <div class="parte-derecha">
-            <h1>Listado de pedidos:</h1>
+            <h1>Listado de clientes:</h1>
                 <ul>
-                    {% for p in listado_pedidos %}
+                    {% for c in listado_clientes %}
                     <li class="listados">
-                        <a href="{% url 'detail_ped' p.cod_pedido %}">
-                        {{ p.cod_pedido }}: {{ p.fecha }}
+                        <a href="{% url 'detail_cli' c.cif %}">
+                        {{ c.cif }}: {{ c.nombre_empresa }}
                         </a>
                     </li>
                     {% endfor %}
-                    <div class="boton_crear">
-                        <a  href="{% url 'pedido_create' %}"> + </a>
-                    </div>
                 </ul>
 
             </div>
@@ -64,7 +60,5 @@
             <img src="{% static 'images/DEUSTRONIC.png'%}" alt="Logo Tienda" />
         </div>
     </footer>
-
-
 </body>
 </html>

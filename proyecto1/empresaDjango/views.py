@@ -15,9 +15,6 @@ def index_pedido(request):
 
 
 def detail_pedido(request, cod_pedido):
-    #pedido = Pedido.objects.get(cod_pedido=cod_pedido)
-    #output = f'Detalles del pedido: {pedido.cod_pedido}, {pedido.fecha}, {pedido.cliente},{pedido.precio_total}'
-    #return HttpResponse(output)
     pedido = get_object_or_404(Pedido, cod_pedido=cod_pedido)
     detalles_pedido = ProductoPedido.objects.filter(pedido=pedido)
     context = {
@@ -28,8 +25,7 @@ def detail_pedido(request, cod_pedido):
 
 def index_cliente(request):
     clientes = Cliente.objects.all()
-    output = ', '.join([c.cif for c in clientes])
-    return HttpResponse(output)
+    return render(request, 'index_cliente.html', {'index_clientes' : clientes})
 
 
 def detail_cliente(request, cif):
@@ -48,9 +44,9 @@ def detail_categoria(request, id_categoria):
     return HttpResponse(categoria)
 
 def index_producto(request):
+    #return render(request, 'index_pedido.html', {'listado_pedidos': pedidos})
     productos = Producto.objects.all()
-    output = ', '.join([pr.nombre_producto for pr in productos])
-    return HttpResponse(output)
+    return render(request, 'index_producto.html', {'listado_productos': productos})
 
 
 def detail_producto(request, cod_producto):
