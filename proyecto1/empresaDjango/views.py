@@ -71,14 +71,14 @@ class PedidoCreateView(View):
         def get(self, request):
             formulario=PedidoForm()
             context = {'formulario': formulario}
-            return render(request, 'empresaDjango/pedido_create.html', context)
+            return render(request, 'pedido_create.html', context)
         def post(self, request):
             formulario = PedidoForm(data=request.POST)
             if formulario.is_valid():
                 pedido=formulario.save()
                 cod_pedido = pedido.cod_pedido
                 return redirect('pedidoproducto_create', cod_pedido=cod_pedido)
-            return render(request, 'empresaDjango/pedido_create.html', {'formulario': formulario})
+            return render(request, 'empresaDjango/templates/pedido_create.html', {'formulario': formulario})
 
 
 
@@ -86,14 +86,14 @@ class ProductoCreateView(View):
     def get(self, request):
         formulario =ProductoForm()
         context = {'formulario': formulario}
-        return render(request, 'empresaDjango/producto_create.html', {'formulario': formulario})
+        return render(request, 'producto_create.html', {'formulario': formulario})
 
     def post(self, request):
         formulario = ProductoForm(data=request.POST)
         if formulario.is_valid():
             formulario.save()
             return redirect('index_pro')
-        return render(request, 'empresaDjango/producto_create.html', {'formulario': formulario})
+        return render(request, 'empresaDjango/templates/producto_create.html', {'formulario': formulario})
 
 class PedidoProductoCreateView(View):
     def get(self,request, cod_pedido):
