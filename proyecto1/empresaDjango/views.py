@@ -77,7 +77,8 @@ class PedidoCreateView(View):
             formulario = PedidoForm(data=request.POST)
             if formulario.is_valid():
                 pedido=formulario.save()
-                return redirect('pedidoproducto_create', cod_pedido=pedido.cod_pedido)
+                cod_pedido = pedido.cod_pedido
+                return redirect('pedidoproducto_create', cod_pedido=cod_pedido)
             return render(request, 'empresaDjango/pedido_create.html', {'formulario': formulario})
 
 
