@@ -12,7 +12,6 @@ urlpatterns = [
     path('categoria/<int:id_categoria>', views.detail_categoria, name='detail_cat'),
     path('producto/', views.index_producto, name='index_pro'),
     path('producto/<int:cod_producto>', views.detail_producto, name='detail_pro'),
-    path('componente/', views.index_componente, name='index_com'),
     path('componente/<int:cod_componente>', views.detail_componente, name='detail_com'),
     path('pedido/create', PedidoCreateView.as_view(), name='pedido_create'),
     path('producto/create', ProductoCreateView.as_view(), name='producto_create'),

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/styles.css'%}" />
     <link rel="stylesheet" href="{% static 'css/normalize.css'%}" />
-    <title>Landing page E2</title>
+    <title>Pagina de detalles de productos E2</title>
 </head>
 <body>
     <header>
@@ -52,20 +52,28 @@
                         <td>{{ producto.modelo }}</td>
                     </tr>
                     <tr>
+                        <td>Descripción</td>
+                        <td>:</td>
+                        <td>{{ producto.descripcion }}</td>
+                    </tr>
+                    <tr>
                         <td>Categoría</td>
                         <td>:</td>
                         <td>{{ producto.categoria.nombre_categoria }}</td>
                     </tr>
+                    {% for c in componentes %}
+                    <tr>
+                        <td>Componente {{ forloop.counter }}</td>
+                        <td>:</td>
+                        <td><a href="{% url 'detail_com' c.cod_componente %}"> {{ c.nombre_componente }} </a> </td>
+                    </tr>
+                    {% endfor %}
                     <tr>
                         <td>Precio unitario</td>
                         <td>:</td>
                         <td>{{ producto.precio_unidad }}€</td>
                     </tr>
-                    <tr>
-                        <td>Descripción</td>
-                        <td>:</td>
-                        <td>{{ producto.descripcion }}</td>
-                    </tr>
+
                 </table>
             </div>
         </div>

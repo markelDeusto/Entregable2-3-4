@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/styles.css'%}" />
     <link rel="stylesheet" href="{% static 'css/normalize.css'%}" />
-    <title>Página de detalles de pedidos E2</title>
+    <title>Página de detalle de clientes E2</title>
 </head>
 <body>
     <header>
@@ -32,40 +32,29 @@
 
     <main>
 
-        <div class="contenedor-principal-detail-pedidos">
+        <div class="contenedor-principal-detail-clientes">
             <div class="contenedor-central">
-            <h1>Detalle del pedido:</h1>
-                <table class="detalle-pedidos">
+            <h1>Detalles del cliente:</h1>
+                <table class="detalle-clientes">
                     <tr>
-                        <td>Código de pedido</td>
+                        <td>CIF</td>
                         <td>:</td>
-                        <td>{{ pedido.cod_pedido }}</td>
+                        <td>{{ cliente.cif }}</td>
                     </tr>
                     <tr>
-                        <td>Cliente</td>
+                        <td>Nombre de la empresa:</td>
                         <td>:</td>
-                        <td>{{ pedido.cliente.nombre_empresa }}</td>
+                        <td>{{ cliente.nombre_empresa }}</td>
                     </tr>
                     <tr>
-                        <td>Fecha</td>
+                        <td>Dirección</td>
                         <td>:</td>
-                        <td>{{ pedido.fecha|date:"d/m/Y" }}</td>
+                        <td>{{ cliente.direccion }}</td>
                     </tr>
-
-                    {% for detalle in detalles_pedido %}
                     <tr>
-                        <td>Producto {{ forloop.counter }}</td>
+                        <td>Contacto:</td>
                         <td>:</td>
-                        <td> <a href="{% url 'detail_pro' detalle.producto.cod_producto %}"> {{ detalle.producto.nombre_producto }} </a> </td>
-                        <td>:</td>
-                        <td>{{ detalle.cantidad }} unidades</td>
-                    </tr>
-                    {% endfor %}
-
-                    <tr>
-                        <td>Precio total</td>
-                        <td>:</td>
-                        <td>{{ pedido.precio_total }}€</td>
+                        <td>{{ cliente.contacto }}</td>
                     </tr>
                 </table>
             </div>

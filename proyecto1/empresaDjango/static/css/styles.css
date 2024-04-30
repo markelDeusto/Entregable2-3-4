@@ -53,7 +53,7 @@ html {
   .contenedor-principal-index{
     margin: 2rem 5rem 2rem 5rem;
     display: grid;
-      height: 40rem;
+    min-height: 40rem;
     grid-template-columns: 60% 40%;
   }
   .parte-izquierda{
@@ -78,8 +78,7 @@ html {
   .contenedor-principal-detail-pedidos{
     margin: 2rem 5rem 2rem 5rem;
     display: flex;
-    height: 40rem;
-    justify-content: center;  
+    justify-content: center;
     align-items: center;
   }
   .contenedor-central{
@@ -89,8 +88,6 @@ html {
     justify-content: center;
     width: 50rem;
     height: 40rem;
-
-    border: 1px solid grey; /*QUITAR CUANDO SE ACABE DE EDITAR*/
   }
   .detalle-pedidos{
     margin: 1rem;
@@ -131,13 +128,30 @@ html {
     margin-left: 3rem;
     font-size: 2rem;
     text-align: center;
+    width: 60rem;
   }
   .detalle-productos td{
     width: 15rem;
     padding-bottom: 2rem;
   }
-  
-  
+
+  /*DETAIL_CLIENTES*/
+  .contenedor-principal-detail-clientes{
+    margin: 2rem 5rem 2rem 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .detalle-clientes{
+    margin: 1rem;
+    margin-left: 3rem;
+    font-size: 2rem;
+    text-align: center;
+  }
+  .detalle-clientes td{
+    width: 15rem;
+    padding-bottom: 2rem;
+  }
 
   /*FOOTER*/
   .contenido-footer{

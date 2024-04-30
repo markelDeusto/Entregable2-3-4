@@ -16,7 +16,7 @@ def index_pedido(request):
 
 def detail_pedido(request, cod_pedido):
     pedido = get_object_or_404(Pedido, cod_pedido=cod_pedido)
-    detalles_pedido = ProductoPedido.objects.filter(pedido= cod_pedido)
+    detalles_pedido = ProductoPedido.objects.filter(pedido=pedido)
     context = {
         'pedido' : pedido,
         'detalles_pedido' : detalles_pedido,
@@ -29,8 +29,11 @@ def index_cliente(request):
 
 
 def detail_cliente(request, cif):
-    cliente = Cliente.objects.get(pk=cif)
-    return HttpResponse(cliente)
+    cliente = get_object_or_404(Cliente, cif=cif)
+    context = {
+        'cliente' : cliente
+    }
+    return render(request, 'detail_cliente.html', context)
 
 
 def index_categoria(request):
@@ -44,27 +47,25 @@ def detail_categoria(request, id_categoria):
     return HttpResponse(categoria)
 
 def index_producto(request):
-    #return render(request, 'index_pedido.html', {'listado_pedidos': pedidos})
     productos = Producto.objects.all()
     return render(request, 'index_producto.html', {'listado_productos': productos})
 
 
 def detail_producto(request, cod_producto):
-    producto = Producto.objects.get(cod_producto=cod_producto)
+    producto = get_object_or_404(Producto, cod_producto=cod_producto)
+    componentes = Componente.objects.filter(producto=producto)
     context = {
-        'producto': producto
+        'producto': producto,
+        'componentes': componentes,
     }
     return render(request, 'detail_producto.html', context)
 
-
-def index_componente(request):
-    componentes = Componente.objects.all()
-    output = ', '.join([co.nombre_componente for co in componentes])
-    return HttpResponse(output)
-
 def detail_componente(request, cod_componente):
-    componente = Componente.objects.get(pk=cod_componente)
-    return HttpResponse(componente)
+    componente = get_object_or_404(Componente, cod_componente=cod_componente)
+    context = {
+        'componente': componente
+    }
+    return render(request, 'detail_componente.html', context)
 
 
 class PedidoCreateView(View):
