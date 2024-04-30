@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 
 # Create your views here.
-from django.http import HttpResponse, HttpRequest
+from django.http import HttpResponse
 from django.views import View
 
 import empresaDjango
@@ -15,7 +15,10 @@ def index_pedido(request):
 
 
 def detail_pedido(request, cod_pedido):
-    pedido = get_object_or_404(Pedido, id=cod_pedido)
+    #pedido = Pedido.objects.get(cod_pedido=cod_pedido)
+    #output = f'Detalles del pedido: {pedido.cod_pedido}, {pedido.fecha}, {pedido.cliente},{pedido.precio_total}'
+    #return HttpResponse(output)
+    pedido = get_object_or_404(Pedido, cod_pedido=cod_pedido)
     detalles_pedido = ProductoPedido.objects.filter(pedido=pedido)
     context = {
         'pedido' : pedido,
