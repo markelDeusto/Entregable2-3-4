@@ -18,4 +18,6 @@ urlpatterns = [
     path('pedidoproducto/create/<int:cod_pedido>/', PedidoProductoCreateView.as_view(), name='pedidoproducto_create'),
     path('cliente/create', ClienteCreateView.as_view(), name='cliente_create'),
     path('pedidoproducto/pregunta/<int:cod_pedido>/', views.ConfirmarProductoView.as_view(), name='pregunta'),
+    path('pedido/borrar/<int:cod_pedido>', views.borrar_pedido, name="borrar_pedido"),
+    path('producto/borrar/<int:cod_producto>', views.borrar_producto, name="borrar_producto")
 ]

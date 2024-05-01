@@ -26,6 +26,13 @@ def detail_pedido(request, cod_pedido):
     }
     return render(request, 'detail_pedido.html', context)
 
+def borrar_pedido(request, cod_pedido):
+    pedido= Pedido.objects.get(cod_pedido=cod_pedido)
+    pedido.delete()
+    pedidos = Pedido.objects.all()
+    return render(request, 'index_pedido.html', {'listado_pedidos': pedidos, "mensaje": "si"})
+
+
 def index_cliente(request):
     clientes = Cliente.objects.all()
     return render(request, 'index_cliente.html', {'listado_clientes': clientes})
@@ -62,6 +69,12 @@ def detail_producto(request, cod_producto):
         'componentes': componentes,
     }
     return render(request, 'detail_producto.html', context)
+
+def borrar_producto(request, cod_producto):
+    producto= Producto.objects.get(cod_producto=cod_producto)
+    producto.delete()
+    productos = Producto.objects.all()
+    return render(request, 'index_producto.html', {'listado_productos': productos, "mensaje": "si"})
 
 def detail_componente(request, cod_componente):
     componente = get_object_or_404(Componente, cod_componente=cod_componente)
@@ -135,4 +148,6 @@ class ClienteCreateView(View):
             formulario.save()
             return redirect('index_cli')
         return render(request, 'cliente_create.html', {'formulario': formulario})
+
+
 

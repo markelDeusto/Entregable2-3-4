@@ -40,19 +40,26 @@
             <div class="parte-derecha">
             <h1>Listado de pedidos:</h1>
                 <ul>
+                {% if mensaje %}
+                    <div class="pedido_eliminado" role="alert">
+                        <a> Pedido elimindo exitosamente</a>
+                    </div>
+                {% endif %}
+
                     {% for p in listado_pedidos %}
                     <li class="listados">
                         <a href="{% url 'detail_ped' p.cod_pedido %}">
-                        {{ p.cod_pedido }}: {{ p.fecha }}
+                        {{ p.cod_pedido }}: {{ p.fecha }}  <div class="boton_borrar"> <a  href="{% url 'borrar_pedido' p.cod_pedido %}"> Borrar </a> </div>
                         </a>
                     </li>
                     {% endfor %}
-                    <div class="boton_crear">
-                        <a  href="{% url 'pedido_create' %}"> + </a>
-                    </div>
-                </ul>
 
+                </ul>
+                <div class="boton_crear_pedidos">
+                        <a  href="{% url 'pedido_create' %}"> + </a>
+                </div>
             </div>
+
         </div>
 
 

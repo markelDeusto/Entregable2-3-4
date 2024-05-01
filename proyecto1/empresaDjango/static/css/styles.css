@@ -74,6 +74,18 @@ html {
   }
   .listados{
     font-size: 2rem;
+    margin-bottom: 1rem;
+    display: flex;
+  }
+
+  .producto_eliminado{
+    font-size: 2rem;
+    margin: 2rem;
+    background-color: #5DE558;
+  }
+
+  .producto_eliminado a{
+    color: white;
   }
 
   /*DETAIL_PEDIDOS*/
@@ -115,13 +127,62 @@ html {
     background-color: #1DA5FE;
     border-radius: 1rem;
     margin-left: 3rem;
-    margin-right: 10rem;
+    margin-right: 18rem;
     margin-top: 1rem;
 
   }
   .boton_crear a{
     color: white;
     margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+    .boton_crear_clientes{
+    font-size: 4rem;
+    font-weight: bolder;
+    background-color: #1DA5FE;
+    border-radius: 1rem;
+    margin-left: 3rem;
+    margin-right: 2rem;
+    margin-top: 1rem;
+
+  }
+  .boton_crear_clientes a{
+    color: white;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+.boton_crear_pedidos{
+    font-size: 4rem;
+    font-weight: bolder;
+    background-color: #1DA5FE;
+    border-radius: 1rem;
+    margin-left: 3rem;
+    margin-right: 6rem;
+    margin-top: 1rem;
+
+  }
+  .boton_crear_pedidos a{
+    color: white;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+
+  .boton_borrar{
+    font-size: 2.5rem;
+    font-weight: bolder;
+    background-color: #1DA5FE;
+    border-radius: 1rem;
+    margin-left: 4rem;
+    text-align: center;
+
+  }
+
+  .boton_borrar a{
+    color: white;
+    font-size: 2rem;
   }
 
 

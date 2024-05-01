@@ -39,18 +39,24 @@
             </div>
             <div class="parte-derecha">
             <h1>Listado de productos:</h1>
+                {% if mensaje %}
+                    <div class="producto_eliminado" role="alert">
+                        <a> Producto elimindo exitosamente</a>
+                    </div>
+                {% endif %}
                 <ul>
                     {% for pr in listado_productos %}
                     <li class="listados">
                         <a href="{% url 'detail_pro' pr.cod_producto %}">
-                        {{ pr.cod_producto }}: {{ pr.nombre_producto }} {{ pr.modelo }}
+                        {{ pr.cod_producto }}: {{ pr.nombre_producto }} {{ pr.modelo }} <div class="boton_borrar" ><a href="{% url 'borrar_producto' pr.cod_producto %}"> Borrar </a></div>
                         </a>
                     </li>
                     {% endfor %}
-                    <div class="boton_crear">
-                        <a  href="{% url 'producto_create' %}"> + </a>
-                    </div>
+
                 </ul>
+                <div class="boton_crear">
+                        <a  href="{% url 'producto_create' %}"> + </a>
+                </div>
             </div>
         </div>
 
