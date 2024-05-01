@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from django.views import View
 
 import empresaDjango
-from empresaDjango.forms import PedidoForm, ProductoForm, ProductoPedidoForm
+from empresaDjango.forms import PedidoForm, ProductoForm, ProductoPedidoForm, ClienteForm
 from empresaDjango.models import Pedido, Cliente, Categoria, Producto, Componente, ProductoPedido
 
 
@@ -79,7 +79,7 @@ class PedidoCreateView(View):
                 pedido=formulario.save()
                 cod_pedido = pedido.cod_pedido
                 return redirect('pedidoproducto_create', cod_pedido=cod_pedido)
-            return render(request, 'empresaDjango/templates/pedido_create.html', {'formulario': formulario})
+            return render(request, 'pedido_create.html', {'formulario': formulario})
 
 
 
@@ -94,7 +94,7 @@ class ProductoCreateView(View):
         if formulario.is_valid():
             formulario.save()
             return redirect('index_pro')
-        return render(request, 'empresaDjango/templates/producto_create.html', {'formulario': formulario})
+        return render(request, 'producto_create.html', {'formulario': formulario})
 
 class PedidoProductoCreateView(View):
     def get(self,request, cod_pedido):
@@ -115,3 +115,16 @@ class PedidoProductoCreateView(View):
   #          pedido.save()
             formulario.save()
         return render(request, 'empresaDjango/producto_pedido.html', {'formulario':  formulario})
+
+class ClienteCreateView(View):
+    def get(self, request):
+        formulario = ClienteForm()
+        context = {'formulario': formulario}
+        return render(request, 'cliente_create.html', context)
+
+    def post(self, request):
+        formulario = ClienteForm(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            return redirect('index_cli')
+        return render(request, 'cliente_create.html', {'formulario': formulario})

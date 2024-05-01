@@ -1,7 +1,7 @@
 from django.urls import path
 
 from empresaDjango import views
-from empresaDjango.views import PedidoCreateView, ProductoCreateView, PedidoProductoCreateView
+from empresaDjango.views import PedidoCreateView, ProductoCreateView, PedidoProductoCreateView, ClienteCreateView
 
 urlpatterns = [
     path('pedido/', views.index_pedido, name='index_ped'),
@@ -15,6 +15,7 @@ urlpatterns = [
     path('componente/<int:cod_componente>', views.detail_componente, name='detail_com'),
     path('pedido/create', PedidoCreateView.as_view(), name='pedido_create'),
     path('producto/create', ProductoCreateView.as_view(), name='producto_create'),
-    path('pedidoproducto/create/<int:cod_pedido>/', PedidoProductoCreateView.as_view(), name='pedidoproducto_create')
+    path('pedidoproducto/create/<int:cod_pedido>/', PedidoProductoCreateView.as_view(), name='pedidoproducto_create'),
+    path('cliente/create', ClienteCreateView.as_view(), name='cliente_create')
 
 ]
