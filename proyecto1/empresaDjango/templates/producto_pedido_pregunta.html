@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/styles.css'%}" />
-    <link rel="stylesheet" href="{% static 'css/normalize.css'%}" />
-    <title>Pagina añadir productos pedidos</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}" />
+    <title>Pagina crear productos</title>
 </head>
 <body>
     <header>
@@ -29,14 +29,20 @@
             </nav>
         </div>
     </header>
-     <main>
-        <form action = "{% url 'pedidoproducto_create' cod_pedido=cod_pedido %}" method = "post">
-            {% csrf_token %}
-            {{ formulario.errors }}
-            {{ formulario.as_ul }}
-            <input type="submit" value="Productos pedido">
 
-        </form>
+    <main>
+        <div class="contenedor-principal-formularios">
+            <div class="formularios">
+            <h1>¿Quieres añadir otro producto al pedido?</h1>
+                <form class="formularios_contenido" method="post" action="{% url 'pregunta' cod_pedido=cod_pedido%}">
+                    {% csrf_token %}
+                    <div class="respuestas">
+                        <input type="submit" name="opcion" value="SI">
+                        <input type="submit" name="opcion" value="NO">
+                    </div>
+                </form>
+            </div>
+        </div>
 
 
     </main>
@@ -44,9 +50,8 @@
  <footer>
         <div class="contenido-footer">
             <p class="copyright">Todos los derechos reservados</p>
-            <img src="{% static 'images/DEUSTRONIC.png'%}" alt="Logo Tienda" />
+            <img src="{% static 'images/DEUSTRONIC.png' %}" alt="Logo Tienda" />
         </div>
     </footer>
-
 </body>
 </html>

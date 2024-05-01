@@ -16,6 +16,9 @@ def index_pedido(request):
 
 def detail_pedido(request, cod_pedido):
     pedido = get_object_or_404(Pedido, cod_pedido=cod_pedido)
+    precio_total = pedido.calcular_precio_total()
+    pedido.precio_total = precio_total
+    pedido.save()
     detalles_pedido = ProductoPedido.objects.filter(pedido=pedido)
     context = {
         'pedido' : pedido,
@@ -25,7 +28,7 @@ def detail_pedido(request, cod_pedido):
 
 def index_cliente(request):
     clientes = Cliente.objects.all()
-    return render(request, 'index_cliente.html', {'listado_clientes' : clientes})
+    return render(request, 'index_cliente.html', {'listado_clientes': clientes})
 
 
 def detail_cliente(request, cif):
@@ -85,7 +88,7 @@ class PedidoCreateView(View):
 
 class ProductoCreateView(View):
     def get(self, request):
-        formulario =ProductoForm()
+        formulario = ProductoForm()
         context = {'formulario': formulario}
         return render(request, 'producto_create.html', {'formulario': formulario})
 
@@ -100,21 +103,25 @@ class PedidoProductoCreateView(View):
     def get(self,request, cod_pedido):
         formulario = ProductoPedidoForm()
         context = {'formulario': formulario, 'cod_pedido': cod_pedido}
-        return render(request, 'empresaDjango/producto_pedido.html', {'formulario': formulario, 'cod_pedido': cod_pedido})
+        return render(request, 'producto_pedido.html', {'formulario': formulario, 'cod_pedido': cod_pedido})
 
     def post(self,request, cod_pedido):
         formulario = ProductoPedidoForm(data=request.POST)
         if formulario.is_valid():
-       #     pedido = Pedido.objects.get(cod_pedido=cod_pedido)
-       #     productos_pedido = ProductoPedido.objects.filter(pedido=pedido)
-       #     precio_total_pedido = sum(
-        #        producto_pedido.producto.precio * producto_pedido.cantidad for producto_pedido in productos_pedido)
-#
-            # Guardar el precio total en el pedido
- #           pedido.precio_total = precio_total_pedido
-  #          pedido.save()
             formulario.save()
-        return render(request, 'empresaDjango/producto_pedido.html', {'formulario':  formulario})
+            return redirect('pregunta', cod_pedido=cod_pedido)
+        return render(request, 'producto_pedido.html', {'formulario':  formulario, cod_pedido: cod_pedido})
+
+class ConfirmarProductoView(View):
+    def get(self, request, cod_pedido):
+        return render(request, 'producto_pedido_pregunta.html', {'cod_pedido': cod_pedido})
+
+    def post(self, request, cod_pedido):
+        opcion = request.POST.get('opcion')
+        if opcion == 'si':
+            return redirect('pedidoproducto_create', cod_pedido=cod_pedido)
+        else:
+            return redirect('index_ped')
 
 class ClienteCreateView(View):
     def get(self, request):
@@ -128,3 +135,4 @@ class ClienteCreateView(View):
             formulario.save()
             return redirect('index_cli')
         return render(request, 'cliente_create.html', {'formulario': formulario})
+

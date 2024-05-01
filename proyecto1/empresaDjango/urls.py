@@ -16,6 +16,6 @@ urlpatterns = [
     path('pedido/create', PedidoCreateView.as_view(), name='pedido_create'),
     path('producto/create', ProductoCreateView.as_view(), name='producto_create'),
     path('pedidoproducto/create/<int:cod_pedido>/', PedidoProductoCreateView.as_view(), name='pedidoproducto_create'),
-    path('cliente/create', ClienteCreateView.as_view(), name='cliente_create')
-
+    path('cliente/create', ClienteCreateView.as_view(), name='cliente_create'),
+    path('pedidoproducto/pregunta/<int:cod_pedido>/', views.ConfirmarProductoView.as_view(), name='pregunta'),
 ]

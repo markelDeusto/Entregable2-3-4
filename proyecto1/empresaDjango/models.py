@@ -22,6 +22,11 @@ class Pedido(models.Model):
     def __str__(self):
         return f"código={self.cod_pedido}, cliente={self.cliente.nombre_empresa}, fecha={self.fecha}, precio={self.precio_total}€"
 
+    def calcular_precio_total(self):
+        precio_total = 0
+        for producto_pedido in self.productopedido_set.all():
+            precio_total += producto_pedido.producto.precio_unidad * producto_pedido.cantidad
+        return precio_total
 
 class Categoria(models.Model):
     id_categoria = models.AutoField(primary_key=True)
