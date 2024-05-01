@@ -77,19 +77,26 @@ html {
   }
 
   /*DETAIL_PEDIDOS*/
-  .contenedor-principal-detail-pedidos{
+  .contenedor-principal-detail{
     margin: 2rem 5rem 2rem 5rem;
     display: flex;
     justify-content: center;
     align-items: center;
+
   }
   .contenedor-central{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 50rem;
-    height: 40rem;
+    min-width: 50rem;
+    min-height: 40rem;
+    border-radius: 1.5rem;
+    border: 1px solid grey;
+    background-color: rgba(97, 93, 167, 0.3);
+  }
+  .contenedor-central h1{
+    padding-bottom: 2rem;
   }
   .detalle-pedidos{
     margin: 1rem;
@@ -119,12 +126,6 @@ html {
 
 
   /*DETAIL_PRODUCTOS*/
-  .contenedor-principal-detail-productos{
-    margin: 2rem 5rem 2rem 5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
   .detalle-productos{
     margin: 1rem;
     margin-left: 3rem;
@@ -138,12 +139,6 @@ html {
   }
 
   /*DETAIL_CLIENTES*/
-  .contenedor-principal-detail-clientes{
-    margin: 2rem 5rem 2rem 5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
   .detalle-clientes{
     margin: 1rem;
     margin-left: 3rem;
