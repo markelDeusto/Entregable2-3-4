@@ -131,7 +131,7 @@ class ConfirmarProductoView(View):
 
     def post(self, request, cod_pedido):
         opcion = request.POST.get('opcion')
-        if opcion == 'si':
+        if opcion == "SI":
             return redirect('pedidoproducto_create', cod_pedido=cod_pedido)
         else:
             return redirect('index_ped')
