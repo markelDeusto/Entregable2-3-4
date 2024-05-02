@@ -31,13 +31,17 @@
     </header>
 
     <main>
-         <h2>Editar los productos del pedido</h2>
-        <form action="{% url 'actualizar_productoEnPedido' cod_pedido=cod_pedido %}" method="post">
-            {% csrf_token %}
-            {{ formulario.errors }}
-            {{ formulario.as_ul }}
-        <input type="submit" value="Editar productos"/>
-    </form>
+        <div class="contenedor-principal-formularios">
+            <div class="formularios">
+                <h1>Editar los productos del pedido</h1>
+                <form class="formularios_contenido" action="{% url 'actualizar_productoEnPedido' cod_pedido=cod_pedido %}" method="post">
+                    {% csrf_token %}
+                    {{ formulario.errors }}
+                    {{ formulario.as_ul }}
+                <input class="boton_nuevo" type="submit" value="Editar productos"/>
+            </form>
+            </div>
+        </div>
     </main>
 
  <footer>
