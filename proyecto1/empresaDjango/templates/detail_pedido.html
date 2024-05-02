@@ -59,6 +59,7 @@
                         <td> <a href="{% url 'detail_pro' detalle.producto.cod_producto %}"> {{ detalle.producto.nombre_producto }} </a> </td>
                         <td>:</td>
                         <td>{{ detalle.cantidad }} unidades</td>
+                        <td> <div class="boton_actualizar"> <a  href="{% url 'actualizar_productoEnPedido' pedido.cod_pedido %}"> Actualizar </a> </div></td>
                     </tr>
                     {% endfor %}
 

@@ -21,4 +21,5 @@ urlpatterns = [
     path('pedido/borrar/<int:cod_pedido>', views.borrar_pedido, name="borrar_pedido"),
     path('producto/borrar/<int:cod_producto>', views.borrar_producto, name="borrar_producto"),
     path('pedido/actualizar/<int:cod_pedido>', views.actualizar_pedido.as_view(), name="actualizar_pedido"),
+    path('pedido/actualizar/producto/<int:cod_pedido>', views.actualizar_productoEnPedido.as_view(), name="actualizar_productoEnPedido"),
 ]
