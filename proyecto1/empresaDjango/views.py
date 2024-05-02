@@ -44,7 +44,7 @@ class actualizar_pedido(UpdateView):
             'pedido': pedido,
             'cod_pedido': cod_pedido
         }
-        return render(request, 'update_departamento.html', context)
+        return render(request, 'update_pedido.html', context)
 
     def post(self, request, cod_pedido):
         pedido = Pedido.objects.get(cod_pedido=cod_pedido)
@@ -54,7 +54,7 @@ class actualizar_pedido(UpdateView):
             return redirect('index_ped')
         else:
             formulario = PedidoForm(instance=pedido)
-        return render(request, 'update_departamento.html', {'formulario': formulario})
+        return render(request, 'update_pedido.html', {'formulario': formulario})
 
 class actualizar_productoEnPedido(UpdateView):
     model = ProductoPedido

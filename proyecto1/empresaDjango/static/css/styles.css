@@ -26,13 +26,18 @@ html {
     margin: 0 5rem 0 5rem;
   }
 
-@media (max-width:391px) {
+@media (max-width:769px) {
   .nav-principal {
     display: flex;
     flex-direction: column;
   }
 }
 
+@media (max-width:769px) {
+  .navegacion{
+    margin: 0;
+  }
+}
   .nav-principal img {
     height: 10rem;
   }
@@ -52,19 +57,31 @@ html {
     justify-content: space-between;
     align-items: center;
     font-size: 2rem;
-    padding: 0rem;
+    padding: 0;
     margin-left: 7rem;
   }
 
-@media (max-width:391px) {
+@media (max-width:769px) {
   .elementos-navegacion{
+    flex-direction: column;
     justify-content: center;
     font-size: 1.5rem;
     margin-left: 0;
   }
 }
 
-
+@media (max-width:391px) {
+  .elemento{
+    justify-content: center;
+    text-align: center;
+  }
+}
+@media (max-width:391px) {
+  .elemento a{
+    justify-content: center;
+    text-align: center;
+  }
+}
 
   /*INDEX*/
   .contenedor-principal-index{
@@ -73,14 +90,28 @@ html {
     min-height: 40rem;
     grid-template-columns: 60% 40%;
   }
+@media (max-width:769px) {
+  .contenedor-principal-index{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+}
   .parte-izquierda{
     margin-left: 2rem;
   }
   .parte-izquierda img{
     border-radius: 2rem;
     width: 60rem;
-    height: 37em;
+    height: 37rem;
   }
+  @media (max-width:391px) {
+  .parte-izquierda img{
+    width: 30rem;
+    height: 20rem;
+  }
+}
   .parte-derecha{
     display: flex;
     flex-direction: column;
@@ -92,6 +123,11 @@ html {
     margin-bottom: 1rem;
     display: flex;
   }
+@media (max-width:391px) {
+  .listados{
+    font-size: 1rem;
+  }
+}
 
   .producto_eliminado{
     font-size: 2rem;
@@ -270,6 +306,11 @@ html {
     color: aliceblue;
     min-width: 40rem;
   }
+@media (max-width:391px) {
+  .formularios{
+    width: max-content;
+  }
+}
   .formularios_contenido li{
     padding-top: 0.5rem;
     margin: 1rem;
