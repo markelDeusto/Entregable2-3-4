@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contenido%}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Landing page E2</title>
+</head>
+<body>
+    <div class="contenedor-principal-index">
+        <div class="parte-izquierda">
+            <img src="{% static 'images/Escritorio.jpeg'%}" alt="Foto con diferentes productos tecnológicos en un escritorio" />
+        </div>
+        <div class="parte-derecha-landing">
+            <a href="{% url 'index_ped' %}"><button class="boton-landing">Gestión de pedidos</button></a>
+            <a href="{% url 'index_pro' %}"><button class="boton-landing">Gestión de productos</button></a>
+            <a href="{% url 'index_cli' %}"><button class="boton-landing">Gestión de clientes</button></a>
+        </div>
+    </div>
+</body>
+
+
+{% endblock %}

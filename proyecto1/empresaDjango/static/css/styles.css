@@ -83,6 +83,21 @@ html {
   }
 }
 
+  /*LANDING-PAGE*/
+  .boton-landing{
+    width: 13rem;
+    height: 6rem;
+    margin: 1rem;
+    border-radius: 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .parte-derecha-landing{
+    display: flex;
+    align-items: center;
+  }
+
   /*INDEX*/
   .contenedor-principal-index{
     margin: 2rem 5rem 2rem 5rem;
@@ -222,9 +237,9 @@ html {
 
 
   .boton_borrar{
-    font-size: 2.5rem;
     font-weight: bolder;
     background-color: #1DA5FE;
+    width: 8rem;
     border-radius: 1rem;
     margin-left: 4rem;
     text-align: center;
@@ -233,13 +248,13 @@ html {
 
   .boton_borrar a{
     color: white;
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
   .boton_actualizar{
-    font-size: 2.5rem;
     font-weight: bolder;
     background-color: #1DA5FE;
     border-radius: 1rem;
+    width: 9rem;
     margin-left: 4rem;
     text-align: center;
 
@@ -247,7 +262,7 @@ html {
 
   .boton_actualizar a{
     color: white;
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
 

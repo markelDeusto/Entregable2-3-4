@@ -10,9 +10,13 @@ from empresaDjango.forms import PedidoForm, ProductoForm, ProductoPedidoForm, Cl
 from empresaDjango.models import Pedido, Cliente, Categoria, Producto, Componente, ProductoPedido
 
 
+def landing_page(request):
+    return render(request, 'landing_page.html')
+
+
 def index_pedido(request):
     pedidos = Pedido.objects.all()
-    return render(request, 'index_pedido.html', {'listado_pedidos' : pedidos})
+    return render(request, 'index_pedido.html', {'listado_pedidos': pedidos})
 
 
 def detail_pedido(request, cod_pedido):
@@ -22,23 +26,25 @@ def detail_pedido(request, cod_pedido):
     pedido.save()
     detalles_pedido = ProductoPedido.objects.filter(pedido=pedido)
     context = {
-        'pedido' : pedido,
-        'detalles_pedido' : detalles_pedido,
+        'pedido': pedido,
+        'detalles_pedido': detalles_pedido,
     }
     return render(request, 'detail_pedido.html', context)
 
+
 def borrar_pedido(request, cod_pedido):
-    pedido= Pedido.objects.get(cod_pedido=cod_pedido)
+    pedido = Pedido.objects.get(cod_pedido=cod_pedido)
     pedido.delete()
     pedidos = Pedido.objects.all()
     return render(request, 'index_pedido.html', {'listado_pedidos': pedidos, "mensaje": "si"})
+
 
 class actualizar_pedido(UpdateView):
     model = Pedido
 
     def get(self, request, cod_pedido):
         pedido = Pedido.objects.get(cod_pedido=cod_pedido)
-        formulario=PedidoForm(instance=pedido)
+        formulario = PedidoForm(instance=pedido)
         context = {
             'formulario': formulario,
             'pedido': pedido,
@@ -56,12 +62,13 @@ class actualizar_pedido(UpdateView):
             formulario = PedidoForm(instance=pedido)
         return render(request, 'update_pedido.html', {'formulario': formulario})
 
+
 class actualizar_productoEnPedido(UpdateView):
     model = ProductoPedido
 
     def get(self, request, cod_pedido):
         productoPedido = ProductoPedido.objects.get(pedido__cod_pedido=cod_pedido)
-        formulario=ProductoPedidoForm(instance=productoPedido)
+        formulario = ProductoPedidoForm(instance=productoPedido)
         context = {
             'formulario': formulario,
             'productoPedido': productoPedido,
@@ -79,6 +86,7 @@ class actualizar_productoEnPedido(UpdateView):
             formulario = ProductoPedidoForm(instance=productoPedido)
         return render(request, 'update_productoEnPedido.html', {'formulario': formulario})
 
+
 def index_cliente(request):
     clientes = Cliente.objects.all()
     return render(request, 'index_cliente.html', {'listado_clientes': clientes})
@@ -87,7 +95,7 @@ def index_cliente(request):
 def detail_cliente(request, cif):
     cliente = get_object_or_404(Cliente, cif=cif)
     context = {
-        'cliente' : cliente
+        'cliente': cliente
     }
     return render(request, 'detail_cliente.html', context)
 
@@ -101,6 +109,7 @@ def index_categoria(request):
 def detail_categoria(request, id_categoria):
     categoria = Categoria.objects.get(pk=id_categoria)
     return HttpResponse(categoria)
+
 
 def index_producto(request):
     productos = Producto.objects.all()
@@ -116,11 +125,13 @@ def detail_producto(request, cod_producto):
     }
     return render(request, 'detail_producto.html', context)
 
+
 def borrar_producto(request, cod_producto):
-    producto= Producto.objects.get(cod_producto=cod_producto)
+    producto = Producto.objects.get(cod_producto=cod_producto)
     producto.delete()
     productos = Producto.objects.all()
     return render(request, 'index_producto.html', {'listado_productos': productos, "mensaje": "si"})
+
 
 def detail_componente(request, cod_componente):
     componente = get_object_or_404(Componente, cod_componente=cod_componente)
@@ -131,18 +142,18 @@ def detail_componente(request, cod_componente):
 
 
 class PedidoCreateView(View):
-        def get(self, request):
-            formulario=PedidoForm()
-            context = {'formulario': formulario}
-            return render(request, 'pedido_create.html', context)
-        def post(self, request):
-            formulario = PedidoForm(data=request.POST)
-            if formulario.is_valid():
-                pedido=formulario.save()
-                cod_pedido = pedido.cod_pedido
-                return redirect('pedidoproducto_create', cod_pedido=cod_pedido)
-            return render(request, 'pedido_create.html', {'formulario': formulario})
+    def get(self, request):
+        formulario = PedidoForm()
+        context = {'formulario': formulario}
+        return render(request, 'pedido_create.html', context)
 
+    def post(self, request):
+        formulario = PedidoForm(data=request.POST)
+        if formulario.is_valid():
+            pedido = formulario.save()
+            cod_pedido = pedido.cod_pedido
+            return redirect('pedidoproducto_create', cod_pedido=cod_pedido)
+        return render(request, 'pedido_create.html', {'formulario': formulario})
 
 
 class ProductoCreateView(View):
@@ -158,18 +169,20 @@ class ProductoCreateView(View):
             return redirect('index_pro')
         return render(request, 'producto_create.html', {'formulario': formulario})
 
+
 class PedidoProductoCreateView(View):
-    def get(self,request, cod_pedido):
+    def get(self, request, cod_pedido):
         formulario = ProductoPedidoForm()
         context = {'formulario': formulario, 'cod_pedido': cod_pedido}
         return render(request, 'producto_pedido.html', {'formulario': formulario, 'cod_pedido': cod_pedido})
 
-    def post(self,request, cod_pedido):
+    def post(self, request, cod_pedido):
         formulario = ProductoPedidoForm(data=request.POST)
         if formulario.is_valid():
             formulario.save()
             return redirect('pregunta', cod_pedido=cod_pedido)
-        return render(request, 'producto_pedido.html', {'formulario':  formulario, cod_pedido: cod_pedido})
+        return render(request, 'producto_pedido.html', {'formulario': formulario, cod_pedido: cod_pedido})
+
 
 class ConfirmarProductoView(View):
     def get(self, request, cod_pedido):
@@ -181,6 +194,7 @@ class ConfirmarProductoView(View):
             return redirect('pedidoproducto_create', cod_pedido=cod_pedido)
         else:
             return redirect('index_ped')
+
 
 class ClienteCreateView(View):
     def get(self, request):
@@ -194,6 +208,3 @@ class ClienteCreateView(View):
             formulario.save()
             return redirect('index_cli')
         return render(request, 'cliente_create.html', {'formulario': formulario})
-
-
-
