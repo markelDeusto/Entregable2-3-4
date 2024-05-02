@@ -32,7 +32,7 @@
 
     <main>
          <h2>Editar pedido</h2>
-        <form action="{% url 'actualizar_pedido' pedido.cod_pedido %}" method="post">
+        <form action="{% url 'actualizar_pedido' cod_pedido=cod_pedido %}" method="post">
             {% csrf_token %}
             {{ formulario.errors }}
             {{ formulario.as_ul }}

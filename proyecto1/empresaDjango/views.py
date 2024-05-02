@@ -38,21 +38,22 @@ class actualizar_pedido(UpdateView):
 
     def get(self, request, cod_pedido):
         pedido = Pedido.objects.get(cod_pedido=cod_pedido)
-        formulario = ProductoPedidoForm(instance=pedido)
+        formulario=PedidoForm(instance=pedido)
         context = {
             'formulario': formulario,
-            'pedido': pedido
+            'pedido': pedido,
+            'cod_pedido': cod_pedido
         }
         return render(request, 'update_departamento.html', context)
 
     def post(self, request, cod_pedido):
         pedido = Pedido.objects.get(cod_pedido=cod_pedido)
-        formulario = ProductoPedidoForm(request.POST, instance=pedido)
+        formulario = PedidoForm(request.POST, instance=pedido)
         if formulario.is_valid():
             formulario.save()
             return redirect('index_ped')
         else:
-            formulario = ProductoPedidoForm(instance=pedido)
+            formulario = PedidoForm(instance=pedido)
         return render(request, 'update_departamento.html', {'formulario': formulario})
 
 def index_cliente(request):
