@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 # Create your views here.
 from django.http import HttpResponse
 from django.views import View
+from django.views.generic import UpdateView
 
 import empresaDjango
 from empresaDjango.forms import PedidoForm, ProductoForm, ProductoPedidoForm, ClienteForm
@@ -32,6 +33,27 @@ def borrar_pedido(request, cod_pedido):
     pedidos = Pedido.objects.all()
     return render(request, 'index_pedido.html', {'listado_pedidos': pedidos, "mensaje": "si"})
 
+class actualizar_pedido(UpdateView):
+    model = Pedido
+
+    def get(self, request, cod_pedido):
+        pedido = Pedido.objects.get(cod_pedido=cod_pedido)
+        formulario = ProductoPedidoForm(instance=pedido)
+        context = {
+            'formulario': formulario,
+            'pedido': pedido
+        }
+        return render(request, 'update_departamento.html', context)
+
+    def post(self, request, cod_pedido):
+        pedido = Pedido.objects.get(cod_pedido=cod_pedido)
+        formulario = ProductoPedidoForm(request.POST, instance=pedido)
+        if formulario.is_valid():
+            formulario.save()
+            return redirect('index_ped')
+        else:
+            formulario = ProductoPedidoForm(instance=pedido)
+        return render(request, 'update_departamento.html', {'formulario': formulario})
 
 def index_cliente(request):
     clientes = Cliente.objects.all()

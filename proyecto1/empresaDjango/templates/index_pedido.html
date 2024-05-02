@@ -49,7 +49,9 @@
                     {% for p in listado_pedidos %}
                     <li class="listados">
                         <a href="{% url 'detail_ped' p.cod_pedido %}">
-                        {{ p.cod_pedido }}: {{ p.fecha }}  <div class="boton_borrar"> <a  href="{% url 'borrar_pedido' p.cod_pedido %}"> Borrar </a> </div>
+                        {{ p.cod_pedido }}: {{ p.fecha }}
+                            <div class="boton_borrar"> <a  href="{% url 'borrar_pedido' p.cod_pedido %}"> Borrar </a> </div>
+                            <div class="boton_actualizar"> <a  href="{% url 'actualizar_pedido' p.cod_pedido %}"> Actualizar </a> </div>
                         </a>
                     </li>
                     {% endfor %}

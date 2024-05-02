@@ -184,6 +184,20 @@ html {
     color: white;
     font-size: 2rem;
   }
+  .boton_actualizar{
+    font-size: 2.5rem;
+    font-weight: bolder;
+    background-color: #1DA5FE;
+    border-radius: 1rem;
+    margin-left: 4rem;
+    text-align: center;
+
+  }
+
+  .boton_actualizar a{
+    color: white;
+    font-size: 2rem;
+  }
 
 
   /*DETAIL_PRODUCTOS*/
