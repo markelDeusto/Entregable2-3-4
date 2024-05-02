@@ -26,6 +26,13 @@ html {
     margin: 0 5rem 0 5rem;
   }
 
+@media (max-width:391px) {
+  .nav-principal {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
   .nav-principal img {
     height: 10rem;
   }
@@ -48,6 +55,14 @@ html {
     padding: 0rem;
     margin-left: 7rem;
   }
+
+@media (max-width:391px) {
+  .elementos-navegacion{
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-left: 0;
+  }
+}
 
 
 

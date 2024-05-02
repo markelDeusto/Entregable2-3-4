@@ -1,36 +1,7 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/normalize.css' %}" />
-    <title>Pagina crear pedidos</title>
-</head>
-<body>
-    <header>
-        <div class="navegacion">
-            <nav class="nav-principal">
-                <a href="{% url 'index_ped' %}">
-                  <img src="{% static 'images/DEUSTRONIC.png' %}" alt="Logo Tienda" />
-                </a>
-                <ul class="elementos-navegacion">
-                  <li>
-                    <a href="{% url 'index_ped' %}">Gestión de pedidos</a>
-                  </li>
-                  <li>
-                    <a href="{% url 'index_pro' %}">Gestión de productos</a>
-                  </li>
-                  <li>
-                    <a href="{% url 'index_cli' %}">Gestión de clientes</a>
-                  </li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+{% block contenido%}
 
-    <main>
         <div class="contenedor-principal-formularios">
             <div class="formularios">
                 <h1>Nuevo cliente:</h1>
@@ -43,14 +14,4 @@
             </div>
         </div>
 
-
-    </main>
-
- <footer>
-        <div class="contenido-footer">
-            <p class="copyright">Todos los derechos reservados</p>
-            <img src="{% static 'images/DEUSTRONIC.png' %}" alt="Logo Tienda" />
-        </div>
-    </footer>
-</body>
-</html>
+{% endblock %}
