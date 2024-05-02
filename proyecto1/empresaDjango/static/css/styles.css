@@ -201,12 +201,22 @@ html {
 
   /*DETAIL_CLIENTES*/
   .detalle-clientes{
-    margin: 1rem;
-    margin-left: 3rem;
+    margin: 1rem 1rem 1rem 3rem;
     font-size: 2rem;
     text-align: center;
   }
   .detalle-clientes td{
+    width: 15rem;
+    padding-bottom: 2rem;
+  }
+
+  /*DETAIL_COMPONENTES*/
+  .detalle-componentes{
+    margin: 1rem 1rem 1rem 3rem;
+    font-size: 2rem;
+    text-align: center;
+  }
+  .detalle-componentes td{
     width: 15rem;
     padding-bottom: 2rem;
   }
