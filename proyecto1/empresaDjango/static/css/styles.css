@@ -30,12 +30,20 @@ html {
   .nav-principal {
     display: flex;
     flex-direction: column;
+    margin-left: 0;
+    justify-content: center;
+    align-items: center;
   }
 }
 
 @media (max-width:769px) {
   .navegacion{
     margin: 0;
+  }
+}
+@media (max-width:769px) {
+  .nav-principal img{
+    margin-left: 7rem;
   }
 }
   .nav-principal img {
@@ -60,13 +68,17 @@ html {
     padding: 0;
     margin-left: 7rem;
   }
-
 @media (max-width:769px) {
+  .elementos-navegacion a{
+    margin-left: 0;
+    font-size: 1.7rem;
+  }
+}
+
+@media (max-width:391px) {
   .elementos-navegacion{
     flex-direction: column;
     justify-content: center;
-    font-size: 1.5rem;
-    margin-left: 0;
   }
 }
 
@@ -97,8 +109,25 @@ html {
     display: flex;
     align-items: center;
   }
-
-
+@media (max-width:769px) {
+  .parte-derecha-landing{
+    justify-content: center;
+    margin-top: 2rem;
+  }
+}
+@media (max-width:391px) {
+  .parte-derecha-landing{
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media (max-width:391px) {
+  .boton-landing{
+    font-size: 1.5rem;
+    width: 10rem;
+    height: 4rem;
+  }
+}
   /*INDEX*/
   .contenedor-principal-index{
     margin: 2rem 5rem 2rem 5rem;
@@ -114,6 +143,7 @@ html {
     text-align: center;
   }
 }
+
   .parte-izquierda{
     margin-left: 2rem;
   }
@@ -153,6 +183,7 @@ html {
 
   .producto_eliminado a{
     color: white;
+    align-items: center;
   }
 
   /*DETAIL_PEDIDOS*/
@@ -183,6 +214,11 @@ html {
     font-size: 2rem;
     text-align: center;
   }
+@media (max-width:391px) {
+  .listados{
+    font-size: 1.5rem;
+  }
+}
   .detalle-pedidos td{
     width: 15rem;
     padding-bottom: 2rem;
@@ -196,15 +232,15 @@ html {
     margin-left: 3rem;
     margin-right: 18rem;
     margin-top: 1rem;
-
   }
+
   .boton_crear a{
     color: white;
     margin-left: 1rem;
     margin-right: 1rem;
   }
 
-    .boton_crear_clientes{
+  .boton_crear_clientes{
     font-size: 4rem;
     font-weight: bolder;
     background-color: #1DA5FE;
@@ -219,7 +255,12 @@ html {
     margin-left: 1rem;
     margin-right: 1rem;
   }
-
+@media (max-width: 769px) {
+  .boton_crear {
+    justify-content: center;
+    align-items: center;
+  }
+}
 .boton_crear_pedidos{
     font-size: 4rem;
     font-weight: bolder;
@@ -244,7 +285,7 @@ html {
     border-radius: 1rem;
     margin-left: 4rem;
     text-align: center;
-
+    justify-content: center;
   }
 
   .boton_borrar a{
@@ -323,10 +364,22 @@ html {
     min-width: 40rem;
   }
 @media (max-width:391px) {
-  .formularios{
-    width: max-content;
+  .contenedor-principal-formularios{
+    max-width: 35rem;
+    font-size: 1rem;
   }
 }
+@media (max-width:391px) {
+  .formularios h1{
+    font-size: 1.7rem;
+  }
+}
+@media (max-width:391px) {
+  .formularios{
+    max-width: 35rem;
+  }
+}
+
   .formularios_contenido li{
     padding-top: 0.5rem;
     margin: 1rem;
