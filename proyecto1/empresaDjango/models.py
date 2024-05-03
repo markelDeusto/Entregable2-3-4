@@ -12,7 +12,6 @@ class Cliente(models.Model):
         return f"cif={self.cif}, nombre={self.nombre_empresa}, dirección={self.direccion}, contacto={self.contacto}"
 
 
-
 class Pedido(models.Model):
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
     cod_pedido = models.CharField(max_length=10)
@@ -27,6 +26,7 @@ class Pedido(models.Model):
         for producto_pedido in self.productopedido_set.all():
             precio_total += producto_pedido.producto.precio_unidad * producto_pedido.cantidad
         return precio_total
+
 
 class Categoria(models.Model):
     id_categoria = models.AutoField(primary_key=True)

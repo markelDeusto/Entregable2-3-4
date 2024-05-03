@@ -4,10 +4,9 @@ from empresaDjango.models import Pedido, Producto, ProductoPedido, Cliente
 
 
 class PedidoForm(forms.ModelForm):
-        class Meta:
-            model = Pedido
-            fields = ['cliente', 'cod_pedido', 'fecha']
-
+    class Meta:
+        model = Pedido
+        fields = ['cliente', 'cod_pedido', 'fecha']
 
 
 class ProductoForm(forms.ModelForm):
@@ -20,6 +19,7 @@ class ProductoPedidoForm(forms.ModelForm):
     class Meta:
         model = ProductoPedido
         fields = '__all__'
+
 
 class ClienteForm(forms.ModelForm):
     class Meta:

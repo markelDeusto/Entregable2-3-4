@@ -1,28 +1,28 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block contenido%}
+{% block contenido %}
 
-        <div class="contenedor-principal-detail">
-            <div class="contenedor-central">
+    <div class="contenedor-principal-detail">
+        <div class="contenedor-central">
             <h1>Detalles del componente:</h1>
-                <table class="detalle-componentes">
-                    <tr>
-                        <td>Código del componente</td>
-                        <td>:</td>
-                        <td>{{ componente.cod_componente }}</td>
-                    </tr>
-                    <tr>
-                        <td>Nombre del componente</td>
-                        <td>:</td>
-                        <td>{{ componente.nombre_componente }}</td>
-                    </tr>
-                    <tr>
-                        <td>Marca</td>
-                        <td>:</td>
-                        <td>{{ componente.marca }}</td>
-                    </tr>
-                </table>
-            </div>
+            <table class="detalle-componentes">
+                <tr>
+                    <td>Código del componente</td>
+                    <td>:</td>
+                    <td>{{ componente.cod_componente }}</td>
+                </tr>
+                <tr>
+                    <td>Nombre del componente</td>
+                    <td>:</td>
+                    <td>{{ componente.nombre_componente }}</td>
+                </tr>
+                <tr>
+                    <td>Marca</td>
+                    <td>:</td>
+                    <td>{{ componente.marca }}</td>
+                </tr>
+            </table>
         </div>
+    </div>
 
 {% endblock %}

@@ -1,33 +1,33 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block contenido%}
+{% block contenido %}
 
-        <div class="contenedor-principal-detail">
-            <div class="contenedor-central">
+    <div class="contenedor-principal-detail">
+        <div class="contenedor-central">
             <h1>Detalles del cliente:</h1>
-                <table class="detalle-clientes">
-                    <tr>
-                        <td>CIF</td>
-                        <td>:</td>
-                        <td>{{ cliente.cif }}</td>
-                    </tr>
-                    <tr>
-                        <td>Nombre de la empresa:</td>
-                        <td>:</td>
-                        <td>{{ cliente.nombre_empresa }}</td>
-                    </tr>
-                    <tr>
-                        <td>Dirección</td>
-                        <td>:</td>
-                        <td>{{ cliente.direccion }}</td>
-                    </tr>
-                    <tr>
-                        <td>Contacto:</td>
-                        <td>:</td>
-                        <td>{{ cliente.contacto }}</td>
-                    </tr>
-                </table>
-            </div>
+            <table class="detalle-clientes">
+                <tr>
+                    <td>CIF</td>
+                    <td>:</td>
+                    <td>{{ cliente.cif }}</td>
+                </tr>
+                <tr>
+                    <td>Nombre de la empresa:</td>
+                    <td>:</td>
+                    <td>{{ cliente.nombre_empresa }}</td>
+                </tr>
+                <tr>
+                    <td>Dirección</td>
+                    <td>:</td>
+                    <td>{{ cliente.direccion }}</td>
+                </tr>
+                <tr>
+                    <td>Contacto:</td>
+                    <td>:</td>
+                    <td>{{ cliente.contacto }}</td>
+                </tr>
+            </table>
         </div>
+    </div>
 
 {% endblock %}

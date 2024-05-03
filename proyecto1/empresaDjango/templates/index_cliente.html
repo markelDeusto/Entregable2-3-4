@@ -1,26 +1,26 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block contenido%}
+{% block contenido %}
 
-        <div class="contenedor-principal-index">
-            <div class="parte-izquierda">
-                <img src="{% static 'images/clientes.jpg'%}" alt="Foto representando un trato con clientes" />
-            </div>
-            <div class="parte-derecha">
+    <div class="contenedor-principal-index">
+        <div class="parte-izquierda">
+            <img src="{% static 'images/clientes.jpg' %}" alt="Foto representando un trato con clientes"/>
+        </div>
+        <div class="parte-derecha">
             <h1>Listado de clientes:</h1>
-                <ul>
-                    {% for c in listado_clientes %}
+            <ul>
+                {% for c in listado_clientes %}
                     <li class="listados">
                         <a href="{% url 'detail_cli' c.cif %}">
-                        {{ c.cif }}: {{ c.nombre_empresa }}
+                            {{ c.cif }}: {{ c.nombre_empresa }}
                         </a>
                     </li>
-                    {% endfor %}
-                </ul>
-                     <div class="boton_crear_clientes">
-                        <a  href="{% url 'cliente_create' %}"> + </a>
-                     </div>
+                {% endfor %}
+            </ul>
+            <div class="boton_crear_clientes">
+                <a href="{% url 'cliente_create' %}"> + </a>
             </div>
         </div>
+    </div>
 
 {% endblock %}

@@ -1,50 +1,52 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block contenido%}
+{% block contenido %}
 
     <div class="contenedor-principal-detail">
-            <div class="contenedor-central">
+        <div class="contenedor-central">
             <h1>Detalles del producto:</h1>
-                <table class="detalle-productos">
-                    <tr>
-                        <td>Código del producto</td>
-                        <td>:</td>
-                        <td>{{ producto.cod_producto }}</td>
-                    </tr>
-                    <tr>
-                        <td>Nombre</td>
-                        <td>:</td>
-                        <td>{{ producto.nombre_producto }}</td>
-                    </tr>
-                    <tr>
-                        <td>Modelo</td>
-                        <td>:</td>
-                        <td>{{ producto.modelo }}</td>
-                    </tr>
-                    <tr>
-                        <td>Descripción</td>
-                        <td>:</td>
-                        <td>{{ producto.descripcion }}</td>
-                    </tr>
-                    <tr>
-                        <td>Categoría</td>
-                        <td>:</td>
-                        <td><a href="{% url 'detail_cat' producto.categoria.id_categoria %}">{{ producto.categoria.nombre_categoria}} </a> </td>
-                    </tr>
-                    {% for c in componentes %}
+            <table class="detalle-productos">
+                <tr>
+                    <td>Código del producto</td>
+                    <td>:</td>
+                    <td>{{ producto.cod_producto }}</td>
+                </tr>
+                <tr>
+                    <td>Nombre</td>
+                    <td>:</td>
+                    <td>{{ producto.nombre_producto }}</td>
+                </tr>
+                <tr>
+                    <td>Modelo</td>
+                    <td>:</td>
+                    <td>{{ producto.modelo }}</td>
+                </tr>
+                <tr>
+                    <td>Descripción</td>
+                    <td>:</td>
+                    <td>{{ producto.descripcion }}</td>
+                </tr>
+                <tr>
+                    <td>Categoría</td>
+                    <td>:</td>
+                    <td>
+                        <a href="{% url 'detail_cat' producto.categoria.id_categoria %}">{{ producto.categoria.nombre_categoria }} </a>
+                    </td>
+                </tr>
+                {% for c in componentes %}
                     <tr>
                         <td>Componente {{ forloop.counter }}</td>
                         <td>:</td>
-                        <td><a href="{% url 'detail_com' c.cod_componente %}"> {{ c.nombre_componente }} </a> </td>
+                        <td><a href="{% url 'detail_com' c.cod_componente %}"> {{ c.nombre_componente }} </a></td>
                     </tr>
-                    {% endfor %}
-                    <tr>
-                        <td>Precio unitario</td>
-                        <td>:</td>
-                        <td>{{ producto.precio_unidad }}€</td>
-                    </tr>
-                </table>
-            </div>
+                {% endfor %}
+                <tr>
+                    <td>Precio unitario</td>
+                    <td>:</td>
+                    <td>{{ producto.precio_unidad }}€</td>
+                </tr>
+            </table>
         </div>
+    </div>
 
-{% endblock%}
+{% endblock %}

@@ -1,17 +1,18 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block contenido%}
+{% block contenido %}
 
-        <div class="contenedor-principal-formularios">
-            <div class="formularios">
-                <h1>Editar los productos del pedido</h1>
-                <form class="formularios_contenido" action="{% url 'actualizar_productoEnPedido' cod_pedido=cod_pedido %}" method="post">
-                    {% csrf_token %}
-                    {{ formulario.errors }}
-                    {{ formulario.as_ul }}
+    <div class="contenedor-principal-formularios">
+        <div class="formularios">
+            <h1>Editar los productos del pedido</h1>
+            <form class="formularios_contenido" action="{% url 'actualizar_productoEnPedido' cod_pedido=cod_pedido %}"
+                  method="post">
+                {% csrf_token %}
+                {{ formulario.errors }}
+                {{ formulario.as_ul }}
                 <input class="boton_nuevo" type="submit" value="Editar productos"/>
             </form>
-            </div>
         </div>
+    </div>
 
 {% endblock %}

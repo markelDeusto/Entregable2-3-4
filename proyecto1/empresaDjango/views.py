@@ -100,7 +100,6 @@ def detail_cliente(request, cif):
     return render(request, 'detail_cliente.html', context)
 
 
-
 def detail_categoria(request, id_categoria):
     categoria = get_object_or_404(Categoria, id_categoria=id_categoria)
     context = {

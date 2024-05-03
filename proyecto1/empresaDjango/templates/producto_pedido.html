@@ -1,16 +1,17 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block contenido%}
+{% block contenido %}
 
-         <div class="contenedor-principal-formularios">
-             <div class="formularios">
-                <form class="formularios_contenido" action = "{% url 'pedidoproducto_create' cod_pedido=cod_pedido %}" method = "post">
-                    {% csrf_token %}
-                    {{ formulario.errors }}
-                    {{ formulario.as_ul }}
-                    <input class="boton_nuevo" type="submit" value="Añadir producto al pedido">
-                </form>
-             </div>
-         </div>
+    <div class="contenedor-principal-formularios">
+        <div class="formularios">
+            <form class="formularios_contenido" action="{% url 'pedidoproducto_create' cod_pedido=cod_pedido %}"
+                  method="post">
+                {% csrf_token %}
+                {{ formulario.errors }}
+                {{ formulario.as_ul }}
+                <input class="boton_nuevo" type="submit" value="Añadir producto al pedido">
+            </form>
+        </div>
+    </div>
 
 {% endblock %}

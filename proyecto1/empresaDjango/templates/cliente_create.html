@@ -1,17 +1,17 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block contenido%}
+{% block contenido %}
 
-        <div class="contenedor-principal-formularios">
-            <div class="formularios">
-                <h1>Nuevo cliente:</h1>
-                <form class="formularios_contenido" action = "{% url 'cliente_create' %}" method = "post">
-                    {% csrf_token %}
-                    {{ formulario.errors }}
-                    {{ formulario.as_ul }}
-                    <input class="boton_nuevo" type="submit" value="Nuevo cliente">
-                </form>
-            </div>
+    <div class="contenedor-principal-formularios">
+        <div class="formularios">
+            <h1>Nuevo cliente:</h1>
+            <form class="formularios_contenido" action="{% url 'cliente_create' %}" method="post">
+                {% csrf_token %}
+                {{ formulario.errors }}
+                {{ formulario.as_ul }}
+                <input class="boton_nuevo" type="submit" value="Nuevo cliente">
+            </form>
         </div>
+    </div>
 
 {% endblock %}
