@@ -25,14 +25,28 @@ html {
     border-bottom: 1px solid #2e2c2c83;
     margin: 0 5rem 0 5rem;
   }
+  .nav-principal img{
+    margin-right: 13rem;
+  }
 
 @media (max-width:769px) {
   .nav-principal {
     display: flex;
     flex-direction: column;
-    margin-left: 0;
     justify-content: center;
     align-items: center;
+  }
+  .nav-principal img{
+    margin: 0 4rem 0 0;
+  }
+
+}
+@media (max-width:391px) {
+  .nav-principal{
+    margin: 1rem 2rem 0 2rem;
+  }
+  .nav-principal img{
+    margin: 0;
   }
 }
 
@@ -43,9 +57,15 @@ html {
 }
 @media (max-width:769px) {
   .nav-principal img{
-    margin-left: 7rem;
+    margin-left: 5rem;
   }
 }
+@media (max-width:391px) {
+  .nav-principal img{
+    margin-left: 0rem;
+  }
+}
+
   .nav-principal img {
     height: 10rem;
   }
@@ -74,11 +94,11 @@ html {
     font-size: 1.7rem;
   }
 }
-
 @media (max-width:391px) {
   .elementos-navegacion{
     flex-direction: column;
     justify-content: center;
+    margin-left: 2rem;
   }
 }
 
@@ -108,11 +128,13 @@ html {
   .parte-derecha-landing{
     display: flex;
     align-items: center;
+    justify-content: center;
   }
 @media (max-width:769px) {
   .parte-derecha-landing{
     justify-content: center;
-    margin-top: 2rem;
+    margin-top: 6rem;
+
   }
 }
 @media (max-width:391px) {
@@ -132,7 +154,7 @@ html {
   .contenedor-principal-index{
     margin: 2rem 5rem 2rem 5rem;
     display: grid;
-    min-height: 40rem;
+    min-height: 65rem;
     grid-template-columns: 60% 40%;
   }
 @media (max-width:769px) {
@@ -141,18 +163,32 @@ html {
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    min-height: 75rem;
+  }
+}
+@media (max-width:391px) {
+  .contenedor-principal-index{
+     margin: 2rem 2rem 2rem 2rem;
+    min-height: 48rem;
   }
 }
 
   .parte-izquierda{
+    display: flex;
     margin-left: 2rem;
+    align-items: center;
   }
   .parte-izquierda img{
     border-radius: 2rem;
-    width: 60rem;
-    height: 37rem;
+    width: 75rem;
+    height: 55rem;
   }
-  @media (max-width:391px) {
+@media (max-width: 769px){
+  .parte-izquierda img{
+    width: 65rem;
+  }
+}
+@media (max-width:391px) {
   .parte-izquierda img{
     width: 30rem;
     height: 20rem;
@@ -173,6 +209,9 @@ html {
   .listados{
     font-size: 1rem;
   }
+  .parte-derecha ul{
+    padding: 1rem;
+  }
 }
 
   .producto_eliminado{
@@ -192,8 +231,21 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
+    min-height: 65rem;
 
   }
+@media(max-width: 769px){
+  .contenedor-principal-detail{
+    min-height: 75rem;
+  }
+}
+@media(max-width: 391px){
+  .contenedor-principal-detail{
+    min-width: 32rem;
+    margin-left: 4rem;
+    min-height: 48rem;
+  }
+}
   .contenedor-central{
     display: flex;
     flex-direction: column;
@@ -209,14 +261,26 @@ html {
     padding-bottom: 2rem;
   }
   .detalle-pedidos{
-    margin: 1rem;
-    margin-left: 3rem;
+    margin: 1rem 1rem 1rem 3rem;
     font-size: 2rem;
     text-align: center;
   }
 @media (max-width:391px) {
+  .contenedor-central{
+    min-width: 0;
+    width: 43rem;
+    flex-wrap: wrap;
+  }
+  .contenedor-central h1{
+    margin-right: 11rem;
+  }
   .listados{
     font-size: 1.5rem;
+  }
+  .detalle-pedidos{
+    margin: 1rem;
+    font-size: 1.5rem;
+    text-align: center;
   }
 }
   .detalle-pedidos td{
@@ -229,9 +293,7 @@ html {
     font-weight: bolder;
     background-color: #1DA5FE;
     border-radius: 1rem;
-    margin-left: 3rem;
-    margin-right: 18rem;
-    margin-top: 1rem;
+
   }
 
   .boton_crear a{
@@ -306,6 +368,19 @@ html {
     color: white;
     font-size: 1.5rem;
   }
+  @media(max-width: 391px){
+    .boton_actualizar{
+      margin-bottom: 7rem;
+      margin-left: 0;
+      width: 7rem;
+      height: 2rem;
+    }
+    .boton_borrar{
+      height: 2rem;
+      margin-right: 1rem;
+    }
+
+  }
 
 
   /*DETAIL_PRODUCTOS*/
@@ -320,6 +395,18 @@ html {
     width: 15rem;
     padding-bottom: 2rem;
   }
+@media(max-width: 391px){
+
+  .detalle-productos{
+    margin: 1rem;
+    font-size: 1.5rem;
+    text-align: center;
+    max-width: 30rem;
+  }
+  .contenedor-central h1{
+    margin-right: 0;
+  }
+}
 
   /*DETAIL_CLIENTES*/
   .detalle-clientes{
