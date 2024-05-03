@@ -100,15 +100,13 @@ def detail_cliente(request, cif):
     return render(request, 'detail_cliente.html', context)
 
 
-def index_categoria(request):
-    categorias = Categoria.objects.all()
-    output = ', '.join([ca.nombre_categoria for ca in categorias])
-    return HttpResponse(output)
-
 
 def detail_categoria(request, id_categoria):
-    categoria = Categoria.objects.get(pk=id_categoria)
-    return HttpResponse(categoria)
+    categoria = get_object_or_404(Categoria, id_categoria=id_categoria)
+    context = {
+        'categoria': categoria
+    }
+    return render(request, 'detail_categoria.html', context)
 
 
 def index_producto(request):

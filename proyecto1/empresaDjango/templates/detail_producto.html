@@ -29,7 +29,7 @@
                     <tr>
                         <td>Categoría</td>
                         <td>:</td>
-                        <td>{{ producto.categoria.nombre_categoria }}</td>
+                        <td><a href="{% url 'detail_cat' producto.categoria.id_categoria %}">{{ producto.categoria.nombre_categoria}} </a> </td>
                     </tr>
                     {% for c in componentes %}
                     <tr>

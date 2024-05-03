@@ -385,8 +385,7 @@ html {
 
   /*DETAIL_PRODUCTOS*/
   .detalle-productos{
-    margin: 1rem;
-    margin-left: 3rem;
+    margin: 1rem 1rem 1rem 3rem;
     font-size: 2rem;
     text-align: center;
     width: 60rem;
@@ -395,18 +394,24 @@ html {
     width: 15rem;
     padding-bottom: 2rem;
   }
-@media(max-width: 391px){
+@media(max-width: 391px) {
 
-  .detalle-productos{
-    margin: 1rem;
+  .detalle-productos {
+    margin: 0.5rem;
     font-size: 1.5rem;
     text-align: center;
-    max-width: 30rem;
+
+  }
+}
+
+  @media(max-width: 391px){
+    width: 1rem;
+    padding-bottom: 1.5rem;
   }
   .contenedor-central h1{
     margin-right: 0;
   }
-}
+
 
   /*DETAIL_CLIENTES*/
   .detalle-clientes{
@@ -426,6 +431,17 @@ html {
     text-align: center;
   }
   .detalle-componentes td{
+    width: 15rem;
+    padding-bottom: 2rem;
+  }
+
+  /*DETAIL CATEGORIAS*/
+  .detalle-categoria{
+    margin: 1rem 1rem 1rem 3rem;
+    font-size: 2rem;
+    text-align: center;
+  }
+  .detalle-categoria td{
     width: 15rem;
     padding-bottom: 2rem;
   }

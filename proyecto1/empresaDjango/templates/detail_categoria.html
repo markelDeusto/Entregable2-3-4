@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contenido%}
+
+        <div class="contenedor-principal-detail">
+            <div class="contenedor-central">
+            <h1>Detalles del componente:</h1>
+                <table class="detalle-categoria">
+                    <tr>
+                        <td>ID</td>
+                        <td>:</td>
+                        <td>{{ categoria.id_categoria }}</td>
+                    </tr>
+                    <tr>
+                        <td>Nombre:</td>
+                        <td>:</td>
+                        <td>{{ categoria.nombre_categoria }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+{% endblock %}
