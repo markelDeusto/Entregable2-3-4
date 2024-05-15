@@ -1,7 +1,8 @@
 from django.urls import path
 
 from empresaDjango import views
-from empresaDjango.views import PedidoCreateView, ProductoCreateView, PedidoProductoCreateView, ClienteCreateView
+from empresaDjango.views import PedidoCreateView, ProductoCreateView, PedidoProductoCreateView, ClienteCreateView, \
+    contacto
 
 urlpatterns = [
     path('', views.landing_page, name="landing_page"),
@@ -23,4 +24,5 @@ urlpatterns = [
     path('pedido/actualizar/<int:cod_pedido>', views.actualizar_pedido.as_view(), name="actualizar_pedido"),
     path('pedido/actualizar/producto/<int:cod_pedido>', views.actualizar_productoEnPedido.as_view(),
          name="actualizar_productoEnPedido"),
+    path('contacto', views.email, name="contacto")
 ]

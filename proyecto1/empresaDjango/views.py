@@ -5,6 +5,12 @@ from django.http import HttpResponse
 from django.views import View
 from django.views.generic import UpdateView
 
+from django.core.mail import EmailMessage
+from django.template.loader import render_to_string
+from django.contrib import messages
+
+from django.conf import settings
+
 import empresaDjango
 from empresaDjango.forms import PedidoForm, ProductoForm, ProductoPedidoForm, ClienteForm
 from empresaDjango.models import Pedido, Cliente, Categoria, Producto, Componente, ProductoPedido
@@ -205,3 +211,31 @@ class ClienteCreateView(View):
             formulario.save()
             return redirect('index_cli')
         return render(request, 'cliente_create.html', {'formulario': formulario})
+
+def email(request):
+    return render(request, 'contactanos.html')
+
+def contacto(request):
+    if request.method == 'POST':
+        nombre = request.POST['nombre']
+        email = request.POST['email']
+        asunto = request.POST['asunto']
+        mensaje = request.POST['mensaje']
+
+        template = render_to_string('plantilla_email.html', {
+            'nombre': nombre,
+            'email': email,
+            'mensaje': mensaje
+        })
+
+        email = EmailMessage(
+            asunto,
+            template,
+            settings.EMAIL_HOST_USER,
+            ['inigo.murga@opendeusto.es']
+        )
+
+        email.fail_silently = False
+        email.send()
+        messages.success(request, 'Correo enviado exitosamente')
+        return redirect('contacto')
