@@ -1,3 +1,4 @@
+from django.core.mail.backends import console
 from django.shortcuts import render, redirect, get_object_or_404
 
 # Create your views here.
@@ -221,6 +222,8 @@ def contacto(request):
         email = request.POST['email']
         asunto = request.POST['asunto']
         mensaje = request.POST['mensaje']
+        print("1")
+
 
         template = render_to_string('plantilla_email.html', {
             'nombre': nombre,
@@ -232,10 +235,10 @@ def contacto(request):
             asunto,
             template,
             settings.EMAIL_HOST_USER,
-            ['inigo.murga@opendeusto.es']
+            ['correodjango123@gmil.com']
         )
 
         email.fail_silently = False
         email.send()
         messages.success(request, 'Correo enviado exitosamente')
-        return redirect('contacto')
+        return redirect('landing_page')
