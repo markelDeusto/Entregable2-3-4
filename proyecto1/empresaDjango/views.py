@@ -219,26 +219,26 @@ def email(request):
 def contacto(request):
     if request.method == 'POST':
         nombre = request.POST['nombre']
-        email = request.POST['email']
+        email1 = request.POST['email']
         asunto = request.POST['asunto']
         mensaje = request.POST['mensaje']
         print("1")
 
 
-        template = render_to_string('plantilla_email.html', {
+        template = render_to_string('plantilla_email.html',{
             'nombre': nombre,
-            'email': email,
+            'email': email1,
             'mensaje': mensaje
         })
 
-        email = EmailMessage(
+        msg = EmailMultiAlternatives(
             asunto,
             template,
             settings.EMAIL_HOST_USER,
-            ['correodjango123@gmil.com']
+            [email1],
         )
 
-        email.fail_silently = False
-        email.send()
+        msg.fail_silently = False
+        msg.send()
         messages.success(request, 'Correo enviado exitosamente')
         return redirect('landing_page')
