@@ -6,15 +6,17 @@ from django.http import HttpResponse
 from django.views import View
 from django.views.generic import UpdateView
 
-from django.core.mail import EmailMessage
+from django.core.mail import EmailMessage, send_mail
 from django.template.loader import render_to_string
 from django.contrib import messages
 
 from django.conf import settings
 
 import empresaDjango
-from empresaDjango.forms import PedidoForm, ProductoForm, ProductoPedidoForm, ClienteForm
+from empresaDjango.forms import PedidoForm, ProductoForm, ProductoPedidoForm, ClienteForm, ContactoForm
 from empresaDjango.models import Pedido, Cliente, Categoria, Producto, Componente, ProductoPedido
+
+from django.core.mail import EmailMessage
 
 
 def landing_page(request):
@@ -213,32 +215,23 @@ class ClienteCreateView(View):
             return redirect('index_cli')
         return render(request, 'cliente_create.html', {'formulario': formulario})
 
-def email(request):
-    return render(request, 'contactanos.html')
 
 def contacto(request):
+    contacto_form = ContactoForm()
     if request.method == 'POST':
-        nombre = request.POST['nombre']
-        email1 = request.POST['email']
-        asunto = request.POST['asunto']
-        mensaje = request.POST['mensaje']
-        print("1")
+        contacto_form = ContactoForm(data=request.POST)
+        if contacto_form.is_valid():
+            nombre = request.POST.get('nombre')
+            email = request.POST.get('email')
+            mensaje = request.POST.get('mensaje')
 
+            send_mail(
+                'Mensaje de ' + nombre,
+                nombre + ' dice: ' + mensaje,
+                'settings.EMAIL_HOST_USER',
+                [email],
+            )
+            fail_silently = False
+            return redirect('contacto')
 
-        template = render_to_string('plantilla_email.html',{
-            'nombre': nombre,
-            'email': email1,
-            'mensaje': mensaje
-        })
-
-        msg = EmailMultiAlternatives(
-            asunto,
-            template,
-            settings.EMAIL_HOST_USER,
-            [email1],
-        )
-
-        msg.fail_silently = False
-        msg.send()
-        messages.success(request, 'Correo enviado exitosamente')
-        return redirect('landing_page')
+    return render(request, 'contactanos.html', {"contacto_form": contacto_form})

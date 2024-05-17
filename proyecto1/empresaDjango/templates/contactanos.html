@@ -1,51 +1,15 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block contenido %}
-
-    <div class="contenedor-contacto">
-        <form method="post" action="{% url 'contacto' %}" class="email-contacto">
-            {% csrf_token %}
-            <span class="titulo-contacto">
-                Contáctanos
-            </span>
-
-            {% if messages %}
-                {% for message in messages %}
-                   <div class="alert alert-success" role="alert">
-                       {{ message }}
-                   </div>
-                {% endfor %}
-            {% endif %}
-
-            <div class="campos-contacto" data-validate="El nombre es obligatorio">
-                <label>
-                    <input class="campo" type="text" name="nombre" placeholder="Nombre">
-                </label>
-                <span class="shadow-input1"></span>
-            </div>
-            <div class="campos-contacto" data-validate="El correo es obligatorio">
-                <label>
-                    <input class="campo" type="text" name="gmail" placeholder="Correo">
-                </label>
-                <span class="shadow-input1"></span>
-            </div>
-            <div class="campos-contacto" data-validate="El asunto es obligatorio">
-                <label>
-                    <input class="campo" type="text" name="asunto" placeholder="Asunto">
-                </label>
-                <span class="shadow-input1"></span>
-            </div>
-            <div class="campos-contacto" data-validate="El mensaje es obligatorio">
-                <label>
-                    <textarea class="campo" type="text" name="mensaje" placeholder="Mensaje"></textarea>
-                </label>
-                <span class="shadow-input1"></span>
-            </div>
-            <input class="boton_nuevo" type="submit" value="Enviar correo"/>
-
-        </form>
+    <div class="contenedor-principal-formularios">
+        <div class="contenedor-contacto">
+            <h1>Formulario de contacto:</h1>
+            <form class="formularios_contenido" method="post" action="{% url 'contacto' %}" class="email-contacto">
+                {% csrf_token %}
+                {{ contacto_form.errors }}
+                {{ contacto_form.as_ul }}
+                <input class="enviar-mensaje" type="submit" value="Enviar mensaje">
+            </form>
+        </div>
     </div>
-
-
-
 {% endblock %}

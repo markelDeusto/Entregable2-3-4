@@ -13,15 +13,22 @@
                  alt="Foto con diferentes productos tecnológicos en un escritorio"/>
         </div>
         <div class="parte-derecha-landing">
-            <a href="{% url 'index_ped' %}">
-                <button class="boton-landing">Gestión de pedidos</button>
-            </a>
-            <a href="{% url 'index_pro' %}">
-                <button class="boton-landing">Gestión de productos</button>
-            </a>
-            <a href="{% url 'index_cli' %}">
-                <button class="boton-landing">Gestión de clientes</button>
-            </a>
+            <div class="parte-derecha-arriba-landing">
+                <a href="{% url 'index_ped' %}">
+                    <button class="boton-landing">Gestión de pedidos</button>
+                </a>
+                <a href="{% url 'index_pro' %}">
+                    <button class="boton-landing">Gestión de productos</button>
+                </a>
+                <a href="{% url 'index_cli' %}">
+                    <button class="boton-landing">Gestión de clientes</button>
+                </a>
+            </div>
+            <div class="parte-derecha-abajo-landing">
+                <div class="dudas">
+                    <p>¿Tienes dudas? <a href="{% url 'contacto' %}">Contacta con nosotros</a></p>
+                </div>
+            </div>
         </div>
     </div>
     </body>
