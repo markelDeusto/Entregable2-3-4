@@ -7,6 +7,12 @@
             <img src="{% static 'images/productos.webp' %}" alt="Foto con diferentes productos tecnológicos"/>
         </div>
         <div class="parte-derecha">
+             <form class="formularios_contenido" action="{% url 'index_pro' %}" method="get">
+            {% csrf_token %}
+            {{ formulario.errors }}
+            {{ formulario.as_ul }}
+            <input class="boton_nuevo" type="submit" value="Filtrar">
+                </form>
             <h1>Listado de productos:</h1>
             {% if mensaje %}
                 <div class="producto_eliminado" role="alert">
