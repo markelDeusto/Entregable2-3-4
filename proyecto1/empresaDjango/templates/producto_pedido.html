@@ -4,6 +4,7 @@
 
     <div class="contenedor-principal-formularios">
         <div class="formularios">
+            <h1>¿Qué producto quieres añadir?</h1>
             <form class="formularios_contenido" action="{% url 'pedidoproducto_create' cod_pedido=cod_pedido %}"
                   method="post">
                 {% csrf_token %}
