@@ -44,5 +44,5 @@ class ContactoForm(forms.Form):
     email = forms.EmailField(label='Correo Electronico', required=True, widget=forms.EmailInput(attrs={'placeholder': 'ejemplo@gmail.com'}))
     mensaje = forms.CharField(label='Mensaje', required=True, widget=forms.Textarea)
 
-class FiltarForm(forms.Form):
+class FiltrarForm(forms.Form):
     categoria = forms.ModelChoiceField(queryset=Categoria.objects.all(), required=False, label='Categoría')

@@ -13,7 +13,7 @@ from django.contrib import messages
 from django.conf import settings
 
 import empresaDjango
-from empresaDjango.forms import PedidoForm, ProductoForm, ProductoPedidoForm, ClienteForm, ContactoForm, FiltarForm
+from empresaDjango.forms import PedidoForm, ProductoForm, ProductoPedidoForm, ClienteForm, ContactoForm, FiltrarForm
 from empresaDjango.models import Pedido, Cliente, Categoria, Producto, Componente, ProductoPedido
 
 from django.core.mail import EmailMessage
@@ -120,7 +120,7 @@ def detail_categoria(request, id_categoria):
 
 
 def index_producto(request):
-    formulario = FiltarForm(request.GET or None)
+    formulario = FiltrarForm(request.GET)
     productos = Producto.objects.all()
 
     if formulario.is_valid():
@@ -129,14 +129,6 @@ def index_producto(request):
             productos = productos.filter(categoria_id=id_categoria)
 
     return render(request, 'index_producto.html', {'formulario': formulario, 'listado_productos': productos})
-#def index_producto(request):
- #   formulario = FiltarForm()
-  #  id_categoria = formulario.fields['categoria']
-   # productos = Producto.objects.all()
-    #productos.filter(categoria_id=id_categoria)
-
-    #return render(request, 'index_producto.html', {'listado_productos': productos})
-
 
 def detail_producto(request, cod_producto):
     producto = get_object_or_404(Producto, cod_producto=cod_producto)
