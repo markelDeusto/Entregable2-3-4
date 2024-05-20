@@ -24,9 +24,10 @@
                     <li class="listados">
                         <a href="{% url 'detail_pro' pr.cod_producto %}">
                             {{ pr.cod_producto }}: {{ pr.nombre_producto }} {{ pr.modelo }}
-                            <div class="boton_borrar"><a href="{% url 'borrar_producto' pr.cod_producto %}"> Borrar </a>
-                            </div>
                         </a>
+                        <div class="boton_borrar"><a href="{% url 'borrar_producto' pr.cod_producto %}"> Borrar </a>
+                        </div>
+
                     </li>
                 {% endfor %}
 

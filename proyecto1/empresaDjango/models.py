@@ -3,13 +3,13 @@ from django.db import models
 
 # Create your models here.
 class Cliente(models.Model):
-    cif = models.CharField(max_length=10)
+    cif = models.CharField(max_length=10) #primary key true
     nombre_empresa = models.CharField(max_length=10)
     direccion = models.CharField(max_length=50)
     contacto = models.CharField(max_length=10)
 
     def __str__(self):
-        return f"cif={self.cif}, nombre={self.nombre_empresa}, dirección={self.direccion}, contacto={self.contacto}"
+        return f"nombre={self.nombre_empresa}"
 
 
 class Pedido(models.Model):
@@ -19,7 +19,7 @@ class Pedido(models.Model):
     precio_total = models.IntegerField(default=0)
 
     def __str__(self):
-        return f"código={self.cod_pedido}, cliente={self.cliente.nombre_empresa}, fecha={self.fecha}, precio={self.precio_total}€"
+        return f"código={self.cod_pedido}, cliente={self.cliente.nombre_empresa}"
 
     def calcular_precio_total(self):
         precio_total = 0
@@ -45,8 +45,7 @@ class Producto(models.Model):
     modelo = models.CharField(max_length=50)
 
     def __str__(self):
-        return (f"nombre={self.nombre_producto}, modelo={self.modelo}, categoria={self.categoria.nombre_categoria}, "
-                f"precio={self.precio_unidad}, código={self.cod_producto}, descripcion={self.descripcion}")
+        return f"nombre={self.nombre_producto}, modelo={self.modelo}"
 
 
 class ProductoPedido(models.Model):
@@ -66,5 +65,4 @@ class Componente(models.Model):
     marca = models.CharField(max_length=50)
 
     def __str__(self):
-        return (f"nombre={self.nombre_componente}, código={self.cod_componente}, marca={self.marca}, "
-                f"producto={self.producto.nombre_producto} {self.producto.modelo}")
+        return f"nombre={self.nombre_componente}"

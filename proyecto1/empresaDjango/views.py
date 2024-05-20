@@ -196,7 +196,7 @@ class PedidoProductoCreateView(View):
     def get(self, request, cod_pedido):
         formulario = ProductoPedidoForm()
         context = {'formulario': formulario, 'cod_pedido': cod_pedido}
-        return render(request, 'producto_pedido.html', {'formulario': formulario, 'cod_pedido': cod_pedido})
+        return render(request, 'producto_pedido.html', context)
 
     def post(self, request, cod_pedido):
         formulario = ProductoPedidoForm(data=request.POST)
