@@ -156,6 +156,9 @@ a {
 .dudas{
     font-size: 1.5rem;
 }
+.inputs-preguntas{
+    width: 35rem;
+}
 
 @media (max-width: 769px) {
     .parte-derecha-arriba-landing {
@@ -252,6 +255,29 @@ a {
         padding: 1rem;
     }
 }
+
+/*PAGINACION*/
+
+.paginacion{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    align-items: center;
+}
+.pagina{
+    margin: 0.2rem;
+    padding: 1rem;
+    border: 1px solid grey;
+    border-radius: 1rem;
+}
+
+.pagina-actual{
+    background-color:#1DA5FE;
+}
+.pagina-actual a{
+    color: white;
+}
+
 
 .producto_eliminado {
     font-size: 2rem;
@@ -622,8 +648,11 @@ a {
 .contenido-footer img {
     height: 3rem;
 }
+.copyright{
+    font-size: 1.5rem;
+}
 
-
+/*EMAIL*/
 .contenedor-contacto{
     text-align: center;
     padding: 2rem;

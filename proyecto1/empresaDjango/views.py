@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 # Create your views here.
 from django.http import HttpResponse
 from django.views import View
-from django.views.generic import UpdateView
+from django.views.generic import UpdateView, ListView
 
 from django.core.mail import EmailMessage, send_mail
 from django.template.loader import render_to_string
@@ -22,11 +22,11 @@ from django.core.mail import EmailMessage
 def landing_page(request):
     return render(request, 'landing_page.html')
 
-
-def index_pedido(request):
-    pedidos = Pedido.objects.all()
-    return render(request, 'index_pedido.html', {'listado_pedidos': pedidos})
-
+class index_pedidoListView(ListView):
+    model = Pedido
+    template_name = 'index_pedido.html'
+    context_object_name = 'listado_pedidos'
+    paginate_by = 2
 
 def detail_pedido(request, cod_pedido):
     pedido = get_object_or_404(Pedido, cod_pedido=cod_pedido)
@@ -234,8 +234,10 @@ def contacto(request):
             mensaje = request.POST.get('mensaje')
 
             send_mail(
-                'Mensaje de ' + nombre,
-                nombre + ' dice: ' + mensaje,
+                'Confirmacion de recepcion de email',
+                'Hola ' + nombre + ':' + '\n' + 'Hemos recibido tu consulta con el siguiente mensaje: ' + '\n' + mensaje +
+                '\n' + 'Nos pondremos en contacto con usted para resolver la duda lo antes posible.' + '\n' + '\n'
+                + 'Atentamente, el equipo de Deustronic.',
                 'settings.EMAIL_HOST_USER',
                 [email],
             )

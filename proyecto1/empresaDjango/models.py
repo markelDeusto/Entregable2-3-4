@@ -33,7 +33,7 @@ class Categoria(models.Model):
     nombre_categoria = models.CharField(max_length=50)
 
     def __str__(self):
-        return f"id={self.id_categoria}, nombre={self.nombre_categoria}"
+        return f"nombre={self.nombre_categoria}"
 
 
 class Producto(models.Model):
