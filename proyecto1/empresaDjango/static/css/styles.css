@@ -187,7 +187,7 @@ a {
 .contenedor-principal-index {
     margin: 2rem 5rem 2rem 5rem;
     display: grid;
-    min-height: 65rem;
+    min-height: 40rem;
     grid-template-columns: 60% 40%;
 }
 
@@ -212,12 +212,13 @@ a {
     display: flex;
     margin-left: 2rem;
     align-items: center;
+    height: 40rem;
 }
 
 .parte-izquierda img {
     border-radius: 2rem;
-    width: 75rem;
-    height: 55rem;
+    width: 50rem;
+    height: 35rem;
 }
 
 @media (max-width: 769px) {
@@ -238,6 +239,7 @@ a {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: 40rem;
 }
 
 .listados {
@@ -262,7 +264,9 @@ a {
     display: flex;
     flex-direction: row;
     list-style: none;
-    align-items: center;
+    justify-content: center;
+    margin-top: 3rem;
+    padding: 0;
 }
 .pagina{
     margin: 0.2rem;

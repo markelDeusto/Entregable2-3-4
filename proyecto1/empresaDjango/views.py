@@ -125,8 +125,12 @@ def index_producto(request):
 
     if formulario.is_valid():
         id_categoria = formulario.cleaned_data.get('categoria')
+        max_precio = formulario.cleaned_data.get('max_precio')
         if id_categoria:
             productos = productos.filter(categoria_id=id_categoria)
+
+        if max_precio is not None:
+            productos = productos.filter(precio_unidad__lt=max_precio)
 
     return render(request, 'index_producto.html', {'formulario': formulario, 'listado_productos': productos})
 

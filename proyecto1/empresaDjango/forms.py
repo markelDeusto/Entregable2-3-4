@@ -47,4 +47,6 @@ class ContactoForm(forms.Form):
                                                                                            'class': 'inputs-preguntas'}))
 
 class FiltrarForm(forms.Form):
-    categoria = forms.ModelChoiceField(queryset=Categoria.objects.all(), required=False, label='Categoría')
+    categoria = forms.ModelChoiceField(queryset=Categoria.objects.all(), empty_label="Selecciona una categoria",
+                                       required=False, label='Categoría')
+    max_precio = forms.IntegerField(label='Precio maximo', min_value=0, required=False)
