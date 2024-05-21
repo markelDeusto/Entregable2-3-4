@@ -238,7 +238,7 @@ def contacto(request):
             mensaje = request.POST.get('mensaje')
 
             send_mail(
-                'Confirmacion de recepcion de email',
+                'Confirmación de recepción de email',
                 'Hola ' + nombre + ':' + '\n' + 'Hemos recibido tu consulta con el siguiente mensaje: ' + '\n' + mensaje +
                 '\n' + 'Nos pondremos en contacto con usted para resolver la duda lo antes posible.' + '\n' + '\n'
                 + 'Atentamente, el equipo de Deustronic.',
