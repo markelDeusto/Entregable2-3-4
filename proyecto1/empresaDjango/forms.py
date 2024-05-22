@@ -5,14 +5,19 @@ from .models import Categoria
 
 
 class PedidoForm(forms.ModelForm):
+
+
+
     class Meta:
         model = Pedido
-        fields = ['cliente', 'cod_pedido', 'fecha']
+        fields = ['cliente', 'cod_pedido', 'fecha', 'estado']
         widgets = {
             'cliente': forms.Select(attrs={'class': 'inputs-pedido'}),
             'cod_pedido': forms.TextInput(attrs={'class': 'inputs-pedido'}),
-            'fecha': forms.DateInput(format="%d-%m-%Y", attrs={"type": "date", "class": "inputs-pedido"})
+            'fecha': forms.DateInput(format="%d-%m-%Y", attrs={"type": "date", "class": "inputs-pedido"}),
+            'estado': forms.Select( attrs={'class': 'inputs-pedido'}),
         }
+
 
 
 

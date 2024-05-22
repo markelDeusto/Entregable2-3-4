@@ -27,6 +27,7 @@ class index_pedidoListView(ListView):
     template_name = 'index_pedido.html'
     context_object_name = 'listado_pedidos'
     paginate_by = 2
+    
 
 def detail_pedido(request, cod_pedido):
     pedido = get_object_or_404(Pedido, cod_pedido=cod_pedido)
@@ -126,7 +127,7 @@ class index_productoListView(ListView):
     context_object_name = 'listado_productos'
     paginate_by = 1
 
-    def get_queryset(self):
+    def get_productos(self):
         productos = Producto.objects.all()
         self.formulario = FiltrarForm(self.request.GET)
         if self.formulario.is_valid():
