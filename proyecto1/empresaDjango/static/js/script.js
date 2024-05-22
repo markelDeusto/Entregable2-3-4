@@ -1,25 +1,27 @@
-let aument = document.getElementById('aumentar')
-aument.addEventListener('click', aumentarTexto)
+const elementosTexto = document.querySelectorAll("body *");
 
+let aument = document.getElementById('aumentar')
 let dismin = document.getElementById('disminuir')
+
+aument.addEventListener('click', aumentarTexto)
 dismin.addEventListener('click', disminuirTexto)
 
-function aumentarTexto(event){
-    let body = document.querySelector('body');
+function aumentarTexto(){
 
-    let currentFontSize = parseFloat(window.getComputedStyle(body).fontSize) / parseFloat(window.getComputedStyle(document.documentElement).fontSize );
-
-    let newFontSize = parseFloat(currentFontSize) + 0.2;
-
-    body.style.fontSize = newFontSize + 'rem';
+    elementosTexto.forEach(elemento => {
+        let tamano = window.getComputedStyle(elemento).fontSize;
+        tamano = parseFloat(tamano) ;
+        tamano = (tamano + 2);
+        elemento.style.fontSize = (tamano ) + 'px'
+    })
 }
 
-function disminuirTexto(event){
-    let body = document.querySelector('body');
+function disminuirTexto(){
 
-    let currentFontSize = parseFloat(window.getComputedStyle(body).fontSize) / parseFloat(window.getComputedStyle(document.documentElement).fontSize );
-
-    let newFontSize = parseFloat(currentFontSize) - 0.2;
-
-    body.style.fontSize = newFontSize + 'rem';
+    elementosTexto.forEach(elemento => {
+        let tamano = window.getComputedStyle(elemento).fontSize;
+        tamano = parseFloat(tamano) ;
+        tamano = (tamano - 2);
+        elemento.style.fontSize = (tamano ) + 'px'
+    })
 }

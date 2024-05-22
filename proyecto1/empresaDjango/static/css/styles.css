@@ -679,3 +679,18 @@ a {
     width: 10rem;
 }
 
+/*Aumentar y dismnuir tamaños*/
+.boton_tamano {
+    font-weight: bolder;
+    background-color: #1DA5FE;
+    border-radius: 1rem;
+    margin-left: 4rem;
+    text-align: center;
+
+}
+
+.boton_tamano a {
+    color: white;
+    font-size: 1.5rem;
+}
+
