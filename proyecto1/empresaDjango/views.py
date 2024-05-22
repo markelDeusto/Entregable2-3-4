@@ -119,6 +119,30 @@ def detail_categoria(request, id_categoria):
     return render(request, 'detail_categoria.html', context)
 
 
+class index_productoListView(ListView):
+    model = Producto
+    formulario = ProductoForm
+    template_name = 'index_producto.html'
+    context_object_name = 'listado_productos'
+    paginate_by = 1
+
+    def get_queryset(self):
+        productos = Producto.objects.all()
+        self.formulario = FiltrarForm(self.request.GET)
+        if self.formulario.is_valid():
+            id_categoria = self.formulario.cleaned_data.get('categoria')
+            max_precio = self.formulario.cleaned_data.get('max_precio')
+            if id_categoria:
+                productos = productos.filter(categoria_id=id_categoria)
+            if max_precio is not None:
+                productos = productos.filter(precio_unidad__lt=max_precio)
+        return productos
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['formulario'] = self.formulario
+        return context
+
 def index_producto(request):
     formulario = FiltrarForm(request.GET)
     productos = Producto.objects.all()

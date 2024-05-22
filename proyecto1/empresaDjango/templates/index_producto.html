@@ -8,7 +8,6 @@
         </div>
         <div class="parte-derecha">
              <form class="formularios_contenido" action="{% url 'index_pro' %}" method="get">
-            {% csrf_token %}
             {{ formulario.errors }}
             {{ formulario.as_ul }}
             <input class="boton_nuevo" type="submit" value="Filtrar">
@@ -30,6 +29,35 @@
 
                     </li>
                 {% endfor %}
+                {% if is_paginated %}
+                    <div class="contenedor-paginacion">
+                        <ul class="paginacion">
+                            {% if page_obj.has_previous %}
+                                <li class="pagina">
+                                <a href="?{{ request.GET.urlencode }}&page={{ page_obj.previous_page_number }}">Anterior</a>
+                                </li>
+                            {% endif %}
+
+                            {% for pagina in paginator.page_range %}
+                                {% if page_obj.number == pagina %}
+                                    <li class="pagina pagina-actual">
+                                        <a href="?{{ request.GET.urlencode }}&page={{ pagina }}">{{ pagina }}</a>
+                                    </li>
+                                {% else %}
+                                    <li class="pagina">
+                                        <a href="?{{ request.GET.urlencode }}&page={{ pagina }}">{{ pagina }}</a>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+
+                            {% if page_obj.has_next %}
+                                <li class="pagina">
+                                    <a href="?{{ request.GET.urlencode }}&page={{ page_obj.next_page_number }}">Siguiente</a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                {% endif %}
 
             </ul>
             <div class="boton_crear">
