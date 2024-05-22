@@ -5,9 +5,6 @@ from .models import Categoria
 
 
 class PedidoForm(forms.ModelForm):
-
-
-
     class Meta:
         model = Pedido
         fields = ['cliente', 'cod_pedido', 'fecha', 'estado']
@@ -15,8 +12,14 @@ class PedidoForm(forms.ModelForm):
             'cliente': forms.Select(attrs={'class': 'inputs-pedido'}),
             'cod_pedido': forms.TextInput(attrs={'class': 'inputs-pedido'}),
             'fecha': forms.DateInput(format="%d-%m-%Y", attrs={"type": "date", "class": "inputs-pedido"}),
-            'estado': forms.Select( attrs={'class': 'inputs-pedido'}),
+            'estado': forms.Select(attrs={'class': 'inputs-pedido'}),
         }
+
+ #   def clean_cod_pedido(self):
+ #       cod_pedido = self.cleaned_data.get('cod_pedido')
+ #       if Pedido.objects.filter(cod_pedido=cod_pedido).exists():
+ #           raise forms.ValidationError(f'El código de pedido {cod_pedido} ya existe.')
+ #       return cod_pedido
 
 
 
