@@ -17,6 +17,7 @@ from empresaDjango.forms import PedidoForm, ProductoForm, ProductoPedidoForm, Cl
 from empresaDjango.models import Pedido, Cliente, Categoria, Producto, Componente, ProductoPedido
 
 from django.core.mail import EmailMessage
+from django.http import JsonResponse
 
 
 def landing_page(request):
@@ -41,6 +42,18 @@ def detail_pedido(request, cod_pedido):
     }
     return render(request, 'detail_pedido.html', context)
 
+def actualizar_estado_pedido(request, cod_pedido):
+    if request.method == 'POST':
+        try:
+            pedido = get_object_or_404(Pedido, cod_pedido=cod_pedido)
+            data = json.loads(request.body)
+            estado = data.get('estado', 'False')
+            pedido.estado = estado  # Asegúrate de que el modelo Pedido tiene un campo 'estado'
+            pedido.save()
+            return JsonResponse({'status': 'success'})
+        except Pedido.DoesNotExist:
+            return JsonResponse({'status': 'error', 'message': 'Pedido no encontrado'})
+    return JsonResponse({'status': 'error', 'message': 'Método no permitido'}, status=405)
 
 def borrar_pedido(request, cod_pedido):
     pedido = Pedido.objects.get(cod_pedido=cod_pedido)

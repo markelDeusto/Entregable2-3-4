@@ -1,10 +1,15 @@
 const elementosTexto = document.querySelectorAll("body *");
 
+
+let boton = document.getElementById('boton_estado')
 let aument = document.getElementById('aumentar')
 let dismin = document.getElementById('disminuir')
 
 aument.addEventListener('click', aumentarTexto)
 dismin.addEventListener('click', disminuirTexto)
+
+
+
 
 function aumentarTexto(){
 
@@ -28,25 +33,30 @@ function disminuirTexto(){
 
 
 
-  let boton = document.getElementsByClassName('boton_estado')
-    boton = addEventListener('click', actualizarEstado)
+
+   document.addEventListener('DOMContentLoaded', (event) => {
+    let boton = document.getElementById('boton_estado');
+    boton.addEventListener('click', actualizarEstado);
+});
+
+
 
 
 function actualizarEstado(event) {
 
         event.preventDefault();
-        const checkbox = event.currentTarget;
         const estado = 'True';
-        const cod_pedido = checkbox.getAttribute("data-cod_pedido");
+        const cod_pedido = event.currentTarget.getAttribute("data-cod_pedido");
+        console.log(cod_pedido)
         // Crear la solicitud fetch
-        fetch('pedido/', {
+        fetch('<str:cod_pedido>/actualizar_estado', {
 
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'X-CSRFToken': 'csrfToken'
+                'X-CSRFToken': getCookie('csrftoken')
             },
-            body: JSON.stringify({ estado: estado, cod_pedido: cod_pedido })
+            body: JSON.stringify({ estado: estado })
         })
         .then(response => {
             if (response.ok) {
@@ -66,3 +76,18 @@ function actualizarEstado(event) {
             console.error('Error en la solicitud:', error);
         });
     }
+
+    function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
