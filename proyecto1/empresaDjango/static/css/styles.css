@@ -698,3 +698,10 @@ a {
     font-size: 1.5rem;
 }
 
+.productos_mostrar{
+    display: none;
+}
+
+.boton_ocultar{
+    display: none;
+}

@@ -8,9 +8,6 @@ let dismin = document.getElementById('disminuir')
 aument.addEventListener('click', aumentarTexto)
 dismin.addEventListener('click', disminuirTexto)
 
-
-
-
 function aumentarTexto(){
 
     elementosTexto.forEach(elemento => {
@@ -31,15 +28,10 @@ function disminuirTexto(){
     })
 }
 
-
-
-
-   document.addEventListener('DOMContentLoaded', (event) => {
+document.addEventListener('DOMContentLoaded', (event) => {
     let boton = document.getElementById('boton_estado');
     boton.addEventListener('click', actualizarEstado);
 });
-
-
 
 
 function actualizarEstado(event) {
@@ -91,3 +83,38 @@ function actualizarEstado(event) {
     }
     return cookieValue;
 }
+
+let mostrar = document.getElementById('mostrar')
+
+mostrar.addEventListener('click', mostrarProductos)
+
+let ocultar = document.getElementById('ocultar')
+
+ocultar.addEventListener('click', ocultarProductos)
+function mostrarProductos(){
+    let prods = document.getElementsByClassName("productos_mostrar")
+    let btnOcult = document.getElementById("ocultar")
+    let btnMost = document.getElementById("mostrar")
+
+    for (let i = 0; i < prods.length; i++) {
+        prods[i].style.display = "block";
+    }
+
+    btnOcult.style.display = "block"
+    btnMost.style.display = "none"
+
+}
+
+function ocultarProductos(){
+    let prods = document.getElementsByClassName("productos_mostrar")
+    let btnMost = document.getElementById("mostrar")
+    let btnOcult = document.getElementById("ocultar")
+
+    for (let i = 0; i < prods.length; i++) {
+        prods[i].style.display = "none";
+    }
+
+    btnMost.style.display = "block"
+    btnOcult.style.display = "none"
+}
+
