@@ -28,35 +28,25 @@ function disminuirTexto(){
 
 
 
-    document.addEventListener("DOMContentLoaded", function() {
-        // Obtener el token CSRF
-        const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+  let boton = document.getElementsByClassName('boton_estado')
+    boton = addEventListener('click', actualizarEstado)
 
-        // Agregar event listeners a todos los checkboxes
-        document.querySelectorAll('[id^="estado_cambiar_"]').forEach(function(checkbox) {
-            checkbox.addEventListener("change", function(event) {
-                actualizarEstado(event, csrfToken);
-            });
-        });
-    });
 
-function actualizarEstado(event, csrfToken) {
+function actualizarEstado(event) {
+
         event.preventDefault();
         const checkbox = event.currentTarget;
-        const estado = checkbox.checked;
-        const pedidoCod = checkbox.getAttribute("data-pedido");
-
-        // URL de la vista que maneja la actualización del estado
-        const url = `/actualizar_estado_pedido/${pedidoCod}/`;
-
+        const estado = 'True';
+        const cod_pedido = checkbox.getAttribute("data-cod_pedido");
         // Crear la solicitud fetch
-        fetch(url, {
+        fetch('pedido/', {
+
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'X-CSRFToken': csrfToken
+                'X-CSRFToken': 'csrfToken'
             },
-            body: JSON.stringify({ estado: estado })
+            body: JSON.stringify({ estado: estado, cod_pedido: cod_pedido })
         })
         .then(response => {
             if (response.ok) {
