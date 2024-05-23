@@ -3,7 +3,7 @@ from django.db import models
 
 # Create your models here.
 class Cliente(models.Model):
-    cif = models.CharField(max_length=10) #primary key true
+    cif = models.CharField(max_length=10, unique=True)
     nombre_empresa = models.CharField(max_length=10)
     direccion = models.CharField(max_length=50)
     contacto = models.CharField(max_length=10)
@@ -14,7 +14,7 @@ class Cliente(models.Model):
 
 class Pedido(models.Model):
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
-    cod_pedido = models.CharField(max_length=10)
+    cod_pedido = models.CharField(max_length=10, unique=True)
     fecha = models.DateField()
     precio_total = models.IntegerField(default=0)
     estado = models.BooleanField(default=False)
@@ -39,7 +39,7 @@ class Categoria(models.Model):
 
 class Producto(models.Model):
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
-    cod_producto = models.CharField(max_length=10)
+    cod_producto = models.CharField(max_length=10, unique=True)
     nombre_producto = models.CharField(max_length=50)
     descripcion = models.CharField(max_length=50)
     precio_unidad = models.IntegerField()
@@ -61,7 +61,7 @@ class ProductoPedido(models.Model):
 
 class Componente(models.Model):
     producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
-    cod_componente = models.CharField(max_length=10)
+    cod_componente = models.CharField(max_length=10, unique=True)
     nombre_componente = models.CharField(max_length=50)
     marca = models.CharField(max_length=50)
 
