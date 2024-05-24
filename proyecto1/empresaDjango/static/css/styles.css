@@ -736,6 +736,7 @@ a {
     transition: background-color 0.3s ease;
     width: 7.5rem;
     height: 2.15rem;
+    cursor: pointer;
 }
 
 .boton_mostrar:hover, .boton_ocultar:hover {
