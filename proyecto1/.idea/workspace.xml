@@ -5,17 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fec63946-7069-4671-bcdf-daf427e5cf17" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/330e1e00-72fc-472c-bad9-47f03f988cc1.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/empresaDjango/static/js/script2.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/empresaDjango/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/empresaDjango/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/empresaDjango/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/empresaDjango/static/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/empresaDjango/templates/detail_pedido.html" beforeDir="false" afterPath="$PROJECT_DIR$/empresaDjango/templates/detail_pedido.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/empresaDjango/templates/index_cliente.html" beforeDir="false" afterPath="$PROJECT_DIR$/empresaDjango/templates/index_cliente.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/empresaDjango/templates/index_pedido.html" beforeDir="false" afterPath="$PROJECT_DIR$/empresaDjango/templates/index_pedido.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/empresaDjango/templates/index_producto.html" beforeDir="false" afterPath="$PROJECT_DIR$/empresaDjango/templates/index_producto.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/empresaDjango/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/empresaDjango/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/empresaDjango/static/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/empresaDjango/static/js/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/empresaDjango/templates/pedido_create.html" beforeDir="false" afterPath="$PROJECT_DIR$/empresaDjango/templates/pedido_create.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,24 +28,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Deusto/Desktop/Entrega IW grupo/definitivo/Entregable2-3-4/proyecto1&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/Deusto/OneDrive - Universidad de Deusto/Escritorio/SEGUNDO/SEGUNDO SEMESTRE/Entregable2-3-4/proyecto1/empresaDjango/static/js",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Deusto\OneDrive - Universidad de Deusto\Escritorio\SEGUNDO\SEGUNDO SEMESTRE\Entregable2-3-4\proyecto1\empresaDjango\static\js" />
       <recent name="C:\Users\Deusto\Documents\SEGUNDO\2 cuatri\workspaceIW\workspaceDjango\proyectos\Entregable2-3-4\proyecto1\empresaDjango\static\css" />
     </key>
   </component>
@@ -100,7 +96,7 @@
       <workItem from="1716490955534" duration="993000" />
       <workItem from="1716491961070" duration="5364000" />
       <workItem from="1716498397869" duration="2080000" />
-      <workItem from="1716529243425" duration="4640000" />
+      <workItem from="1716529243425" duration="12122000" />
     </task>
     <servers />
   </component>

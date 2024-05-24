@@ -3,14 +3,16 @@
 {% block contenido %}
 
     <div class="contenedor-principal-formularios">
+        <div id="mensaje"></div>
         <div class="formularios">
             <h1>Nuevo pedido:</h1>
             <form class="formularios_contenido" action="{% url 'pedido_create' %}" method="post">
                 {% csrf_token %}
                 {{ formulario.errors }}
                 {{ formulario.as_ul }}
-                <input class="boton_nuevo" type="submit" value="Siguiente">
+                <input class="boton_siguiente" type="submit" value="Siguiente">
             </form>
         </div>
     </div>
+    <script src="{% static 'js/script2.js' %}"></script>
 {% endblock %}

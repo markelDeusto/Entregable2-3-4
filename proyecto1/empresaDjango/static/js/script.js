@@ -5,6 +5,7 @@ let boton = document.getElementById('boton_estado')
 let aument = document.getElementById('aumentar')
 let dismin = document.getElementById('disminuir')
 
+
 aument.addEventListener('click', aumentarTexto)
 dismin.addEventListener('click', disminuirTexto)
 
@@ -27,11 +28,13 @@ function disminuirTexto(){
         elemento.style.fontSize = (tamano ) + 'px'
     })
 }
-
+/*
 document.addEventListener('DOMContentLoaded', (event) => {
     let boton = document.getElementById('boton_estado');
     boton.addEventListener('click', actualizarEstado);
 });
+
+ */
 
 
 function actualizarEstado(event) {
@@ -86,12 +89,16 @@ function actualizarEstado(event) {
 
 let mostrar = document.getElementById('mostrar')
 
+
 mostrar.addEventListener('click', mostrarProductos)
 
 let ocultar = document.getElementById('ocultar')
 
 ocultar.addEventListener('click', ocultarProductos)
+
+
 function mostrarProductos(){
+
     let prods = document.getElementsByClassName("productos_mostrar")
     let btnOcult = document.getElementById("ocultar")
     let btnMost = document.getElementById("mostrar")
@@ -117,4 +124,8 @@ function ocultarProductos(){
     btnMost.style.display = "block"
     btnOcult.style.display = "none"
 }
+
+
+
+
 

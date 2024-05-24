@@ -628,6 +628,13 @@ a {
     border-radius: 1rem;
     height: 3rem;
 }
+.boton_siguiente{
+    margin: 2rem;
+    background-color: aliceblue;
+    font-size: 1.5rem;
+    border-radius: 1rem;
+    height: 3rem;
+}
 
 .respuestas {
     display: flex;
