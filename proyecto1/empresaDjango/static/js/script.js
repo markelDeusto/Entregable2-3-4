@@ -101,14 +101,17 @@ function mostrarProductos(){
 
     let prods = document.getElementsByClassName("productos_mostrar")
     let btnOcult = document.getElementById("ocultar")
+    let celdOcult = document.querySelector(".celda_ocult")
     let btnMost = document.getElementById("mostrar")
 
     for (let i = 0; i < prods.length; i++) {
-        prods[i].style.display = "block";
+        prods[i].style.display = "table-row";
     }
 
+    celdOcult.style.display = "table-row"
     btnOcult.style.display = "block"
     btnMost.style.display = "none"
+
 
 }
 

@@ -23,8 +23,7 @@
                 </tr>
                 <tr>
                     <td>PRODUCTOS</td>
-                    <td><button class="boton_mostrar" id="mostrar">Mostrar los productos</button></td>
-                    <td><button class="boton_ocultar" id="ocultar">Ocultar los productos</button></td>
+                    <td><a class="boton_mostrar" id="mostrar">Mostrar todos</a></td>
                 </tr>
                 {% for detalle in detalles_pedido %}
                     <tr class="productos_mostrar">
@@ -37,12 +36,13 @@
                         <td>{{ detalle.cantidad }} unidades</td>
 
                         <td>
-                            <div class="boton_actualizar"><a
+                            <div class="boton_actualizar boton"><a
                                     href="{% url 'actualizar_productoEnPedido' pedido.cod_pedido %}"> Actualizar </a>
                             </div>
                         </td>
                     </tr>
                 {% endfor %}
+                <td class="celda_ocult"><a class="boton_ocultar" id="ocultar">Ocultar todos</a></td>
                 <tr>
                     <td>Precio total</td>
                     <td>:</td>

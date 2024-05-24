@@ -58,8 +58,7 @@ def actualizar_estado_pedido(request, cod_pedido):
 def borrar_pedido(request, cod_pedido):
     pedido = Pedido.objects.get(cod_pedido=cod_pedido)
     pedido.delete()
-    pedidos = Pedido.objects.all()
-    return render(request, 'index_pedido.html', {'listado_pedidos': pedidos, "mensaje": "si"})
+    return redirect('index_ped')
 
 
 class actualizar_pedido(UpdateView):
@@ -171,8 +170,7 @@ def detail_producto(request, cod_producto):
 def borrar_producto(request, cod_producto):
     producto = Producto.objects.get(cod_producto=cod_producto)
     producto.delete()
-    productos = Producto.objects.all()
-    return render(request, 'index_producto.html', {'listado_productos': productos, "mensaje": "si"})
+    return redirect('index_pro')
 
 
 def detail_componente(request, cod_componente):

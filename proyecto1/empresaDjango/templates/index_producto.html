@@ -10,7 +10,7 @@
              <form class="formularios_contenido formulario-filtrar" action="{% url 'index_pro' %}" method="get">
             {{ formulario.errors }}
             {{ formulario.as_ul }}
-            <input class="boton_nuevo" type="submit" value="Filtrar">
+            <input class="boton_filtrar boton" type="submit" value="Filtrar">
                 </form>
             <h1>Listado de productos:</h1>
             {% if mensaje %}
@@ -26,7 +26,7 @@
                                 {{ pr.cod_producto }}: {{ pr.nombre_producto }} {{ pr.modelo }}
                             </a>
                         </td>
-                        <td><div class="boton_borrar"><a href="{% url 'borrar_producto' pr.cod_producto %}"> Borrar </a></div></td>
+                        <td><div class="boton_borrar boton"><a href="{% url 'borrar_producto' pr.cod_producto %}"> Borrar </a></div></td>
                     </tr>
                 {% endfor %}
             </table>
@@ -61,7 +61,7 @@
                     </div>
                 {% endif %}
 
-            <div class="boton_crear">
+            <div class="boton_crear boton">
                 <a href="{% url 'producto_create' %}"> + </a>
             </div>
         </div>

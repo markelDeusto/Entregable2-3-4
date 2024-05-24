@@ -24,9 +24,9 @@
                             </a>
                         </td>
 
-                        <td><div class="boton_borrar"><a href="{% url 'borrar_pedido' p.cod_pedido %}"> Borrar </a></div></td>
+                        <td><div class="boton_borrar boton"><a href="{% url 'borrar_pedido' p.cod_pedido %}"> Borrar </a></div></td>
                         <td><div class="boton_estado"><a href="#" data-cod_pedido="{{ p.cod_pedido }}"> Estado </a></div></td>
-                        <td><div class="boton_actualizar"><a href="{% url 'actualizar_pedido' p.cod_pedido %}">Actualizar </a></div></td>
+                        <td><div class="boton_actualizar boton"><a href="{% url 'actualizar_pedido' p.cod_pedido %}">Actualizar </a></div></td>
                     </tr>
                 {% endfor %}
             </table>
@@ -63,7 +63,7 @@
 
 
 
-            <div class="boton_crear_pedidos">
+            <div class="boton_crear_pedidos boton">
                 <a href="{% url 'pedido_create' %}"> + </a>
             </div>
         </div>

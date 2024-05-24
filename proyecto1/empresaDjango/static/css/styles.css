@@ -15,6 +15,22 @@ a {
     text-decoration: none;
 }
 
+/*CONSTANTES*/
+.boton{
+    background-color: #1DA5FE;
+    transition: background-color 0.3s ease;
+    border: 0.1rem solid black;
+}
+
+.boton:hover{
+    background-color: #013e61;
+}
+
+.boton a{
+    color: white;
+}
+
+
 
 /*HEADER*/
 .nav-principal {
@@ -621,12 +637,17 @@ a {
     flex-direction: row;
 }
 
-.boton_nuevo {
+.boton_filtrar {
     margin: 2rem;
     background-color: aliceblue;
     font-size: 1.5rem;
     border-radius: 1rem;
     height: 3rem;
+    transition: background-color 0.3s ease;
+}
+
+.boton_filtrar:hover{
+    background-color: #b9ccda;
 }
 .boton_siguiente{
     margin: 2rem;
@@ -694,7 +715,7 @@ a {
     border-radius: 1rem;
     margin-left: 4rem;
     text-align: center;
-
+    color: white;
 }
 
 .boton_tamano a {
@@ -705,7 +726,28 @@ a {
 .productos_mostrar{
     display: none;
 }
+.boton_mostrar, .boton_ocultar {
+    padding: 0.5rem 0.5rem;
+    background-color: #1DA5FE;
+    color: white;
+    text-align: center;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    width: 7.5rem;
+    height: 2.15rem;
+}
+
+.boton_mostrar:hover, .boton_ocultar:hover {
+    background-color: #013e61;
+}
 
 .boton_ocultar{
     display: none;
 }
+.celda_ocult{
+    display: none;
+}
+
+
+
