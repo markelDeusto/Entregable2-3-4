@@ -18,17 +18,19 @@
                     <a> Producto elimindo exitosamente</a>
                 </div>
             {% endif %}
-            <ul>
+            <table class="listados">
                 {% for pr in listado_productos %}
-                    <li class="listados">
-                        <a href="{% url 'detail_pro' pr.cod_producto %}">
-                            {{ pr.cod_producto }}: {{ pr.nombre_producto }} {{ pr.modelo }}
-                        </a>
-                        <div class="boton_borrar"><a href="{% url 'borrar_producto' pr.cod_producto %}"> Borrar </a>
-                        </div>
-
-                    </li>
+                    <tr>
+                        <td>
+                            <a href="{% url 'detail_pro' pr.cod_producto %}">
+                                {{ pr.cod_producto }}: {{ pr.nombre_producto }} {{ pr.modelo }}
+                            </a>
+                        </td>
+                        <td><div class="boton_borrar"><a href="{% url 'borrar_producto' pr.cod_producto %}"> Borrar </a></div></td>
+                    </tr>
                 {% endfor %}
+            </table>
+
                 {% if is_paginated %}
                     <div class="contenedor-paginacion">
                         <ul class="paginacion">
@@ -59,7 +61,6 @@
                     </div>
                 {% endif %}
 
-            </ul>
             <div class="boton_crear">
                 <a href="{% url 'producto_create' %}"> + </a>
             </div>

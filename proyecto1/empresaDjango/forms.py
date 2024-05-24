@@ -15,14 +15,6 @@ class PedidoForm(forms.ModelForm):
             'estado': forms.Select(attrs={'class': 'inputs-pedido'}),
         }
 
- #   def clean_cod_pedido(self):
- #       cod_pedido = self.cleaned_data.get('cod_pedido')
- #       if Pedido.objects.filter(cod_pedido=cod_pedido).exists():
- #           raise forms.ValidationError(f'El código de pedido {cod_pedido} ya existe.')
- #       return cod_pedido
-
-
-
 
 class ProductoForm(forms.ModelForm):
     class Meta:
@@ -33,10 +25,9 @@ class ProductoForm(forms.ModelForm):
 class ProductoPedidoForm(forms.ModelForm):
     class Meta:
         model = ProductoPedido
-        fields = '__all__'
+        fields = ['producto','cantidad']
         widgets = {
             'producto': forms.Select(attrs={'class': 'inputs-producto-pedido'}),
-            'pedido': forms.Select(attrs={'class': 'inputs-producto-pedido'}),
             'cantidad': forms.NumberInput(attrs={"class": "inputs-producto-pedido"})
         }
 

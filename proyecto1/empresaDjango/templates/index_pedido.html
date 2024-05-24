@@ -8,24 +8,28 @@
         </div>
         <div class="parte-derecha">
             <h1>Listado de pedidos:</h1>
-            <ul>
+            <table class="listados">
                 {% if mensaje %}
                     <div class="producto_eliminado" role="alert">
                         <a> Pedido elimindo exitosamente</a>
                     </div>
                 {% endif %}
 
+
                 {% for p in listado_pedidos %}
-                    <li class="listados">
-                        <a href="{% url 'detail_ped' p.cod_pedido %}">
-                            {{ p.cod_pedido }}: {{ p.fecha }}
-                        </a>
-                        <div class="boton_borrar"><a href="{% url 'borrar_pedido' p.cod_pedido %}"> Borrar </a></div>
-                        <div class="boton_estado"><a href="#" data-cod_pedido="{{ p.cod_pedido }}"> Estado </a></div>
-                        <div class="boton_actualizar"><a href="{% url 'actualizar_pedido' p.cod_pedido %}">
-                            Actualizar </a></div>
-                    </li>
+                    <tr>
+                        <td>
+                            <a href="{% url 'detail_ped' p.cod_pedido %}">
+                                {{ p.cod_pedido }}: {{ p.fecha }}
+                            </a>
+                        </td>
+
+                        <td><div class="boton_borrar"><a href="{% url 'borrar_pedido' p.cod_pedido %}"> Borrar </a></div></td>
+                        <td><div class="boton_estado"><a href="#" data-cod_pedido="{{ p.cod_pedido }}"> Estado </a></div></td>
+                        <td><div class="boton_actualizar"><a href="{% url 'actualizar_pedido' p.cod_pedido %}">Actualizar </a></div></td>
+                    </tr>
                 {% endfor %}
+            </table>
                 {% if is_paginated %}
                     <div class="contenedor-paginacion">
                         <ul class="paginacion">
@@ -58,7 +62,7 @@
 
 
 
-            </ul>
+
             <div class="boton_crear_pedidos">
                 <a href="{% url 'pedido_create' %}"> + </a>
             </div>

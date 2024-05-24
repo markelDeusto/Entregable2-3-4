@@ -26,10 +26,6 @@ a {
     margin: 0 5rem 0 5rem;
 }
 
-.nav-principal img {
-    margin-right: 13rem;
-}
-
 @media (max-width: 769px) {
     .nav-principal {
         display: flex;
@@ -187,8 +183,9 @@ a {
 .contenedor-principal-index {
     margin: 2rem 5rem 2rem 5rem;
     display: grid;
-    min-height: 40rem;
-    grid-template-columns: 60% 40%;
+    height: 35rem;
+    grid-template-columns: 40% 60%;
+
 }
 
 @media (max-width: 769px) {
@@ -211,14 +208,15 @@ a {
 .parte-izquierda {
     display: flex;
     margin-left: 2rem;
+    margin-top: 3rem;
     align-items: center;
-    height: 40rem;
+    height: 30rem;
 }
 
 .parte-izquierda img {
     border-radius: 2rem;
-    width: 50rem;
-    height: 35rem;
+    width: 40rem;
+    height: 30rem;
 }
 
 @media (max-width: 769px) {
@@ -238,7 +236,6 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     height: 40rem;
 }
 
@@ -300,7 +297,7 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 65rem;
+    min-height: 35rem;
 
 }
 
@@ -553,7 +550,7 @@ a {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 65rem;
+    min-height: 35rem;
 }
 
 .formularios h1 {
@@ -571,7 +568,7 @@ a {
 
 @media (max-width: 769px) {
     .contenedor-principal-formularios {
-        height: 75rem;
+        height: 45rem;
         font-size: 1rem;
     }
 }

@@ -157,20 +157,6 @@ class index_productoListView(ListView):
         context['formulario'] = self.formulario
         return context
 
-def index_producto(request):
-    formulario = FiltrarForm(request.GET)
-    productos = Producto.objects.all()
-
-    if formulario.is_valid():
-        id_categoria = formulario.cleaned_data.get('categoria')
-        max_precio = formulario.cleaned_data.get('max_precio')
-        if id_categoria:
-            productos = productos.filter(categoria_id=id_categoria)
-
-        if max_precio is not None:
-            productos = productos.filter(precio_unidad__lt=max_precio)
-
-    return render(request, 'index_producto.html', {'formulario': formulario, 'listado_productos': productos})
 
 def detail_producto(request, cod_producto):
     producto = get_object_or_404(Producto, cod_producto=cod_producto)
@@ -216,7 +202,7 @@ class ProductoCreateView(View):
     def get(self, request):
         formulario = ProductoForm()
         context = {'formulario': formulario}
-        return render(request, 'producto_create.html', {'formulario': formulario})
+        return render(request, 'producto_create.html', context)
 
     def post(self, request):
         formulario = ProductoForm(data=request.POST)
@@ -233,11 +219,14 @@ class PedidoProductoCreateView(View):
         return render(request, 'producto_pedido.html', context)
 
     def post(self, request, cod_pedido):
+        pedido = get_object_or_404(Pedido, cod_pedido=cod_pedido)
         formulario = ProductoPedidoForm(data=request.POST)
         if formulario.is_valid():
-            formulario.save()
+            producto_pedido = formulario.save(commit=False)
+            producto_pedido.pedido = pedido
+            producto_pedido.save()
             return redirect('pregunta', cod_pedido=cod_pedido)
-        return render(request, 'producto_pedido.html', {'formulario': formulario, cod_pedido: cod_pedido})
+        return render(request, 'producto_pedido.html', {'formulario': formulario, 'cod_pedido': cod_pedido})
 
 
 class ConfirmarProductoView(View):
