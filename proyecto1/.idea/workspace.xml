@@ -5,24 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fec63946-7069-4671-bcdf-daf427e5cf17" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c72abe91-d8f1-4ca9-9c52-cf7f7c724b13.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c72abe91-d8f1-4ca9-9c52-cf7f7c724b13/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/empresaDjango/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/empresaDjango/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/empresaDjango/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/empresaDjango/static/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/empresaDjango/static/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/empresaDjango/static/js/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/empresaDjango/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/empresaDjango/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/empresaDjango/templates/cliente_create.html" beforeDir="false" afterPath="$PROJECT_DIR$/empresaDjango/templates/cliente_create.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/empresaDjango/templates/detail_pedido.html" beforeDir="false" afterPath="$PROJECT_DIR$/empresaDjango/templates/detail_pedido.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/empresaDjango/templates/index_cliente.html" beforeDir="false" afterPath="$PROJECT_DIR$/empresaDjango/templates/index_cliente.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/empresaDjango/templates/index_pedido.html" beforeDir="false" afterPath="$PROJECT_DIR$/empresaDjango/templates/index_pedido.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/empresaDjango/templates/index_producto.html" beforeDir="false" afterPath="$PROJECT_DIR$/empresaDjango/templates/index_producto.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/empresaDjango/templates/producto_create.html" beforeDir="false" afterPath="$PROJECT_DIR$/empresaDjango/templates/producto_create.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/empresaDjango/templates/producto_pedido.html" beforeDir="false" afterPath="$PROJECT_DIR$/empresaDjango/templates/producto_pedido.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/empresaDjango/templates/update_pedido.html" beforeDir="false" afterPath="$PROJECT_DIR$/empresaDjango/templates/update_pedido.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/empresaDjango/templates/update_productoEnPedido.html" beforeDir="false" afterPath="$PROJECT_DIR$/empresaDjango/templates/update_productoEnPedido.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/empresaDjango/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/empresaDjango/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/empresaDjango/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/empresaDjango/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +99,7 @@
       <workItem from="1716491961070" duration="5364000" />
       <workItem from="1716498397869" duration="2080000" />
       <workItem from="1716529243425" duration="12122000" />
-      <workItem from="1716544505070" duration="8033000" />
+      <workItem from="1716544505070" duration="14312000" />
     </task>
     <servers />
   </component>

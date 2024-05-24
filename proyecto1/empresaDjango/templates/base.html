@@ -12,9 +12,7 @@
 <header>
     <div class="navegacion">
         <nav class="nav-principal">
-            <a href="{% url 'landing_page' %}">
-                <img src="{% static 'images/DEUSTRONIC.png' %}" alt="Logo Tienda"/>
-            </a>
+            <img src="{% static 'images/DEUSTRONIC.png' %}" alt="Logo Tienda"/>
             <ul class="elementos-navegacion">
                 <li class="elemento">
                     <a href="{% url 'index_ped' %}">Gestión de pedidos</a>
@@ -25,6 +23,9 @@
                 <li class="elemento">
                     <a href="{% url 'index_cli' %}">Gestión de clientes</a>
                 </li>
+                <li class="elemento">
+                    <a href="{% url 'contacto' %}">Contáctanos</a>
+                </li>
             </ul>
         </nav>
     </div>
@@ -34,14 +35,15 @@
     {% block contenido %} {% endblock %}
 </main>
 
-<footer>
-    <div class="contenido-footer">
-        <p class="copyright">Todos los derechos reservados</p>
-        <img src="{% static 'images/DEUSTRONIC.png' %}" alt="Logo Tienda"/>
+<footer class="footer">
+    <div class="control_texto">
         <button class="boton_tamano boton" id="aumentar">AUMENTAR</button>
         <button class="boton_tamano boton" id="disminuir">DISMINUIR</button>
     </div>
-
+    <div class="contenido-footer">
+        <p class="copyright">Todos los derechos reservados</p>
+        <img src="{% static 'images/DEUSTRONIC.png' %}" alt="Logo Tienda"/>
+    </div>
 </footer>
 
 <script src="{% static 'js/script.js' %}"></script>

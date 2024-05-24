@@ -4,8 +4,8 @@ from empresaDjango import views
 from empresaDjango.views import PedidoCreateView, ProductoCreateView, PedidoProductoCreateView, ClienteCreateView
 
 urlpatterns = [
-    path('', views.landing_page, name="landing_page"),
-    path('pedido/', views.index_pedidoListView.as_view(), name='index_ped'),
+    #path('', views.landing_page, name="landing_page"),
+    path('', views.index_pedidoListView.as_view(), name='index_ped'),
     path('pedido/create', PedidoCreateView.as_view(), name='pedido_create'),
     path('pedido/<str:cod_pedido>', views.detail_pedido, name='detail_ped'),
     path('cliente/', views.index_cliente, name='index_cli'),

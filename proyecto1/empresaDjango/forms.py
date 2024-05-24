@@ -21,11 +21,17 @@ class ProductoForm(forms.ModelForm):
         model = Producto
         fields = '__all__'
 
+    def __init__(self, *args, **kwargs):
+        super(ProductoForm, self).__init__(*args, **kwargs)
+        self.fields['cod_producto'].error_messages = {
+            'unique': 'Código de producto repetido, elige otro.'
+        }
+
 
 class ProductoPedidoForm(forms.ModelForm):
     class Meta:
         model = ProductoPedido
-        fields = ['producto','cantidad']
+        fields = ['producto', 'cantidad']
         widgets = {
             'producto': forms.Select(attrs={'class': 'inputs-producto-pedido'}),
             'cantidad': forms.NumberInput(attrs={"class": "inputs-producto-pedido"})
@@ -39,11 +45,15 @@ class ClienteForm(forms.ModelForm):
 
 
 class ContactoForm(forms.Form):
-    nombre = forms.CharField(label='Nombre', required=True, max_length=10, widget=forms.TextInput(attrs={'class': 'inputs-preguntas'}))
-    email = forms.EmailField(label='Correo Electronico', required=True, widget=forms.EmailInput(attrs={'placeholder': 'ejemplo@gmail.com',
-                                                                                                       'class': 'inputs-preguntas'}))
-    mensaje = forms.CharField(label='Mensaje', required=True, widget=forms.Textarea(attrs={'placeholder': 'Escribe tu duda aquí',
-                                                                                           'class': 'inputs-preguntas'}))
+    nombre = forms.CharField(label='Nombre', required=True, max_length=10,
+                             widget=forms.TextInput(attrs={'class': 'inputs-preguntas'}))
+    email = forms.EmailField(label='Correo Electronico', required=True,
+                             widget=forms.EmailInput(attrs={'placeholder': 'ejemplo@gmail.com',
+                                                            'class': 'inputs-preguntas'}))
+    mensaje = forms.CharField(label='Mensaje', required=True,
+                              widget=forms.Textarea(attrs={'placeholder': 'Escribe tu duda aquí',
+                                                           'class': 'inputs-preguntas'}))
+
 
 class FiltrarForm(forms.Form):
     categoria = forms.ModelChoiceField(queryset=Categoria.objects.all(), empty_label="Selecciona una categoria",

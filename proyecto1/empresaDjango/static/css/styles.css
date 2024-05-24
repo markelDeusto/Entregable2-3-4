@@ -40,6 +40,7 @@ a {
     padding: 1rem;
     border-bottom: 1px solid #2e2c2c83;
     margin: 0 5rem 0 5rem;
+    font-size: 1rem;
 }
 
 @media (max-width: 769px) {
@@ -80,12 +81,12 @@ a {
 
 @media (max-width: 391px) {
     .nav-principal img {
-        margin-left: 0rem;
+        margin-left: 0;
     }
 }
 
 .nav-principal img {
-    height: 10rem;
+    height: 8rem;
 }
 
 .nav-principal a {
@@ -95,18 +96,13 @@ a {
     text-align: center;
 }
 
-.nav-principal li {
-    text-align: center;
-}
-
 .elementos-navegacion {
     list-style: none;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 2rem;
-    padding: 0;
-    margin-left: 7rem;
+    font-size: 1.8rem;
+    margin-left: 4rem;
 }
 
 @media (max-width: 769px) {
@@ -135,63 +131,6 @@ a {
     .elemento a {
         justify-content: center;
         text-align: center;
-    }
-}
-
-/*LANDING-PAGE*/
-.boton-landing {
-    width: 13rem;
-    height: 6rem;
-    margin: 1rem;
-    border-radius: 1rem;
-    font-size: 2rem;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.parte-derecha-landing{
-    display: grid;
-    grid-template-rows: 70% 30%;
-}
-
-.parte-derecha-arriba-landing {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.parte-derecha-abajo-landing{
-    display: flex;
-    justify-content: center;
-}
-
-.dudas{
-    font-size: 1.5rem;
-}
-.inputs-preguntas{
-    width: 35rem;
-}
-
-@media (max-width: 769px) {
-    .parte-derecha-arriba-landing {
-        justify-content: center;
-        margin-top: 6rem;
-
-    }
-}
-
-@media (max-width: 391px) {
-    .parte-derecha-arriba-landing {
-        display: flex;
-        flex-direction: column;
-    }
-}
-
-@media (max-width: 391px) {
-    .boton-landing {
-        font-size: 1.5rem;
-        width: 10rem;
-        height: 4rem;
     }
 }
 
@@ -671,11 +610,15 @@ a {
 }
 
 /*FOOTER*/
+.footer{
+    display: flex;
+    flex-direction: column;
+}
 .contenido-footer {
+    border-top: 0.1rem solid #2e2c2c83;
     margin: 0 5rem 0 5rem;
     text-align: center;
     align-items: center;
-    border-top: 1px solid #2e2c2c83;
 }
 
 .contenido-footer img {
@@ -683,6 +626,12 @@ a {
 }
 .copyright{
     font-size: 1.7rem;
+}
+.control_texto{
+    margin-bottom: 0.7rem;
+    margin-right: 6rem;
+    text-align: right;
+
 }
 
 /*EMAIL*/
