@@ -25,4 +25,5 @@ urlpatterns = [
          name="actualizar_productoEnPedido"),
     path('contacto', views.contacto, name="contacto"),
     path('pedido/<str:cod_pedido>/actualizar_estado', views.actualizar_estado_pedido, name='actualizar_estado_pedido'),
+    path('cliente/borrar/<str:cif>', views.borrarcliente, name="borrar_cliente")
 ]

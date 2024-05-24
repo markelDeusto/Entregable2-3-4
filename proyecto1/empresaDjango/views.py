@@ -123,6 +123,10 @@ def detail_cliente(request, cif):
     }
     return render(request, 'detail_cliente.html', context)
 
+def borrarcliente(request, cif):
+    cliente = Cliente.objects.get(cif=cif)
+    cliente.delete()
+    return redirect('index_cli')
 
 def detail_categoria(request, id_categoria):
     categoria = get_object_or_404(Categoria, id_categoria=id_categoria)
