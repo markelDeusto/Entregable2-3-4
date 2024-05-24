@@ -1,7 +1,6 @@
 const elementosTexto = document.querySelectorAll("body *");
 
 
-let boton = document.getElementById('boton_estado')
 let aument = document.getElementById('aumentar')
 let dismin = document.getElementById('disminuir')
 
@@ -28,64 +27,57 @@ function disminuirTexto(){
         elemento.style.fontSize = (tamano ) + 'px'
     })
 }
-/*
-document.addEventListener('DOMContentLoaded', (event) => {
-    let boton = document.getElementById('boton_estado');
-    boton.addEventListener('click', actualizarEstado);
-});
 
- */
+let boton = document.getElementById('boton_estado');
+   boton.addEventListener('click', actualizarEstado);
 
 
 function actualizarEstado(event) {
 
-        event.preventDefault();
-        const estado = 'True';
-        const cod_pedido = event.currentTarget.getAttribute("data-cod_pedido");
-        console.log(cod_pedido)
-        // Crear la solicitud fetch
-        fetch('<str:cod_pedido>/actualizar_estado', {
 
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRFToken': getCookie('csrftoken')
-            },
-            body: JSON.stringify({ estado: estado })
-        })
-        .then(response => {
-            if (response.ok) {
-                return response.json();
-            } else {
-                throw new Error('Error al actualizar el estado');
-            }
-        })
-        .then(data => {
-            if (data.status === 'success') {
-                console.log('Estado actualizado correctamente');
-            } else {
-                console.log('Error al actualizar el estado:', data.errors);
-            }
-        })
-        .catch(error => {
-            console.error('Error en la solicitud:', error);
-        });
-    }
+      event.preventDefault()
+       const cod_pedido = event.currentTarget.dataset.codPedido;
+       const estado = true;
+       console.log( cod_pedido)
+       // Crear la solicitud fetch
+       fetch(`${cod_pedido}/actualizar_estado` , {
 
-    function getCookie(name) {
-    let cookieValue = null;
-    if (document.cookie && document.cookie !== '') {
-        const cookies = document.cookie.split(';');
-        for (let i = 0; i < cookies.length; i++) {
-            const cookie = cookies[i].trim();
-            if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                break;
-            }
-        }
-    }
-    return cookieValue;
-}
+
+           method: 'POST',
+           headers: {
+               'Content-Type': 'application/json',
+               'X-CSRFToken': getCookie('csrftoken')
+           },
+           body: JSON.stringify({ estado: estado })
+       })
+       .then(response => response.json())
+       .then(data => {
+           if (data.status === 'success') {
+               console.log('Estado actualizado correctamente');
+               // Opcionalmente, actualiza el DOM para reflejar el cambio
+           } else {
+               console.error('Error al actualizar el estado:', data.message);
+           }
+       })
+           .catch(error=> console.log('Error', error))
+
+
+   }
+     // Get CSRF token
+   function getCookie(name) {
+       let cookieValue = null;
+       if (document.cookie && document.cookie !== '') {
+           const cookies = document.cookie.split(';');
+           for (let i = 0; i < cookies.length; i++) {
+               const cookie = cookies[i].trim();
+               if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                   cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                   break;
+               }
+           }
+       }
+       return cookieValue;
+   }
 
 let mostrar = document.getElementById('mostrar')
 
@@ -129,6 +121,26 @@ function ocultarProductos(){
 }
 
 
+document.addEventListener('DOMContentLoaded', function() {
+    const cod_pedido_input = document.getElementById('id_cod_pedido');
+    const boton_siguiente =document.getElementsByClassName("boton_siguiente")[0];
+    let contenedorMensaje = document.getElementById("mensaje");
 
+    cod_pedido_input.addEventListener('focusout', () => {
+        if (!validarCodigoPedido(cod_pedido_input.value)) {
+            contenedorMensaje.textContent = "El código de pedido debe estar compuesto de 4 letras y 2 números en ese orden"
+            cod_pedido_input.focus();
+            boton_siguiente.disabled = true;
+        }else {
+            contenedorMensaje.textContent = "";
+            boton_siguiente.disabled = false;
+        }
+    });
+
+    function validarCodigoPedido(cod_pedido) {
+        const comprobacion = /^[a-zA-Z]{4}\d{2}$/;
+        return comprobacion.test(cod_pedido);
+    }
+});
 
 
