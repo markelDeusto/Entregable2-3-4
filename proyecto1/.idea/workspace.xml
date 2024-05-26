@@ -7,9 +7,9 @@
     <list default="true" id="fec63946-7069-4671-bcdf-daf427e5cf17" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/empresaDjango/templates/index_cliente.html" beforeDir="false" afterPath="$PROJECT_DIR$/empresaDjango/templates/index_cliente.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/empresaDjango/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/empresaDjango/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/empresaDjango/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/empresaDjango/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/empresaDjango/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/empresaDjango/static/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/empresaDjango/static/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/empresaDjango/static/js/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/empresaDjango/templates/pedido_create.html" beforeDir="false" afterPath="$PROJECT_DIR$/empresaDjango/templates/pedido_create.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

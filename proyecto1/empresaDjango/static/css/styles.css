@@ -67,9 +67,11 @@ a {
     }
 }
 
-@media (max-width: 769px) {
+@media (max-width: 1080px) {
     .navegacion {
         margin: 0;
+        display: flex;
+        justify-content: center;
     }
 }
 
@@ -143,7 +145,7 @@ a {
 
 }
 
-@media (max-width: 769px) {
+@media (max-width: 1080px) {
     .contenedor-principal-index {
         display: flex;
         flex-direction: column;
@@ -174,9 +176,10 @@ a {
     height: 30rem;
 }
 
-@media (max-width: 769px) {
-    .parte-izquierda img {
-        width: 65rem;
+@media (max-width: 1080px) {
+    .parte-izquierda {
+        align-items: center;
+        justify-content: center;
     }
 }
 
@@ -523,7 +526,7 @@ a {
 
 @media (max-width: 769px) {
     .contenedor-principal-formularios {
-        height: 45rem;
+        height: 55rem;
         font-size: 1rem;
     }
 }
@@ -631,8 +634,18 @@ a {
     margin-bottom: 0.7rem;
     margin-right: 6rem;
     text-align: right;
-
 }
+@media (max-width: 1080px) {
+    .control_texto{
+    text-align: center;
+    }
+}
+@media (max-width: 391px) {
+    .control_texto{
+    margin-top: 10rem;
+    }
+}
+
 
 /*EMAIL*/
 .contenedor-contacto{
@@ -656,6 +669,8 @@ a {
     border-radius: 1rem;
     width: 10rem;
 }
+
+
 
 /*Aumentar y dismnuir tamaños*/
 .boton_tamano {
