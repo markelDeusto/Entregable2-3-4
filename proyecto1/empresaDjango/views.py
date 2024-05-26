@@ -27,7 +27,7 @@ class index_pedidoListView(ListView):
     model = Pedido
     template_name = 'index_pedido.html'
     context_object_name = 'listado_pedidos'
-    paginate_by = 2
+    paginate_by = 5
 
 
 def detail_pedido(request, cod_pedido):
@@ -141,7 +141,7 @@ class index_productoListView(ListView):
     formulario = ProductoForm
     template_name = 'index_producto.html'
     context_object_name = 'listado_productos'
-    paginate_by = 1
+    paginate_by = 5
 
     def get_queryset(self):
         productos = Producto.objects.all()

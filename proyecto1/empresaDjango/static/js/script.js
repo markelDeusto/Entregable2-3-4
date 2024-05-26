@@ -5,10 +5,17 @@ document.addEventListener('DOMContentLoaded', function() {
     // Seleccionar todos los elementos de texto del body
     const elementosTexto = document.querySelectorAll("body *");
 
+    // Coger los tamaños de fuente iniciales
+    elementosTexto.forEach(elemento => {
+        let tamanoInicial = window.getComputedStyle(elemento).fontSize;
+        tamanoInicial = parseFloat(tamanoInicial);
+        elemento.setAttribute('data-tamano-inicial', tamanoInicial);
+    });
+
     let aument = document.getElementById('aumentar');
     let dismin = document.getElementById('disminuir');
 
-    // Verificación de que los botones existen antes de agregar los event listeners
+    // Verificación de que los botones existen antes de agregar el event listener
     if (aument && dismin) {
         aument.addEventListener('click', aumentarTexto);
         dismin.addEventListener('click', disminuirTexto);
@@ -16,19 +23,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function aumentarTexto() {
         elementosTexto.forEach(elemento => {
-            let tamano = window.getComputedStyle(elemento).fontSize;
-            tamano = parseFloat(tamano);
-            tamano = (tamano + 2);
-            elemento.style.fontSize = (tamano) + 'px';
+            let tamano = parseFloat(elemento.getAttribute('data-tamano-inicial'));
+            let nuevoTamano = tamano + 2;
+            elemento.style.fontSize = nuevoTamano + 'px';
+            elemento.setAttribute('data-tamano-inicial', nuevoTamano);
         });
     }
 
     function disminuirTexto() {
         elementosTexto.forEach(elemento => {
-            let tamano = window.getComputedStyle(elemento).fontSize;
-            tamano = parseFloat(tamano);
-            tamano = (tamano - 2);
-            elemento.style.fontSize = (tamano) + 'px';
+            let tamano = parseFloat(elemento.getAttribute('data-tamano-inicial'));
+            let nuevoTamano = tamano - 2;
+            elemento.style.fontSize = nuevoTamano + 'px';
+            elemento.setAttribute('data-tamano-inicial', nuevoTamano);
         });
     }
 
@@ -134,7 +141,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (cod_pedido_input && boton_siguiente && contenedorMensaje) {
         cod_pedido_input.addEventListener('focusout', () => {
             if (!validarCodigoPedido(cod_pedido_input.value)) {
-                contenedorMensaje.textContent = "El código de pedido debe estar compuesto de 4 letras y 2 números en ese orden";
+                contenedorMensaje.textContent = "* El código de pedido debe estar compuesto de 4 letras y 2 números en ese orden *";
+                contenedorMensaje.style.color = "red"
+                contenedorMensaje.style.fontWeight = "bolder"
                 cod_pedido_input.focus();
                 boton_siguiente.disabled = true;
             } else {

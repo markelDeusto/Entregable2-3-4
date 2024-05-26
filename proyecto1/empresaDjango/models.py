@@ -41,7 +41,7 @@ class Producto(models.Model):
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
     cod_producto = models.CharField(max_length=10, unique=True)
     nombre_producto = models.CharField(max_length=50)
-    descripcion = models.CharField(max_length=50)
+    descripcion = models.TextField()
     precio_unidad = models.IntegerField()
     modelo = models.CharField(max_length=50)
 

@@ -19,8 +19,15 @@ class PedidoForm(forms.ModelForm):
 class ProductoForm(forms.ModelForm):
     class Meta:
         model = Producto
-        fields = '__all__'
-
+        fields = ['categoria', 'cod_producto', 'nombre_producto', 'descripcion', 'precio_unidad', 'modelo']
+        widgets = {
+            'categoria': forms.Select(attrs={'class': 'inputs-producto'}),
+            'cod_producto': forms.TextInput(attrs={'class': 'inputs-producto'}),
+            'nombre_producto': forms.TextInput(attrs={'class': 'inputs-producto'}),
+            'descripcion': forms.Textarea(attrs={'class': 'inputs-producto'}),
+            'precio_unidad': forms.NumberInput(attrs={'class': 'inputs-producto'}),
+            'modelo': forms.TextInput(attrs={'class': 'inputs-producto'})
+        }
     def __init__(self, *args, **kwargs):
         super(ProductoForm, self).__init__(*args, **kwargs)
         self.fields['cod_producto'].error_messages = {
