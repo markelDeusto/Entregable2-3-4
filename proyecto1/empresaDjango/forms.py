@@ -3,7 +3,7 @@ from django import forms
 from empresaDjango.models import Pedido, Producto, ProductoPedido, Cliente
 from .models import Categoria
 
-
+#formulario de pedidos
 class PedidoForm(forms.ModelForm):
     class Meta:
         model = Pedido
@@ -15,7 +15,7 @@ class PedidoForm(forms.ModelForm):
             'estado': forms.Select(attrs={'class': 'inputs-pedido'}),
         }
 
-
+#formulario de productos
 class ProductoForm(forms.ModelForm):
     class Meta:
         model = Producto
@@ -34,7 +34,7 @@ class ProductoForm(forms.ModelForm):
             'unique': 'Código de producto repetido, elige otro.'
         }
 
-
+#formulario de la relacion entre productos y pedidos
 class ProductoPedidoForm(forms.ModelForm):
     class Meta:
         model = ProductoPedido
@@ -44,13 +44,13 @@ class ProductoPedidoForm(forms.ModelForm):
             'cantidad': forms.NumberInput(attrs={"class": "inputs-producto-pedido"})
         }
 
-
+#formulario de clientes
 class ClienteForm(forms.ModelForm):
     class Meta:
         model = Cliente
         fields = '__all__'
 
-
+#formulario de contacto (para email)
 class ContactoForm(forms.Form):
     nombre = forms.CharField(label='Nombre', required=True, max_length=10,
                              widget=forms.TextInput(attrs={'class': 'inputs-preguntas'}))
@@ -61,7 +61,7 @@ class ContactoForm(forms.Form):
                               widget=forms.Textarea(attrs={'placeholder': 'Escribe tu duda aquí',
                                                            'class': 'inputs-preguntas'}))
 
-
+#formulario de filtrado de productos
 class FiltrarForm(forms.Form):
     categoria = forms.ModelChoiceField(queryset=Categoria.objects.all(), empty_label="Selecciona una categoria",
                                        required=False, label='Categoría')
