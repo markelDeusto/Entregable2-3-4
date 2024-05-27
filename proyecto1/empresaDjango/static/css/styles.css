@@ -264,6 +264,10 @@ a {
     .contenedor-principal-detail {
         min-height: 75rem;
     }
+    .boton_borrar, .boton_actualizar{
+        display: block;
+        text-align: center;
+    }
 }
 
 @media (max-width: 391px) {
@@ -450,11 +454,6 @@ a {
         text-align: center;
         max-width: 30rem;
     }
-}
-
-@media (max-width: 391px) {
-    width: 1rem;
-    padding-bottom: 1.5rem;
 }
 
 .contenedor-central h1 {

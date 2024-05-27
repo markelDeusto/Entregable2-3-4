@@ -34,13 +34,18 @@
                         </td>
                         <td>:</td>
                         <td>{{ detalle.cantidad }} unidades</td>
-
                         <td>
                             <div class="boton_actualizar boton"><a
-                                    href="{% url 'actualizar_productoEnPedido' pedido.cod_pedido %}"> Actualizar </a>
+                                    href="{% url 'actualizar_productoEnPedido' pedido.cod_pedido detalle.producto.cod_producto %}"> Actualizar </a>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="boton_borrar boton"><a
+                                    href="{% url 'borrar_productoEnPedido' pedido.cod_pedido detalle.producto.cod_producto %}"> Borrar </a>
                             </div>
                         </td>
                     </tr>
+
                 {% endfor %}
                 <td class="celda_ocult"><a class="boton_ocultar" id="ocultar">Ocultar todos</a></td>
                 <tr>

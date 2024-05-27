@@ -2,7 +2,7 @@ from django.core.mail import send_mail
 from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
-from django.views.generic import UpdateView, ListView
+from django.views.generic import UpdateView, ListView, DeleteView
 
 from empresaDjango.forms import PedidoForm, ProductoForm, ProductoPedidoForm, ClienteForm, ContactoForm, FiltrarForm, \
     ComponenteForm
@@ -81,18 +81,19 @@ class actualizar_pedido(UpdateView):
 class actualizar_productoEnPedido(UpdateView):
     model = ProductoPedido
 
-    def get(self, request, cod_pedido):
-        productoPedido = ProductoPedido.objects.get(pedido__cod_pedido=cod_pedido)
+    def get(self, request, cod_pedido, cod_producto):
+        productoPedido = ProductoPedido.objects.get(pedido__cod_pedido=cod_pedido, producto__cod_producto=cod_producto)
         formulario = ProductoPedidoForm(instance=productoPedido)
         context = {
             'formulario': formulario,
             'productoPedido': productoPedido,
-            'cod_pedido': cod_pedido
+            'cod_pedido': cod_pedido,
+            'cod_producto': cod_producto
         }
         return render(request, 'update_productoEnPedido.html', context)
 
-    def post(self, request, cod_pedido):
-        productoPedido = ProductoPedido.objects.get(pedido__cod_pedido=cod_pedido)
+    def post(self, request, cod_pedido, cod_producto):
+        productoPedido = ProductoPedido.objects.get(pedido__cod_pedido=cod_pedido, producto__cod_producto=cod_producto)
         formulario = ProductoPedidoForm(request.POST, instance=productoPedido)
         if formulario.is_valid():
             formulario.save()
@@ -100,6 +101,17 @@ class actualizar_productoEnPedido(UpdateView):
         else:
             formulario = ProductoPedidoForm(instance=productoPedido)
         return render(request, 'update_productoEnPedido.html', {'formulario': formulario})
+
+class borrar_productoEnPedido(DeleteView):
+    model = ProductoPedido
+    def get(self, request, cod_pedido, cod_producto):
+        productopedido = ProductoPedido.objects.get(pedido__cod_pedido=cod_pedido, producto__cod_producto=cod_producto)
+        productopedido.delete()
+        return redirect('detail_ped', cod_pedido)
+
+
+
+
 
 #Vista del listado de clientes
 def index_cliente(request):
