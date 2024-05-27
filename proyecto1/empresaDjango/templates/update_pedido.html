@@ -3,6 +3,7 @@
 {% block contenido %}
 
     <div class="contenedor-principal-formularios">
+        <div id="mensaje"></div>
         <div class="formularios">
             <h1>Editar pedido</h1>
             <form class="formularios_contenido" action="{% url 'actualizar_pedido' cod_pedido=cod_pedido %}"
@@ -10,9 +11,9 @@
                 {% csrf_token %}
                 {{ formulario.errors }}
                 {{ formulario.as_ul }}
-                <input class="boton_filtrar" type="submit" value="Editar pedido"/>
+                <input class="boton_siguiente" type="submit" value="Editar pedido"/>
             </form>
         </div>
     </div>
-
+     <script src="{% static 'js/script.js' %}"></script>
 {% endblock %}
