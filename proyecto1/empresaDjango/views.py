@@ -1,7 +1,11 @@
+import json
+
 from django.core.mail import send_mail
 from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
+from django.utils.decorators import method_decorator
 from django.views import View
+from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import UpdateView, ListView, DeleteView
 
 from empresaDjango.forms import PedidoForm, ProductoForm, ProductoPedidoForm, ClienteForm, ContactoForm, FiltrarForm, \
@@ -9,14 +13,15 @@ from empresaDjango.forms import PedidoForm, ProductoForm, ProductoPedidoForm, Cl
 from empresaDjango.models import Pedido, Cliente, Categoria, Producto, Componente, ProductoPedido
 
 
-#Vista del listado de pedidos
+# Vista del listado de pedidos
 class index_pedidoListView(ListView):
     model = Pedido
     template_name = 'index_pedido.html'
     context_object_name = 'listado_pedidos'
     paginate_by = 5
 
-#Vista del detalle de pedidos
+
+# Vista del detalle de pedidos
 def detail_pedido(request, cod_pedido):
     pedido = get_object_or_404(Pedido, cod_pedido=cod_pedido)
     precio_total = pedido.calcular_precio_total()
@@ -29,29 +34,15 @@ def detail_pedido(request, cod_pedido):
     }
     return render(request, 'detail_pedido.html', context)
 
-#Vista de actualizado del estado del pedido
-def post(self):
-    if request.method == 'POST':
-        try:
-            pedido = Pedido.objects.get(cod_pedido=cod_pedido)
-            data = json.loads(request.body)
-            estado = data.get('estado', 'False')
-            pedido.estado = estado  # Asegúrate de que el modelo Pedido tiene un campo 'estado'
-            pedido.save()
-            return JsonResponse({'status': 'success'})
-        except ObjectDoesNotExist:
-            return JsonResponse({'status': 'error', 'message': 'Pedido no encontrado'})
-        except ValueError:
-            return JsonResponse({'status': 'error', 'message': 'Datos inválidos'})
-    return JsonResponse({'status': 'error', 'message': 'Método no permitido'}, status=405)
 
-#Vista del borrado de pedidos
+# Vista del borrado de pedidos
 def borrar_pedido(request, cod_pedido):
     pedido = Pedido.objects.get(cod_pedido=cod_pedido)
     pedido.delete()
     return redirect('index_ped')
 
-#Vista del actualizado de pedidos
+
+# Vista del actualizado de pedidos
 class actualizar_pedido(UpdateView):
     model = Pedido
 
@@ -76,8 +67,7 @@ class actualizar_pedido(UpdateView):
         return render(request, 'update_pedido.html', {'formulario': formulario})
 
 
-
-#Vista del actualizado de cada producto en los pedidos
+# Vista del actualizado de cada producto en los pedidos
 class actualizar_productoEnPedido(UpdateView):
     model = ProductoPedido
 
@@ -102,23 +92,23 @@ class actualizar_productoEnPedido(UpdateView):
             formulario = ProductoPedidoForm(instance=productoPedido)
         return render(request, 'update_productoEnPedido.html', {'formulario': formulario})
 
+
 class borrar_productoEnPedido(DeleteView):
     model = ProductoPedido
+
     def get(self, request, cod_pedido, cod_producto):
         productopedido = ProductoPedido.objects.get(pedido__cod_pedido=cod_pedido, producto__cod_producto=cod_producto)
         productopedido.delete()
         return redirect('detail_ped', cod_pedido)
 
 
-
-
-
-#Vista del listado de clientes
+# Vista del listado de clientes
 def index_cliente(request):
     clientes = Cliente.objects.all()
     return render(request, 'index_cliente.html', {'listado_clientes': clientes})
 
-#Vista del detalle de clientes
+
+# Vista del detalle de clientes
 def detail_cliente(request, cif):
     cliente = get_object_or_404(Cliente, cif=cif)
     context = {
@@ -126,13 +116,15 @@ def detail_cliente(request, cif):
     }
     return render(request, 'detail_cliente.html', context)
 
-#Vista del borrado de clientes
+
+# Vista del borrado de clientes
 def borrarcliente(request, cif):
     cliente = Cliente.objects.get(cif=cif)
     cliente.delete()
     return redirect('index_cli')
 
-#Vista del detalle de la categoria de productos
+
+# Vista del detalle de la categoria de productos
 def detail_categoria(request, id_categoria):
     categoria = get_object_or_404(Categoria, id_categoria=id_categoria)
     context = {
@@ -140,7 +132,8 @@ def detail_categoria(request, id_categoria):
     }
     return render(request, 'detail_categoria.html', context)
 
-#Vista del listado de productos
+
+# Vista del listado de productos
 class index_productoListView(ListView):
     model = Producto
     formulario = ProductoForm
@@ -165,7 +158,8 @@ class index_productoListView(ListView):
         context['formulario'] = self.formulario
         return context
 
-#Vista del detalle de productos
+
+# Vista del detalle de productos
 def detail_producto(request, cod_producto):
     producto = get_object_or_404(Producto, cod_producto=cod_producto)
     componentes = Componente.objects.filter(producto=producto)
@@ -175,13 +169,15 @@ def detail_producto(request, cod_producto):
     }
     return render(request, 'detail_producto.html', context)
 
-#Vista del borrado de productos
+
+# Vista del borrado de productos
 def borrar_producto(request, cod_producto):
     producto = Producto.objects.get(cod_producto=cod_producto)
     producto.delete()
     return redirect('index_pro')
 
-#Vista del detalle de componentes
+
+# Vista del detalle de componentes
 def detail_componente(request, cod_componente):
     componente = get_object_or_404(Componente, cod_componente=cod_componente)
     context = {
@@ -189,7 +185,8 @@ def detail_componente(request, cod_componente):
     }
     return render(request, 'detail_componente.html', context)
 
-#Vista de la creacion de pedidos
+
+# Vista de la creacion de pedidos
 class PedidoCreateView(View):
     def get(self, request):
         formulario = PedidoForm()
@@ -204,7 +201,8 @@ class PedidoCreateView(View):
             return redirect('pedidoproducto_create', cod_pedido=cod_pedido)
         return render(request, 'pedido_create.html', {'formulario': formulario})
 
-#Vista de la creacion de productos
+
+# Vista de la creacion de productos
 class ProductoCreateView(View):
     def get(self, request):
         formulario = ProductoForm()
@@ -216,27 +214,29 @@ class ProductoCreateView(View):
         if formulario.is_valid():
             producto = formulario.save()
             cod_producto = producto.cod_producto
-            return redirect('crear_componente', cod_producto = cod_producto)
+            return redirect('crear_componente', cod_producto=cod_producto)
         return render(request, 'producto_create.html', {'formulario': formulario})
 
-#Vista creacion de componente
+
+# Vista creacion de componente
 class ComponenteCreateView(View):
     def get(self, request, cod_producto):
         formulario = ComponenteForm()
         context = {'formulario': formulario, 'cod_producto': cod_producto}
-        return render(request,'componente_create.html', context)
+        return render(request, 'componente_create.html', context)
 
     def post(self, request, cod_producto):
         producto = get_object_or_404(Producto, cod_producto=cod_producto)
         formulario = ComponenteForm(data=request.POST)
         if formulario.is_valid():
-            componente =formulario.save(commit=False)
+            componente = formulario.save(commit=False)
             componente.producto = producto
             componente.save()
             return redirect('pregunta2', cod_producto=cod_producto)
         return render(request, 'componente_create.html', {'formulario': formulario, 'cod_producto': cod_producto})
 
-#Vista pregunta para añadir mas componenetes o no
+
+# Vista pregunta para añadir mas componenetes o no
 
 class pregunta_componente(View):
     def get(self, request, cod_producto):
@@ -249,7 +249,8 @@ class pregunta_componente(View):
         else:
             return redirect('index_pro')
 
-#Vista para asignar los productos a cada pedido
+
+# Vista para asignar los productos a cada pedido
 class PedidoProductoCreateView(View):
     def get(self, request, cod_pedido):
         formulario = ProductoPedidoForm()
@@ -266,7 +267,8 @@ class PedidoProductoCreateView(View):
             return redirect('pregunta', cod_pedido=cod_pedido)
         return render(request, 'producto_pedido.html', {'formulario': formulario, 'cod_pedido': cod_pedido})
 
-#Vista de la pregunta de añadir otro producto
+
+# Vista de la pregunta de añadir otro producto
 class ConfirmarProductoView(View):
     def get(self, request, cod_pedido):
         return render(request, 'producto_pedido_pregunta.html', {'cod_pedido': cod_pedido})
@@ -278,7 +280,8 @@ class ConfirmarProductoView(View):
         else:
             return redirect('index_ped')
 
-#Vista de la creacion de clientes
+
+# Vista de la creacion de clientes
 class ClienteCreateView(View):
     def get(self, request):
         formulario = ClienteForm()
@@ -292,7 +295,8 @@ class ClienteCreateView(View):
             return redirect('index_cli')
         return render(request, 'cliente_create.html', {'formulario': formulario})
 
-#Vista del formulario de contacto para el email
+
+# Vista del formulario de contacto para el email
 def contacto(request):
     contacto_form = ContactoForm()
     if request.method == 'POST':
@@ -314,3 +318,20 @@ def contacto(request):
             return redirect('contacto')
 
     return render(request, 'contactanos.html', {"contacto_form": contacto_form})
+
+
+# Método Fetch para actualizar estado del pedido
+@method_decorator(csrf_exempt, name='dispatch')
+class ActualizarEstado(View):
+    def post(self, request, cod_pedido):
+        data = json.loads(request.body)
+        estado = data.get('estado')
+
+        # Actualizar el pedido en la base de datos
+        try:
+            pedido = Pedido.objects.get(cod_pedido=cod_pedido)
+            pedido.estado = estado
+            pedido.save()
+            return JsonResponse({'estado': pedido.estado})
+        except Pedido.DoesNotExist:
+            return JsonResponse({'error': 'Pedido no encontrado'}, status=404)

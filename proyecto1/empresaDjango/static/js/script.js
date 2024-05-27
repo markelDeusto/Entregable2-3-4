@@ -1,7 +1,6 @@
-
 //AUMENTAR/DISMINUIR TEXTO
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Seleccionar todos los elementos de texto del body
     const elementosTexto = document.querySelectorAll("body *");
 
@@ -40,35 +39,40 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 
-
     //FETCH
 
-    let boton = document.getElementById('boton_estado');
-
-    // Verificación de que el botón existe antes de agregar el event listener
-    if (boton) {
-        boton.addEventListener('click', actualizarEstado);
+    function clicarCheckbox(event) {
+        const checkbox = event.target;
+        const cod_pedido = checkbox.dataset.id;
+        const url = checkbox.dataset.url;
+        const estado = checkbox.checked;
+        actualizarEstado(url, estado, cod_pedido);
     }
 
-    function actualizarEstado(event) {
-        event.preventDefault();
-        const cod_pedido = event.currentTarget.dataset.codPedido;
-        const estado = true;
-        console.log(cod_pedido);
-
-
-        fetch(`/deustronic`, {
+    // Función para enviar el estado actualizado al servidor
+    function actualizarEstado(url, estado, cod_pedido) {
+        fetch(url, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'X-CSRFToken': getCookie('csrftoken')
+                'X-CSRFToken': getCookie('csrftoken')  // Añadir el token CSRF
             },
-            body: JSON.stringify({ estado: estado , cod_pedido:cod_pedido})
+            body: JSON.stringify({estado: estado})
         })
-        .then(response => response.json())
-
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                actualizarTexto(cod_pedido, data.estado);
+                if (data.estado) {
+                    document.getElementById("checkbox_" + cod_pedido).disabled = true;
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
     }
 
+    // Función para obtener el token CSRF de las cookies
     function getCookie(name) {
         let cookieValue = null;
         if (document.cookie && document.cookie !== '') {
@@ -84,6 +88,19 @@ document.addEventListener('DOMContentLoaded', function() {
         return cookieValue;
     }
 
+    // Función para actualizar el texto basado en el estado
+    function actualizarTexto(cod_pedido, estado) {
+        const textoEstado = document.getElementById("textoEstado_" + cod_pedido);
+        textoEstado.textContent = estado ? 'Enviado' : 'En proceso';
+    }
+
+    // Añadir el event listener a todos los checkboxes
+    document.querySelectorAll('.checkbox input[type="checkbox"]').forEach(checkbox => {
+        checkbox.addEventListener('click', clicarCheckbox);
+    });
+
+
+    //MOSTRAR/OCULTAR INFORMACIÓN
 
     let mostrar = document.getElementById('mostrar');
     let ocultar = document.getElementById('ocultar');
@@ -121,7 +138,6 @@ document.addEventListener('DOMContentLoaded', function() {
         btnMost.style.display = "block";
         btnOcult.style.display = "none";
     }
-
 
 
     // VALIDACIÓN CODIGO PEDIDO

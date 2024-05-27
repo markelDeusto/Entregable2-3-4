@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block contenido %}
-
     <div class="contenedor-principal-index">
         <div class="parte-izquierda">
             <img src="{% static 'images/pedidos.png' %}" alt="Foto con un carrito de la compra simbolizando un pedido"/>
@@ -15,7 +14,6 @@
                     </div>
                 {% endif %}
 
-
                 {% for p in listado_pedidos %}
                     <tr>
                         <td>
@@ -23,50 +21,64 @@
                                 {{ p.cod_pedido }}: {{ p.fecha }}
                             </a>
                         </td>
+                        <td>
+                            <div class="boton_borrar boton">
+                                <a href="{% url 'borrar_pedido' p.cod_pedido %}"> Borrar </a>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="checkbox">
+                                <input
+                                        type="checkbox"
+                                        id="checkbox_{{ p.cod_pedido }}"
+                                        data-id="{{ p.cod_pedido }}"
+                                        data-url="{% url 'actualizar_estado' p.cod_pedido %}"
+                                        {% if p.estado %}checked disabled{% endif %}
+                                >
 
-                        <td><div class="boton_borrar boton"><a href="{% url 'borrar_pedido' p.cod_pedido %}"> Borrar </a></div></td>
-                        <td><div class="boton_estado"><a id="boton_estado" href="{% url 'actualizar_estado'  %}" data-cod-pedido= "{{ p.cod_pedido }}" > Estado </a></div></td>
-                        <td><div class="boton_actualizar boton"><a href="{% url 'actualizar_pedido' p.cod_pedido %}">Actualizar </a></div></td>
+                            </div>
+                            <div id="textoEstado_{{ p.cod_pedido }}">{{ p.estado|yesno:"Enviado,En proceso" }}</div>
+                        </td>
+                        <td>
+                            <div class="boton_actualizar boton">
+                                <a href="{% url 'actualizar_pedido' p.cod_pedido %}">Actualizar </a>
+                            </div>
+                        </td>
                     </tr>
                 {% endfor %}
             </table>
-                {% if is_paginated %}
-                    <div class="contenedor-paginacion">
-                        <ul class="paginacion">
-                            {% if page_obj.has_previous %}
-                                <li class="pagina">
+            {% if is_paginated %}
+                <div class="contenedor-paginacion">
+                    <ul class="paginacion">
+                        {% if page_obj.has_previous %}
+                            <li class="pagina">
                                 <a href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+                            </li>
+                        {% endif %}
+
+                        {% for pagina in paginator.page_range %}
+                            {% if page_obj.number == pagina %}
+                                <li class="pagina pagina-actual">
+                                    <a href="?page={{ pagina }}">{{ pagina }}</a>
                                 </li>
-                            {% endif %}
-
-                            {% for pagina in paginator.page_range %}
-                                {% if page_obj.number == pagina %}
-                                    <li class="pagina pagina-actual">
-                                        <a href="?page={{ pagina }}">{{ pagina }}</a>
-                                    </li>
-                                {% else %}
-                                    <li class="pagina">
-                                        <a href="?page={{ pagina }}">{{ pagina }}</a>
-                                    </li>
-                                {% endif %}
-                            {% endfor %}
-
-                            {% if page_obj.has_next %}
+                            {% else %}
                                 <li class="pagina">
-                                    <a href="?page={{ page_obj.next_page_number }}">Siguiente</a>
+                                    <a href="?page={{ pagina }}">{{ pagina }}</a>
                                 </li>
                             {% endif %}
-                        </ul>
-                    </div>
-                {% endif %}
+                        {% endfor %}
 
-
-
-
+                        {% if page_obj.has_next %}
+                            <li class="pagina">
+                                <a href="?page={{ page_obj.next_page_number }}">Siguiente</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            {% endif %}
             <div class="boton_crear_pedidos boton">
                 <a href="{% url 'pedido_create' %}"> + </a>
             </div>
         </div>
     </div>
-
 {% endblock %}

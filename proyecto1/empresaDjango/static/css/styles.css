@@ -16,20 +16,19 @@ a {
 }
 
 /*CONSTANTES*/
-.boton{
+.boton {
     background-color: #1DA5FE;
     transition: background-color 0.3s ease;
     border: 0.1rem solid black;
 }
 
-.boton:hover{
+.boton:hover {
     background-color: #013e61;
 }
 
-.boton a{
+.boton a {
     color: white;
 }
-
 
 
 /*HEADER*/
@@ -140,7 +139,7 @@ a {
 .contenedor-principal-index {
     margin: 2rem 5rem 1rem 5rem;
     display: grid;
-    height: 37rem;
+    height: 40rem;
     grid-template-columns: 40% 60%;
 
 }
@@ -216,7 +215,7 @@ a {
 
 /*PAGINACION*/
 
-.paginacion{
+.paginacion {
     display: flex;
     flex-direction: row;
     list-style: none;
@@ -224,17 +223,19 @@ a {
     margin-top: 2rem;
     padding: 0;
 }
-.pagina{
+
+.pagina {
     margin: 0.2rem;
     padding: 1rem;
     border: 1px solid grey;
     border-radius: 1rem;
 }
 
-.pagina-actual{
-    background-color:#1DA5FE;
+.pagina-actual {
+    background-color: #1DA5FE;
 }
-.pagina-actual a{
+
+.pagina-actual a {
     color: white;
 }
 
@@ -264,7 +265,8 @@ a {
     .contenedor-principal-detail {
         min-height: 75rem;
     }
-    .boton_borrar, .boton_actualizar{
+
+    .boton_borrar, .boton_actualizar {
         display: block;
         text-align: center;
     }
@@ -300,7 +302,8 @@ a {
     font-size: 2rem;
     text-align: center;
 }
-.detalle-pedidos td{
+
+.detalle-pedidos td {
     text-align: center;
 }
 
@@ -387,7 +390,7 @@ a {
     margin-right: 1rem;
 }
 
-.inputs-pedido{
+.inputs-pedido {
     width: 20rem;
 }
 
@@ -465,15 +468,16 @@ a {
     margin-right: 0;
 }
 
-.inputs-producto-pedido{
+.inputs-producto-pedido {
     width: 30rem;
 }
-#mensaje{
+
+#mensaje {
     font-size: 2rem;
     margin-bottom: 2rem;
 }
 
-.inputs-producto{
+.inputs-producto {
     width: 25rem;
 }
 
@@ -587,7 +591,8 @@ a {
     flex-direction: column;
     align-items: center;
 }
-.formulario-filtrar{
+
+.formulario-filtrar {
     display: flex;
     flex-direction: row;
 }
@@ -601,10 +606,11 @@ a {
     transition: background-color 0.3s ease;
 }
 
-.boton_filtrar:hover{
+.boton_filtrar:hover {
     background-color: #b9ccda;
 }
-.boton_siguiente{
+
+.boton_siguiente {
     margin: 2rem;
     background-color: aliceblue;
     font-size: 1.5rem;
@@ -626,10 +632,11 @@ a {
 }
 
 /*FOOTER*/
-.footer{
+.footer {
     display: flex;
     flex-direction: column;
 }
+
 .contenido-footer {
     border-top: 0.1rem solid #2e2c2c83;
     margin: 0 5rem 0 5rem;
@@ -640,43 +647,49 @@ a {
 .contenido-footer img {
     height: 5rem;
 }
-.copyright{
+
+.copyright {
     font-size: 1.7rem;
     margin: 1rem;
 }
-.control_texto{
+
+.control_texto {
     margin-bottom: 0.5rem;
     margin-right: 6rem;
     text-align: right;
 }
+
 @media (max-width: 1080px) {
-    .control_texto{
-    text-align: center;
+    .control_texto {
+        text-align: center;
     }
 }
+
 @media (max-width: 391px) {
-    .control_texto{
-    margin-top: 10rem;
+    .control_texto {
+        margin-top: 10rem;
     }
 }
 
 
 /*EMAIL*/
-.contenedor-contacto{
+.contenedor-contacto {
     text-align: center;
     padding: 2rem;
     border-radius: 2rem;
     border: 1px solid grey;
     background-color: #1DA5FE;
 }
-.contenedor-contacto input{
+
+.contenedor-contacto input {
     min-width: 35rem;
 }
-.contenedor-contacto h1{
+
+.contenedor-contacto h1 {
     font-size: 2.5rem;
 }
 
-.enviar-mensaje{
+.enviar-mensaje {
     min-width: 10rem;
     min-height: 3rem;
     margin-top: 2rem;
@@ -684,10 +697,10 @@ a {
     width: 10rem;
     font-size: 1.75rem;
 }
-.inputs-preguntas{
+
+.inputs-preguntas {
     width: 35rem;
 }
-
 
 
 /*Aumentar y dismnuir tamaños*/
@@ -705,11 +718,11 @@ a {
     font-size: 1.5rem;
 }
 
-.productos_mostrar{
+.productos_mostrar {
     display: none;
 }
 
-.productos_mostrar td{
+.productos_mostrar td {
     width: 20rem;
 }
 
@@ -730,21 +743,24 @@ a {
     background-color: #013e61;
 }
 
-.boton_ocultar{
-    display: none;
-}
-.celda_ocult{
+.boton_ocultar {
     display: none;
 }
 
-@media (max-width: 391px){
-    .boton{
+.celda_ocult {
+    display: none;
+}
+
+@media (max-width: 391px) {
+    .boton {
         margin-left: 0;
     }
-    .boton_actualizar{
+
+    .boton_actualizar {
         margin: 0;
     }
-    .detalle-pedidos{
+
+    .detalle-pedidos {
         width: 27rem;
     }
 }

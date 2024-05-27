@@ -1,7 +1,8 @@
 from django.urls import path
 
 from empresaDjango import views
-from empresaDjango.views import PedidoCreateView, ProductoCreateView, PedidoProductoCreateView, ClienteCreateView
+from empresaDjango.views import PedidoCreateView, ProductoCreateView, PedidoProductoCreateView, ClienteCreateView, \
+    ActualizarEstado
 
 #todas las URLs de la aplicacion
 urlpatterns = [
@@ -26,8 +27,9 @@ urlpatterns = [
     path('pedido/borrar/producto/<str:cod_pedido>/<str:cod_producto>', views.borrar_productoEnPedido.as_view(),
          name="borrar_productoEnPedido"),
     path('contacto', views.contacto, name="contacto"),
-    path('pedido/estado', views.post, name='actualizar_estado'),
     path('cliente/borrar/<str:cif>', views.borrarcliente, name="borrar_cliente"),
     path('componente/create/<str:cod_producto>', views.ComponenteCreateView.as_view(), name='crear_componente'),
-    path('componente/<str:cod_producto>/pregunta', views.pregunta_componente.as_view(), name="pregunta2")
+    path('componente/<str:cod_producto>/pregunta', views.pregunta_componente.as_view(), name="pregunta2"),
+    path('actualizarEstado/<str:cod_pedido>/', ActualizarEstado.as_view(), name='actualizar_estado'),
+
 ]

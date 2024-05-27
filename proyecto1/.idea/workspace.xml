@@ -7,12 +7,6 @@
     <list default="true" id="fec63946-7069-4671-bcdf-daf427e5cf17" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/empresaDjango/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/empresaDjango/static/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/empresaDjango/templates/detail_categoria.html" beforeDir="false" afterPath="$PROJECT_DIR$/empresaDjango/templates/detail_categoria.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/empresaDjango/templates/detail_cliente.html" beforeDir="false" afterPath="$PROJECT_DIR$/empresaDjango/templates/detail_cliente.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/empresaDjango/templates/detail_componente.html" beforeDir="false" afterPath="$PROJECT_DIR$/empresaDjango/templates/detail_componente.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/empresaDjango/templates/detail_pedido.html" beforeDir="false" afterPath="$PROJECT_DIR$/empresaDjango/templates/detail_pedido.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/empresaDjango/templates/detail_producto.html" beforeDir="false" afterPath="$PROJECT_DIR$/empresaDjango/templates/detail_producto.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,24 +31,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Deusto/OneDrive - Universidad de Deusto/Escritorio/SEGUNDO/SEGUNDO SEMESTRE/Entregable2-3-4/proyecto1/empresaDjango/static/js&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/Deusto/OneDrive - Universidad de Deusto/Escritorio/Entregable2-3-4/proyecto1",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Deusto\OneDrive - Universidad de Deusto\Escritorio\SEGUNDO\SEGUNDO SEMESTRE\Entregable2-3-4\proyecto1\empresaDjango\static\js" />
@@ -114,7 +108,7 @@
       <workItem from="1716822453900" duration="135000" />
       <workItem from="1716822609235" duration="51000" />
       <workItem from="1716822768729" duration="5169000" />
-      <workItem from="1716830034119" duration="4681000" />
+      <workItem from="1716830034119" duration="6911000" />
     </task>
     <servers />
   </component>
