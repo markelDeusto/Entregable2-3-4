@@ -57,24 +57,16 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log(cod_pedido);
 
 
-        fetch(`/${cod_pedido}/actualizar_estado`, {
+        fetch(`/deustronic`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'X-CSRFToken': getCookie('csrftoken')
             },
-            body: JSON.stringify({ estado: estado })
+            body: JSON.stringify({ estado: estado , cod_pedido:cod_pedido})
         })
         .then(response => response.json())
-        .then(data => {
-            if (data.status === 'success') {
-                console.log('Estado actualizado correctamente');
-                // Opcionalmente, actualiza el DOM para reflejar el cambio
-            } else {
-                console.error('Error al actualizar el estado:', data.message);
-            }
-        })
-        .catch(error => console.log('Error', error));
+
     }
 
     function getCookie(name) {

@@ -30,7 +30,7 @@ def detail_pedido(request, cod_pedido):
     return render(request, 'detail_pedido.html', context)
 
 #Vista de actualizado del estado del pedido
-def actualizar_estado_pedido(request, cod_pedido):
+def post(self):
     if request.method == 'POST':
         try:
             pedido = Pedido.objects.get(cod_pedido=cod_pedido)

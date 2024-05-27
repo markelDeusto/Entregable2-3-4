@@ -24,7 +24,7 @@ urlpatterns = [
     path('pedido/actualizar/producto/<str:cod_pedido>', views.actualizar_productoEnPedido.as_view(),
          name="actualizar_productoEnPedido"),
     path('contacto', views.contacto, name="contacto"),
-    path('pedido/<str:cod_pedido>/actualizar_estado', views.actualizar_estado_pedido, name='actualizar_estado_pedido'),
+    path('pedido/estado', views.post, name='actualizar_estado'),
     path('cliente/borrar/<str:cif>', views.borrarcliente, name="borrar_cliente"),
     path('componente/create/<str:cod_producto>', views.ComponenteCreateView.as_view(), name='crear_componente'),
     path('componente/<str:cod_producto>/pregunta', views.pregunta_componente.as_view(), name="pregunta2")
