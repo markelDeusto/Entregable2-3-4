@@ -6,15 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="fec63946-7069-4671-bcdf-daf427e5cf17" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/330e1e00-72fc-472c-bad9-47f03f988cc1/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/83d3182b-e552-43aa-9790-6b3d85e8b426.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/83d3182b-e552-43aa-9790-6b3d85e8b426.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/83d3182b-e552-43aa-9790-6b3d85e8b426.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/empresaDjango/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/empresaDjango/static/css/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/empresaDjango/templates/detail_pedido.html" beforeDir="false" afterPath="$PROJECT_DIR$/empresaDjango/templates/detail_pedido.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/empresaDjango/templates/update_productoEnPedido.html" beforeDir="false" afterPath="$PROJECT_DIR$/empresaDjango/templates/update_productoEnPedido.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/empresaDjango/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/empresaDjango/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/empresaDjango/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/empresaDjango/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,8 +88,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-PY-241.15989.155" />
-        <option value="bundled-python-sdk-babbdf50b680-7c6932dee5e4-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.15989.155" />
+        <option value="bundled-python-sdk-d68999036c7f-b11f5e8da5ad-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.14475.56" />
       </set>
     </attachedChunks>
   </component>
@@ -117,6 +112,7 @@
       <workItem from="1716822453900" duration="135000" />
       <workItem from="1716822609235" duration="51000" />
       <workItem from="1716822768729" duration="5169000" />
+      <workItem from="1716830034119" duration="1479000" />
     </task>
     <servers />
   </component>

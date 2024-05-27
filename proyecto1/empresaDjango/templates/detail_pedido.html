@@ -22,7 +22,7 @@
                     <td>{{ pedido.fecha|date:"d/m/Y" }}</td>
                 </tr>
                 <tr>
-                    <td>PRODUCTOS</td>
+                    <td>Productos</td>
                     <td><a class="boton_mostrar" id="mostrar">Mostrar todos</a></td>
                 </tr>
                 {% for detalle in detalles_pedido %}
@@ -34,6 +34,8 @@
                         </td>
                         <td>:</td>
                         <td>{{ detalle.cantidad }} unidades</td>
+                    </tr>
+                    <tr class="productos_mostrar productos_mostrar-botones">
                         <td>
                             <div class="boton_actualizar boton"><a
                                     href="{% url 'actualizar_productoEnPedido' pedido.cod_pedido detalle.producto.cod_producto %}"> Actualizar </a>

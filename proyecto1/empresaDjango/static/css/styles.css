@@ -276,6 +276,7 @@ a {
         margin-left: 4rem;
         min-height: 48rem;
     }
+
 }
 
 .contenedor-central {
@@ -723,6 +724,18 @@ a {
 }
 .celda_ocult{
     display: none;
+}
+
+@media (max-width: 391px){
+    .boton{
+        margin-left: 0;
+    }
+    .boton_actualizar{
+        margin: 0;
+    }
+    .detalle-pedidos{
+        width: 27rem;
+    }
 }
 
 
