@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contenido %}
+
+    <div class="contenedor-principal-formularios">
+        <div class="formularios">
+            <h1>¿Quieres añadir otro componente al producto?</h1>
+            <form class="formularios_contenido" method="post" action="{% url 'pregunta2' cod_producto=cod_producto %}">
+                {% csrf_token %}
+                <div class="respuestas">
+                    <input type="submit" name="opcion" value="SI">
+                    <input type="submit" name="opcion" value="NO">
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

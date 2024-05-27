@@ -1,6 +1,6 @@
 from django import forms
 
-from empresaDjango.models import Pedido, Producto, ProductoPedido, Cliente
+from empresaDjango.models import Pedido, Producto, ProductoPedido, Cliente, Componente
 from .models import Categoria
 
 #formulario de pedidos
@@ -66,3 +66,9 @@ class FiltrarForm(forms.Form):
     categoria = forms.ModelChoiceField(queryset=Categoria.objects.all(), empty_label="Selecciona una categoria",
                                        required=False, label='Categoría')
     max_precio = forms.IntegerField(label='Precio maximo', min_value=0, required=False)
+
+#formulario creacion del componente
+class ComponenteForm(forms.ModelForm):
+      class Meta:
+        model = Componente
+        fields = ['cod_componente', 'nombre_componente', 'marca']

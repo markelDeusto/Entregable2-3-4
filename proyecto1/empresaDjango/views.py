@@ -4,7 +4,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from django.views.generic import UpdateView, ListView
 
-from empresaDjango.forms import PedidoForm, ProductoForm, ProductoPedidoForm, ClienteForm, ContactoForm, FiltrarForm
+from empresaDjango.forms import PedidoForm, ProductoForm, ProductoPedidoForm, ClienteForm, ContactoForm, FiltrarForm, \
+    ComponenteForm
 from empresaDjango.models import Pedido, Cliente, Categoria, Producto, Componente, ProductoPedido
 
 
@@ -32,14 +33,16 @@ def detail_pedido(request, cod_pedido):
 def actualizar_estado_pedido(request, cod_pedido):
     if request.method == 'POST':
         try:
-            pedido = get_object_or_404(Pedido, cod_pedido=cod_pedido)
+            pedido = Pedido.objects.get(cod_pedido=cod_pedido)
             data = json.loads(request.body)
             estado = data.get('estado', 'False')
             pedido.estado = estado  # Asegúrate de que el modelo Pedido tiene un campo 'estado'
             pedido.save()
             return JsonResponse({'status': 'success'})
-        except Pedido.DoesNotExist:
+        except ObjectDoesNotExist:
             return JsonResponse({'status': 'error', 'message': 'Pedido no encontrado'})
+        except ValueError:
+            return JsonResponse({'status': 'error', 'message': 'Datos inválidos'})
     return JsonResponse({'status': 'error', 'message': 'Método no permitido'}, status=405)
 
 #Vista del borrado de pedidos
@@ -199,9 +202,40 @@ class ProductoCreateView(View):
     def post(self, request):
         formulario = ProductoForm(data=request.POST)
         if formulario.is_valid():
-            formulario.save()
-            return redirect('index_pro')
+            producto = formulario.save()
+            cod_producto = producto.cod_producto
+            return redirect('crear_componente', cod_producto = cod_producto)
         return render(request, 'producto_create.html', {'formulario': formulario})
+
+#Vista creacion de componente
+class ComponenteCreateView(View):
+    def get(self, request, cod_producto):
+        formulario = ComponenteForm()
+        context = {'formulario': formulario, 'cod_producto': cod_producto}
+        return render(request,'componente_create.html', context)
+
+    def post(self, request, cod_producto):
+        producto = get_object_or_404(Producto, cod_producto=cod_producto)
+        formulario = ComponenteForm(data=request.POST)
+        if formulario.is_valid():
+            componente =formulario.save(commit=False)
+            componente.producto = producto
+            componente.save()
+            return redirect('pregunta2', cod_producto=cod_producto)
+        return render(request, 'componente_create.html', {'formulario': formulario, 'cod_producto': cod_producto})
+
+#Vista pregunta para añadir mas componenetes o no
+
+class pregunta_componente(View):
+    def get(self, request, cod_producto):
+        return render(request, 'pregunta2.html', {'cod_producto': cod_producto})
+
+    def post(self, request, cod_producto):
+        opcion = request.POST.get('opcion')
+        if opcion == "SI":
+            return redirect('crear_componente', cod_producto=cod_producto)
+        else:
+            return redirect('index_pro')
 
 #Vista para asignar los productos a cada pedido
 class PedidoProductoCreateView(View):

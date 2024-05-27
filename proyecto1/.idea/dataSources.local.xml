@@ -6,7 +6,7 @@
       <auth-provider>no-auth</auth-provider>
       <schema-mapping />
     </data-source>
-    <data-source name="db [2]" uuid="330e1e00-72fc-472c-bad9-47f03f988cc1">
+    <data-source name="db [2]" uuid="83d3182b-e552-43aa-9790-6b3d85e8b426">
       <database-info product="SQLite" version="3.45.1" jdbc-version="4.2" driver-name="SQLite JDBC" driver-version="3.45.1.0" dbms="SQLITE" exact-version="3.45.1" exact-driver-version="3.45">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>

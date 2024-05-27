@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log(cod_pedido);
 
 
-        fetch(`${cod_pedido}/actualizar_estado`, {
+        fetch(`/${cod_pedido}/actualizar_estado`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

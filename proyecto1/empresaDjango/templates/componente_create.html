@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contenido %}
+ <div class="contenedor-principal-formularios">
+
+        <div class="formularios">
+            <h1>Nuevo componente al producto:</h1>
+            <form class="formularios_contenido" action="{% url 'crear_componente' cod_producto=cod_producto %}" method="post">
+                {% csrf_token %}
+                {{ formulario.errors }}
+                {{ formulario.as_ul }}
+                <input class="boton_filtrar" type="submit" value="Añadir componente al producto">
+            </form>
+        </div>
+    </div>
+
+
+{% endblock %}
