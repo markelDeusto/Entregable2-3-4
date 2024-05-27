@@ -252,7 +252,7 @@ a {
 
 /*DETAIL_PEDIDOS*/
 .contenedor-principal-detail {
-    margin: 2rem 5rem 2rem 5rem;
+    margin: 1rem 5rem 0rem 5rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -300,6 +300,10 @@ a {
     font-size: 2rem;
     text-align: center;
 }
+.detalle-pedidos td{
+    text-align: center;
+}
+
 
 @media (max-width: 391px) {
     .contenedor-central {
@@ -482,7 +486,7 @@ a {
 }
 
 .detalle-clientes td {
-    width: 15rem;
+    width: 20rem;
     padding-bottom: 2rem;
 }
 
@@ -638,9 +642,10 @@ a {
 }
 .copyright{
     font-size: 1.7rem;
+    margin: 1rem;
 }
 .control_texto{
-    margin-bottom: 0.7rem;
+    margin-bottom: 0.5rem;
     margin-right: 6rem;
     text-align: right;
 }
@@ -662,7 +667,7 @@ a {
     padding: 2rem;
     border-radius: 2rem;
     border: 1px solid grey;
-    background-color: turquoise;
+    background-color: #1DA5FE;
 }
 .contenedor-contacto input{
     min-width: 35rem;
@@ -677,6 +682,7 @@ a {
     margin-top: 2rem;
     border-radius: 1rem;
     width: 10rem;
+    font-size: 1.75rem;
 }
 .inputs-preguntas{
     width: 35rem;
@@ -702,6 +708,11 @@ a {
 .productos_mostrar{
     display: none;
 }
+
+.productos_mostrar td{
+    width: 20rem;
+}
+
 .boton_mostrar, .boton_ocultar {
     padding: 0.5rem 0.5rem;
     background-color: #1DA5FE;

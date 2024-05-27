@@ -8,17 +8,14 @@
             <table class="detalle-pedidos">
                 <tr>
                     <td>Código de pedido</td>
-                    <td>:</td>
                     <td>{{ pedido.cod_pedido }}</td>
                 </tr>
                 <tr>
                     <td>Cliente</td>
-                    <td>:</td>
                     <td>{{ pedido.cliente.nombre_empresa }}</td>
                 </tr>
                 <tr>
                     <td>Fecha</td>
-                    <td>:</td>
                     <td>{{ pedido.fecha|date:"d/m/Y" }}</td>
                 </tr>
                 <tr>
@@ -28,11 +25,9 @@
                 {% for detalle in detalles_pedido %}
                     <tr class="productos_mostrar">
                         <td>Producto {{ forloop.counter }}</td>
-                        <td>:</td>
                         <td>
-                            <a href="{% url 'detail_pro' detalle.producto.cod_producto %}"> {{ detalle.producto.nombre_producto }} </a>
+                            <a href="{% url 'detail_pro' detalle.producto.cod_producto %}"> {{ detalle.producto.nombre_producto }}</a>
                         </td>
-                        <td>:</td>
                         <td>{{ detalle.cantidad }} unidades</td>
                     </tr>
                     <tr class="productos_mostrar productos_mostrar-botones">
@@ -51,17 +46,11 @@
                 {% endfor %}
                 <td class="celda_ocult"><a class="boton_ocultar" id="ocultar">Ocultar todos</a></td>
                 <tr>
-                    <td>Precio total</td>
-                    <td>:</td>
+                    <td>Precio total:</td>
+
                     <td>{{ pedido.precio_total }}€</td>
                 </tr>
-                <!--<tr>
-                    <td>Estado</td>
-                    <td>:</td>
-                    <td>
-                        {{ pedido.estado }}
-                    </td>
-                </tr>-->
+
             </table>
         </div>
     </div>

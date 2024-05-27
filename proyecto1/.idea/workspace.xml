@@ -5,7 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fec63946-7069-4671-bcdf-daf427e5cf17" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/empresaDjango/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/empresaDjango/static/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/empresaDjango/templates/detail_categoria.html" beforeDir="false" afterPath="$PROJECT_DIR$/empresaDjango/templates/detail_categoria.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/empresaDjango/templates/detail_cliente.html" beforeDir="false" afterPath="$PROJECT_DIR$/empresaDjango/templates/detail_cliente.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/empresaDjango/templates/detail_componente.html" beforeDir="false" afterPath="$PROJECT_DIR$/empresaDjango/templates/detail_componente.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/empresaDjango/templates/detail_pedido.html" beforeDir="false" afterPath="$PROJECT_DIR$/empresaDjango/templates/detail_pedido.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/empresaDjango/templates/detail_producto.html" beforeDir="false" afterPath="$PROJECT_DIR$/empresaDjango/templates/detail_producto.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +114,7 @@
       <workItem from="1716822453900" duration="135000" />
       <workItem from="1716822609235" duration="51000" />
       <workItem from="1716822768729" duration="5169000" />
-      <workItem from="1716830034119" duration="2123000" />
+      <workItem from="1716830034119" duration="4681000" />
     </task>
     <servers />
   </component>
