@@ -12,7 +12,11 @@
                 </tr>
                 <tr>
                     <td>Cliente</td>
-                    <td>{{ pedido.cliente.nombre_empresa }}</td>
+                    <td>
+                        <a href="{% url 'detail_cli' pedido.cliente.cif%}">
+                        {{ pedido.cliente.nombre_empresa }}
+                        </a>
+                    </td>
                 </tr>
                 <tr>
                     <td>Fecha</td>
