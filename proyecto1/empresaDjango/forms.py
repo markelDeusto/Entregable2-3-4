@@ -3,7 +3,8 @@ from django import forms
 from empresaDjango.models import Pedido, Producto, ProductoPedido, Cliente, Componente
 from .models import Categoria
 
-#formulario de pedidos
+
+# formulario de pedidos
 class PedidoForm(forms.ModelForm):
     class Meta:
         model = Pedido
@@ -14,7 +15,8 @@ class PedidoForm(forms.ModelForm):
             'fecha': forms.DateInput(format="%d-%m-%Y", attrs={"type": "date", "class": "inputs-pedido"}),
         }
 
-#formulario de productos
+
+# formulario de productos
 class ProductoForm(forms.ModelForm):
     class Meta:
         model = Producto
@@ -27,13 +29,15 @@ class ProductoForm(forms.ModelForm):
             'precio_unidad': forms.NumberInput(attrs={'class': 'inputs-producto'}),
             'modelo': forms.TextInput(attrs={'class': 'inputs-producto'})
         }
+
     def __init__(self, *args, **kwargs):
         super(ProductoForm, self).__init__(*args, **kwargs)
         self.fields['cod_producto'].error_messages = {
             'unique': 'Código de producto repetido, elige otro.'
         }
 
-#formulario de la relacion entre productos y pedidos
+
+# formulario de la relacion entre productos y pedidos
 class ProductoPedidoForm(forms.ModelForm):
     class Meta:
         model = ProductoPedido
@@ -43,13 +47,15 @@ class ProductoPedidoForm(forms.ModelForm):
             'cantidad': forms.NumberInput(attrs={"class": "inputs-producto-pedido"})
         }
 
-#formulario de clientes
+
+# formulario de clientes
 class ClienteForm(forms.ModelForm):
     class Meta:
         model = Cliente
         fields = '__all__'
 
-#formulario de contacto (para email)
+
+# formulario de contacto (para email)
 class ContactoForm(forms.Form):
     nombre = forms.CharField(label='Nombre', required=True, max_length=10,
                              widget=forms.TextInput(attrs={'class': 'inputs-preguntas'}))
@@ -60,14 +66,16 @@ class ContactoForm(forms.Form):
                               widget=forms.Textarea(attrs={'placeholder': 'Escribe tu duda aquí',
                                                            'class': 'inputs-preguntas'}))
 
-#formulario de filtrado de productos
+
+# formulario de filtrado de productos
 class FiltrarForm(forms.Form):
     categoria = forms.ModelChoiceField(queryset=Categoria.objects.all(), empty_label="Selecciona una categoria",
                                        required=False, label='Categoría')
     max_precio = forms.IntegerField(label='Precio maximo', min_value=0, required=False)
 
-#formulario creacion del componente
+
+# formulario creacion del componente
 class ComponenteForm(forms.ModelForm):
-      class Meta:
+    class Meta:
         model = Componente
         fields = ['cod_componente', 'nombre_componente', 'marca']

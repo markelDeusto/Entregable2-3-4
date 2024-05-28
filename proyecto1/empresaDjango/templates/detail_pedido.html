@@ -13,8 +13,8 @@
                 <tr>
                     <td>Cliente</td>
                     <td>
-                        <a href="{% url 'detail_cli' pedido.cliente.cif%}">
-                        {{ pedido.cliente.nombre_empresa }}
+                        <a href="{% url 'detail_cli' pedido.cliente.cif %}">
+                            {{ pedido.cliente.nombre_empresa }}
                         </a>
                     </td>
                 </tr>
@@ -37,12 +37,14 @@
                     <tr class="productos_mostrar productos_mostrar-botones">
                         <td>
                             <div class="boton_actualizar boton"><a
-                                    href="{% url 'actualizar_productoEnPedido' pedido.cod_pedido detalle.producto.cod_producto %}"> Actualizar </a>
+                                    href="{% url 'actualizar_productoEnPedido' pedido.cod_pedido detalle.producto.cod_producto %}">
+                                Actualizar </a>
                             </div>
                         </td>
                         <td>
                             <div class="boton_borrar boton"><a
-                                    href="{% url 'borrar_productoEnPedido' pedido.cod_pedido detalle.producto.cod_producto %}"> Borrar </a>
+                                    href="{% url 'borrar_productoEnPedido' pedido.cod_pedido detalle.producto.cod_producto %}">
+                                Borrar </a>
                             </div>
                         </td>
                     </tr>

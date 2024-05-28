@@ -16,7 +16,9 @@
                                 {{ c.cif }}: {{ c.nombre_empresa }}
                             </a>
                         </td>
-                        <td><div class="boton_borrar"><a href="{% url 'borrar_cliente' c.cif %}"> Borrar </a></div></td>
+                        <td>
+                            <div class="boton_borrar"><a href="{% url 'borrar_cliente' c.cif %}"> Borrar </a></div>
+                        </td>
                     </tr>
                 {% endfor %}
             </table>

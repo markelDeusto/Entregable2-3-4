@@ -4,7 +4,7 @@ from empresaDjango import views
 from empresaDjango.views import PedidoCreateView, ProductoCreateView, PedidoProductoCreateView, ClienteCreateView, \
     ActualizarEstado
 
-#todas las URLs de la aplicacion
+# todas las URLs de la aplicacion
 urlpatterns = [
     path('', views.index_pedidoListView.as_view(), name='index_ped'),
     path('pedido/create', PedidoCreateView.as_view(), name='pedido_create'),
